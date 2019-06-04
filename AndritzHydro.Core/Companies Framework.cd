@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AndritzHydro.Core.ApplicationContext">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="_AppData" Hidden="true" />
+      <Field Name="_AppDataLocal" Hidden="true" />
+      <Field Name="_AppPath" Hidden="true" />
+      <Field Name="_Language" Hidden="true" />
+      <Field Name="_Windows" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAASAABAAAgAAAAARQAAAIAAEAAABAACAAAAIA=</HashCode>
+      <FileName>ApplicationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.Window">
+    <Position X="14" Y="2" Width="2" />
+    <Members>
+      <Field Name="_Heigth" Hidden="true" />
+      <Field Name="_Left" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_State" Hidden="true" />
+      <Field Name="_Top" Hidden="true" />
+      <Field Name="_Width" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAgAAAAAIEQAAAAKAAAACAAIBCAAABA=</HashCode>
+      <FileName>Data\Window.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.Language">
+    <Position X="16.25" Y="2" Width="2" />
+    <Members>
+      <Field Name="_Code" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAgIAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Language.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.LanguageList">
+    <Position X="16.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Language.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.LanguageManager">
+    <Position X="3" Y="3.5" Width="2" />
+    <Members>
+      <Field Name="_Controller" Hidden="true" />
+      <Field Name="_Current" Hidden="true" />
+      <Field Name="_List" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQBAAAAAQACAAEAAAAAAAAAAQAAAAAAAAAI=</HashCode>
+      <FileName>LanguageManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.WindowManager">
+    <Position X="0.5" Y="3.5" Width="2" />
+    <Members>
+      <Field Name="_Controller" Hidden="true" />
+      <Field Name="_DefaultPath" Hidden="true" />
+      <Field Name="_Windows" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAASAAAAAAAAAAAFAgAAAAAgAAApAAAAAAAAA=</HashCode>
+      <FileName>WindowManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.WindowList">
+    <Position X="14" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Window.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.ApplicationObject">
+    <Position X="3" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="_Context" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAAAA=</HashCode>
+      <FileName>ApplicationObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AndritzHydro.Core.Extensions.AssemblyInfo">
+    <Position X="11.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAQQAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\AssemblyInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Controller.WindowController">
+    <Position X="6" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\WindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.ErrorOccurredEventArgs">
+    <Position X="11.75" Y="2.5" Width="2" />
+    <Members>
+      <Field Name="_Reason" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ErrorOccurred.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Controller.LanguageController">
+    <Position X="8.5" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\LanguageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Generic.XmlController&lt;T&gt;">
+    <Position X="6" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generic\XmlController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Extensions.Tools">
+    <Position X="9.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.History">
+    <Position X="9.5" Y="2" Width="2" />
+    <Members>
+      <Field Name="_BackCache" Hidden="true" />
+      <Field Name="_ForwardCache" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BIIIAAACAFBAAAAGAAAAAAAgAAAACQAgAAAAAAAAAAA=</HashCode>
+      <FileName>History.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="AndritzHydro.Core.IApplicationObject">
+    <Position X="6" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IApplicationObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Delegate Name="AndritzHydro.Core.ErrorOccurredEventHandler">
+    <Position X="11.75" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ErrorOccurred.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

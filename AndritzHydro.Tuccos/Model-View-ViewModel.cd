@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Model, e. g.">
+    <Position X="0.5" Y="0.5" Height="0.291" Width="2.017" />
+  </Comment>
+  <Comment CommentText="View">
+    <Position X="2.958" Y="0.5" Height="0.291" Width="2.017" />
+  </Comment>
+  <Comment CommentText="ViewModel">
+    <Position X="5.467" Y="0.5" Height="0.291" Width="2.017" />
+  </Comment>
+  <Class Name="AndritzHydro.Core.Data.DataApplicationContext">
+    <Position X="0.5" Y="1.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.ViewModels.WindowManager">
+    <Position X="5.5" Y="1.25" Width="2" />
+    <Members>
+      <Field Name="_CloseOtherWindows" Hidden="true" />
+      <Field Name="_CloseWindows" Hidden="true" />
+      <Field Name="_CurrentTask" Hidden="true" />
+      <Field Name="_CurrentViewer" Hidden="true" />
+      <Field Name="_Lottery" Hidden="true" />
+      <Field Name="_MainWindowType" Hidden="true" />
+      <Field Name="_NewWindow" Hidden="true" />
+      <Field Name="_SetDefaulTask" Hidden="true" />
+      <Field Name="_Tasks" Hidden="true" />
+      <Field Name="_WindowName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAFAACwIMAAAAAgAAlAiCAgkCABKAAEAAAIAgAQAQA=</HashCode>
+      <FileName>ViewModels\WindowManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.MainWindow">
+    <Position X="3" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

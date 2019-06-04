@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndritzHydro.Core", "AndritzHydro.Core\AndritzHydro.Core.csproj", "{022F3A3C-76B4-4CC2-873B-11D3127CDF1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndritzHydro.Core.Data", "AndritzHydro.Core.Data\AndritzHydro.Core.Data.csproj", "{0ECF2A63-175A-49C2-A48B-C22437D26876}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndritzHydro.Tuccos", "AndritzHydro.Tuccos\AndritzHydro.Tuccos.csproj", "{4A71BACA-251A-4047-A2CD-6468E548BF25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4F32478F-8631-4EFF-AFFD-23F485F10090} = {4F32478F-8631-4EFF-AFFD-23F485F10090}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndritzHydro.Tuccos.Data", "AndritzHydro.Tuccos.Data\AndritzHydro.Tuccos.Data.csproj", "{11447CEE-CE23-4BB9-AC7D-7EE5F9B210BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "andritzhydro.web", "andritzhydro.web\andritzhydro.web.csproj", "{4F32478F-8631-4EFF-AFFD-23F485F10090}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{022F3A3C-76B4-4CC2-873B-11D3127CDF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022F3A3C-76B4-4CC2-873B-11D3127CDF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022F3A3C-76B4-4CC2-873B-11D3127CDF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022F3A3C-76B4-4CC2-873B-11D3127CDF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ECF2A63-175A-49C2-A48B-C22437D26876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ECF2A63-175A-49C2-A48B-C22437D26876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ECF2A63-175A-49C2-A48B-C22437D26876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ECF2A63-175A-49C2-A48B-C22437D26876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A71BACA-251A-4047-A2CD-6468E548BF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A71BACA-251A-4047-A2CD-6468E548BF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A71BACA-251A-4047-A2CD-6468E548BF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A71BACA-251A-4047-A2CD-6468E548BF25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11447CEE-CE23-4BB9-AC7D-7EE5F9B210BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11447CEE-CE23-4BB9-AC7D-7EE5F9B210BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11447CEE-CE23-4BB9-AC7D-7EE5F9B210BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11447CEE-CE23-4BB9-AC7D-7EE5F9B210BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F32478F-8631-4EFF-AFFD-23F485F10090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F32478F-8631-4EFF-AFFD-23F485F10090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F32478F-8631-4EFF-AFFD-23F485F10090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F32478F-8631-4EFF-AFFD-23F485F10090}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E46761F-C3AF-43C3-98DD-EAAFC5649FC0}
+	EndGlobalSection
+EndGlobal

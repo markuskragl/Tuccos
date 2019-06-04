@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AndritzHydro.Core.ApplicationContext">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.DataApplicationContext">
+    <Position X="0.5" Y="4.25" Width="2" />
+    <Members>
+      <Field Name="_GenericCreate" Hidden="true" />
+      <Field Name="_Log" Hidden="true" />
+      <Field Name="_Random" Hidden="true" />
+      <Field Name="_StartupPath" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAIIAAAAAAACAAiABUAAAAACAACAAAA=</HashCode>
+      <FileName>DataApplicationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.LogEntryCollection">
+    <Position X="3" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LogEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.LogEntry">
+    <Position X="3" Y="4.25" Width="2" />
+    <Members>
+      <Field Name="_Timestamp" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEEAACAAAAAAAAAAAAAQAACAAAAAA=</HashCode>
+      <FileName>LogEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.ApplicationObject">
+    <Position X="5.5" Y="0.5" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.DataApplicationObject">
+    <Position X="5.5" Y="5.5" Width="2" />
+    <Members>
+      <Field Name="_BusyCounter" Hidden="true" />
+      <Field Name="_IsBusy" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAgAAAAAAIAAAAABAgAAAAAIAAAEAQAAAAAA=</HashCode>
+      <FileName>DataApplicationObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.LogManager">
+    <Position X="8" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="_Callbacks" Hidden="true" />
+      <Field Name="_DoUnreadErrorPulseWorking" Hidden="true" />
+      <Field Name="_Entries" Hidden="true" />
+      <Field Name="_MaxTypeLength" Hidden="true" />
+      <Field Name="_UnreadError" Hidden="true" />
+      <Field Name="_UnreadErrorPulse" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Delegate Name="AndritzHydro.Core.Data.LogManager.AddEntryCallback" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LogManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>RCABAAQgAAAAACIAAIAAAAACAgACAAIAQAAAAMAAQAE=</HashCode>
+      <FileName>LogManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.WeakReferenceMethodList">
+    <Position X="8" Y="5.5" Width="2" />
+    <Members>
+      <Field Name="_DeadItems" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAEAAAAAEAAAAAAAAAAAAQAAAIAAAAAAA=</HashCode>
+      <FileName>WeakRefernceMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.WeakRefernceMethod">
+    <Position X="10.5" Y="5.5" Width="2" />
+    <Members>
+      <Field Name="_CallbackMethod" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeakRefernceMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.Extensions.Toolbox">
+    <Position X="10.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Extensions\Toolbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Core.Data.SqlBaseController">
+    <Position X="5.5" Y="8.75" Width="2" />
+    <Members>
+      <Field Name="_ConnectionString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAAAAAA=</HashCode>
+      <FileName>SqlBaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="AndritzHydro.Core.Data.LogEntryType">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAQAAAAAAABAAAAAIAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>LogEntry.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
