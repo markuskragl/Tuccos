@@ -99,6 +99,8 @@ namespace AndritzHydro.Tuccos
             var viewModel = appContext.Create<ViewModels.WindowManager>();
             viewModel.StartUp<MainWindow>();
 
+            var project = new AndritzHydro.Tuccos.Data.Project();
+
             //Save the changed configuration content
             AndritzHydro.Tuccos.Properties.Settings.Default.CurrentLanguage
                 = appContext.Language.Current.Code;
