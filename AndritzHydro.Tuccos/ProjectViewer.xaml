@@ -17,9 +17,9 @@
             <ListView VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
                 <ListView.View >
                     <GridView >
-                        <GridViewColumn Header="Id" Width="30" />
-                        <GridViewColumn Header="Name" Width="50"/>
-                        <GridViewColumn Header="Year" Width="30"/>
+                        <GridViewColumn Header="Id" Width="75" />
+                        <GridViewColumn Header="Name" Width="75"/>
+                        <GridViewColumn Header="Year" Width="75"/>
 
                         
 

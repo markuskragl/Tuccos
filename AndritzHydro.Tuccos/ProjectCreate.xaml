@@ -7,13 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="40"
-            >
-            This is a TextBlock Project create
-        </TextBlock>
+        
+        <StackPanel HorizontalAlignment="Left" Height="200"  VerticalAlignment="Top" Width="300">
+            <Label Content="Main Project Information" FontWeight="Bold"/>
+            <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
+                <TextBlock  TextWrapping="Wrap" Width="70" Text="Id"/>
+                <TextBox Height="23" Width="100" TextWrapping="Wrap" />
+            </StackPanel>
+            <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
+                <TextBlock TextWrapping="Wrap" Width="70" Text="Name"/>
+                <TextBox Height="23" Width="100" TextWrapping="Wrap" />
+            </StackPanel>
+            <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
+                <TextBlock TextWrapping="Wrap" Width="70" Text="Year"/>
+                <TextBox Height="23" Width="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+
+
+
+
+        </StackPanel>
 
     </Grid>
 </UserControl>
