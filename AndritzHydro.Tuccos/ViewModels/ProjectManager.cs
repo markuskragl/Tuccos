@@ -99,15 +99,43 @@ namespace AndritzHydro.Tuccos.ViewModels
             return countries.ToArray();
         }
 
+        //------------------------------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft.
+        /// </summary>
+        private System.Reflection.Assembly _Assembly = null;
+
+        /// <summary>
+        /// Ruft die Assembly ab, die die Logik bereitstellt.
+        /// </summary>
+        private System.Reflection.Assembly Assembly
+        {
+            get
+            {
+                if (this._Assembly == null)
+                {
+                    this._Assembly = System.Reflection.Assembly.Load("AndritzHydro.Tuccos.Data");
+                    this.Context.Log.WriteEntry($"{this} hat die {this._Assembly} geladen...");
+                }
+
+                return this._Assembly;
+            }
+        }
+
+
+
+
+
+
         public ProjectManager()
         {
 
+            var AssemblyProp = Assembly;
 
             var ProjectList = GetCountriesMethod();
 
             var TypeofProject = ProjectList.GetType();
-
-
 
             ProjectList = ProjectList;
         }
