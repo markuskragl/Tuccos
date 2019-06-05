@@ -43,8 +43,8 @@ namespace AndritzHydro.Tuccos.Model
             var list = new TaskList();
 
             //Todo:
-            list.Add(new Task(Properties.Strings.TaskProjectViewer, typeof(ProjectViewer)) { WingdingsIcon = "0" });
-            list.Add(new Task(Properties.Strings.TaskProjectCreate, typeof(ProjectCreate)) { WingdingsIcon = "2" });
+            list.Add(new Task(Properties.Strings.TaskProjectViewer, typeof(ProjectViewer)) { WingdingsIcon = "&" });
+            list.Add(new Task(Properties.Strings.TaskProjectCreate, typeof(ProjectCreate)) { WingdingsIcon = "3" });
             //list.Add(new Task(Properties.Strings.TaskLotteryTip, typeof(LotteryTip)) { WingdingsIcon = "@" });
             //list.Add(new Task(Properties.Strings.TaskLotteryDistribution, typeof(LotteryDistribution)) { WingdingsIcon = "\u008C" });
             //list.Add(new Task(Properties.Strings.TaskLog, typeof(LogViewer)) { WingdingsIcon = "2" });

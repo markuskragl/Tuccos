@@ -208,6 +208,10 @@
       <Project>{022f3a3c-76b4-4cc2-873b-11d3127cdf1d}</Project>
       <Name>AndritzHydro.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AndritzHydro.Tuccos.Data\AndritzHydro.Tuccos.Data.csproj">
+      <Project>{11447cee-ce23-4bb9-ac7d-7ee5f9b210bc}</Project>
+      <Name>AndritzHydro.Tuccos.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
