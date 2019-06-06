@@ -18,5 +18,19 @@ namespace andritzhydro.web
         /// <param name="language">Microsoft code for the used language</param>
         [OperationContract]
         AndritzHydro.Tuccos.Data.Countries GetCountries(string language);
+
+        /// <summary>
+        /// Returns all Projects
+        /// </summary>
+        [OperationContract]
+        AndritzHydro.Tuccos.Data.Projects GetProjectList();
+
+
+        /// <summary>
+        /// Add a project to the database.
+        /// </summary>
+        /// <param name="ticket">The project which should be saved.</param>
+        [OperationContract]
+        void SaveProject(AndritzHydro.Tuccos.Data.Project project);
     }
 }

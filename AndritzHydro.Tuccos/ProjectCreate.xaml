@@ -5,14 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AndritzHydro.Tuccos"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding Project}">
     <Grid>
         
         <StackPanel HorizontalAlignment="Left" Height="200"  VerticalAlignment="Top" Width="300">
             <Label Content="Main Project Information" FontWeight="Bold"/>
-            <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
+            <StackPanel 
+                Margin="10,0,0,0" Orientation="Horizontal" Height="35">
+                
                 <TextBlock  TextWrapping="Wrap" Width="70" Text="Id"/>
-                <TextBox Height="23" Width="100" TextWrapping="Wrap" />
+                <TextBox x:Name="tb1" Height="23" Width="100" TextWrapping="Wrap"/>
             </StackPanel>
             <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
                 <TextBlock TextWrapping="Wrap" Width="70" Text="Name"/>
@@ -21,13 +24,19 @@
             <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
                 <TextBlock TextWrapping="Wrap" Width="70" Text="Year"/>
                 <TextBox Height="23" Width="100" TextWrapping="Wrap" />
+                
             </StackPanel>
-
-
-
-
+        </StackPanel>
+        <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
 
         </StackPanel>
-
+        <Button 
+            Grid.Row="2"
+            Height="20"
+            Width="100"
+            Content="Add Project"
+            Command="{Binding SaveProject}"
+            Focusable="False"
+            />
     </Grid>
 </UserControl>

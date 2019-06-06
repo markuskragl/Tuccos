@@ -32,14 +32,14 @@
             <RowDefinition />
             <RowDefinition Height="AUTO"/>
         </Grid.RowDefinitions>
- 
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="125"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition />
             <ColumnDefinition Width="180"/>
         </Grid.ColumnDefinitions>
 
-      
+
         <!-- The title of the current task-->
         <StackPanel
             Grid.Column="1"
@@ -69,15 +69,15 @@
             
             >
 
-            <ListBox.ItemTemplate>
+                <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel
                         Orientation="Horizontal"
                         >
 
-                            
-            <!-- The icon of the task -->
-            
+
+                            <!-- The icon of the task -->
+
                             <TextBlock
                             Width="27"
                             
@@ -91,9 +91,9 @@
                             
                             />
 
-                            
-            <!-- The text of the task-->
-            
+
+                            <!-- The text of the task-->
+
                             <TextBlock
                             HorizontalAlignment="Left"
                             Text="{Binding Title}"
@@ -103,7 +103,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
 
-            <ListBox.ContextMenu>
+                <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem 
                         Header="{x:Static p:Strings.SetDefaultTask}"
@@ -187,7 +187,7 @@
             Grid.ColumnSpan="3"
             Loaded="TaskPanel_Loaded"
             />
-        
+
         <!-- Tree View is in the left grid cell-->
 
         <local:ProjectTree

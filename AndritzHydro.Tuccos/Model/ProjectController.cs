@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AndritzHydro.Core.Data;
 
 using AndritzHydro.Core.Data.Extensions;
-
+using AndritzHydro.Tuccos.Data;
 
 namespace AndritzHydro.Tuccos.Model
 {
@@ -20,117 +20,36 @@ namespace AndritzHydro.Tuccos.Model
     /// wenn nur online gearbeitet werden soll.</remarks>
     internal class ProjectController : AndritzHydro.Core.Data.DataApplicationObject
     {
+        public Country[] GetCountries(string language = "AT")
+        {
 
+            localhost.ProjectClient mc = new localhost.ProjectClient();
 
-        //        /// <summary>
-        //        /// Die Bezeichnung der dynamisch geladenen Assembly.
-        //        /// </summary>
-        //        /// <remarks>Muss sich in demselben Ordner befinden,
-        //        /// wie die Anwendung.</remarks>
-        //        private const string AssemblyName = "AndritzHydro.Tuccos.Data";
+            var result = mc.GetCountries("AT");
 
-        //        /// <summary>
-        //        /// Der Name der Klasse, die die benötigten Dienste bereitstellt.
-        //        /// </summary>
-        //        private const string ManagerName = "AndritzHydro.Tuccos.Data.ProjectManager";
+            var countries = new System.Collections.Generic.List<Country>();
 
-        //        /// <summary>
-        //        /// Internes Feld für die Eigenschaft.
-        //        /// </summary>
-        //        private System.Reflection.Assembly _Assembly = null;
+            foreach (object c in result)
+            {
+                countries.Add(c.CopyTo<Country>());
+            }
+            return countries.ToArray();
+        }
 
-        //        /// <summary>
-        //        /// Ruft die Assembly ab, die die Logik bereitstellt.
-        //        /// </summary>
-        //        private System.Reflection.Assembly Assembly
-        //        {
-        //            get
-        //            {
-        //                if (this._Assembly == null)
-        //                {
-        //                    this._Assembly = System.Reflection.Assembly.Load(ProjectController.AssemblyName);
-        //                    this.Context.Log.WriteEntry($"{this} hat die {this._Assembly} geladen...");
-        //                }
+        public Project[] GetProjectsList()
+        {
 
-        //                return this._Assembly;
-        //            }
-        //        }
+            localhost.ProjectClient mc = new localhost.ProjectClient();
 
-        //        /// <summary>
-        //        /// Internal field for the property.
-        //        /// </summary>
-        //        private object _Manager = null;
+            var result = mc.GetProjectList();
 
-        //        /// <summary>
-        //        /// Gets the instance of the manager providing the lottery logic.
-        //        /// </summary>
-        //        protected object Manager
-        //        {
-        //            get
-        //            {
-        //                if (this._Manager == null)
-        //                {
-        //                    //It's not possible...
-        //                    //this._Manager = this.Context.Create < this.ManagerType > ();
-        //                    this._Manager = this.Context.Create(this.ManagerType);
-        //                    //                              ^-> calls Create<T>
-        //                }
+            var projects = new System.Collections.Generic.List<Project>();
 
-        //                return this._Manager;
-        //            }
-        //        }
-
-        //        /// <summary>
-        //        /// Internes Feld für die Eigenschaft.
-        //        /// </summary>
-        //        private Type _ManagerType = null;
-
-        //        /// <summary>
-        //        /// Ruft den Typ - die Klasse - ab, die
-        //        /// die benötigten Dienste bereitstellt.
-        //        /// </summary>
-        //        protected Type ManagerType
-        //        {
-        //            get
-        //            {
-        //                if (this._ManagerType == null)
-        //                {
-        //                    this._ManagerType = this.Assembly.GetType(ProjectController.ManagerName);
-        //                    this.Context.Log.WriteEntry($"{this} hat den Lottomanager Type ermittelt und gecachet...");
-        //                }
-
-        //                return this._ManagerType;
-        //            }
-        //        }
-
-
-        //        /// <summary>
-        //        /// Gets the supported the countries.
-        //        /// </summary>
-        //        /// <param name="language">Microsoft code of the used language</param>
-        //        public Country[] GetCountries(string language)
-        //        {
-        //            var result = this.GetCountriesMethod.Invoke(
-        //                this.Manager,
-        //                new object[] { language }) as System.Collections.IList;
-
-        //            var countries = new System.Collections.Generic.List<Country>();
-
-        //            foreach (object c in result)
-        //            {
-        //                //countries.Add(
-        //                //    new Country
-        //                //    {
-        //                //        //Following code isn't funny...
-        //                //        Code = c.GetType().GetProperty("Code").GetValue(c).ToString(),
-        //                //        Name = c.GetType().GetProperty("Name").GetValue(c).ToString()
-        //                //    });
-
-
-        //                countries.Add(c.CopyTo<Country>());
-        //            }
-
-        //            return countries.ToArray();
-        //        }
+            foreach (object c in result)
+            {
+                projects.Add(c.CopyTo<Project>());
+            }
+            return projects.ToArray();
+        }
     }
 }

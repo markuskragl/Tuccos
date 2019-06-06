@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AndritzHydro.Tuccos.Data
 {
-    public class Project
+    public class Projectxxx
     {
 
         private string _ProjectId = "FEN17";

@@ -464,7 +464,6 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                     this.SetBusyOff();
                 }
-                this.OnPropertyChanged("ProjectList");
                 this.OnPropertyChanged("CurrentTask");
                 this.OnPropertyChanged("CurrentViewer");
                 return this._Project;

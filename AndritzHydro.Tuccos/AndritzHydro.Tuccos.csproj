@@ -83,7 +83,6 @@
     <Compile Include="LogViewer.xaml.cs">
       <DependentUpon>LogViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Person.cs" />
     <Compile Include="Model\ProjectController.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskManager.cs" />
@@ -193,8 +192,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\localhost\ProjectsView.wsdl" />
-    <None Include="Model-View-ViewModel.cd" />
+    <None Include="MVVM.cd" />
     <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Country.datasource" />
+    <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Project.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Model, e. g.">
+    <Position X="0.5" Y="0.5" Height="0.291" Width="2.017" />
+  </Comment>
+  <Comment CommentText="View">
+    <Position X="2.958" Y="0.5" Height="0.291" Width="2.017" />
+  </Comment>
+  <Comment CommentText="ViewModel">
+    <Position X="5.467" Y="0.5" Height="0.291" Width="2.017" />
+  </Comment>
+  <Class Name="AndritzHydro.Tuccos.MainWindow">
+    <Position X="3" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Model.ProjectController">
+    <Position X="0.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAABAAAAA=</HashCode>
+      <FileName>Model\ProjectController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.ProjectViewer">
+    <Position X="3" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProjectViewer.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.ViewModels.ProjectManager">
+    <Position X="5.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAgACQgAAAAAAAAAQAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ViewModels\ProjectManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

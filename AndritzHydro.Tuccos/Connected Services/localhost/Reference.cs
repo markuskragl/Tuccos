@@ -20,6 +20,18 @@ namespace AndritzHydro.Tuccos.localhost {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCountries", ReplyAction="http://tempuri.org/IProject/GetCountriesResponse")]
         System.Threading.Tasks.Task<AndritzHydro.Tuccos.Data.Country[]> GetCountriesAsync(string language);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetProjectList", ReplyAction="http://tempuri.org/IProject/GetProjectListResponse")]
+        AndritzHydro.Tuccos.Data.Project[] GetProjectList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetProjectList", ReplyAction="http://tempuri.org/IProject/GetProjectListResponse")]
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Data.Project[]> GetProjectListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/SaveProject", ReplyAction="http://tempuri.org/IProject/SaveProjectResponse")]
+        void SaveProject(AndritzHydro.Tuccos.Data.Project project);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/SaveProject", ReplyAction="http://tempuri.org/IProject/SaveProjectResponse")]
+        System.Threading.Tasks.Task SaveProjectAsync(AndritzHydro.Tuccos.Data.Project project);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +67,22 @@ namespace AndritzHydro.Tuccos.localhost {
         
         public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Data.Country[]> GetCountriesAsync(string language) {
             return base.Channel.GetCountriesAsync(language);
+        }
+        
+        public AndritzHydro.Tuccos.Data.Project[] GetProjectList() {
+            return base.Channel.GetProjectList();
+        }
+        
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Data.Project[]> GetProjectListAsync() {
+            return base.Channel.GetProjectListAsync();
+        }
+        
+        public void SaveProject(AndritzHydro.Tuccos.Data.Project project) {
+            base.Channel.SaveProject(project);
+        }
+        
+        public System.Threading.Tasks.Task SaveProjectAsync(AndritzHydro.Tuccos.Data.Project project) {
+            return base.Channel.SaveProjectAsync(project);
         }
     }
 }

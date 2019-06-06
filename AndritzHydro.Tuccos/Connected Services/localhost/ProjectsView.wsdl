@@ -13,16 +13,54 @@
   <wsdl:message name="IProject_GetCountries_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
   </wsdl:message>
+  <wsdl:message name="IProject_GetProjectList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectList" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetProjectList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_SaveProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProject" />
+  </wsdl:message>
+  <wsdl:message name="IProject_SaveProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProject">
     <wsdl:operation name="GetCountries">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetCountries" message="tns:IProject_GetCountries_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetCountriesResponse" message="tns:IProject_GetCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetProjectList" message="tns:IProject_GetProjectList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetProjectListResponse" message="tns:IProject_GetProjectList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/SaveProject" message="tns:IProject_SaveProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/SaveProjectResponse" message="tns:IProject_SaveProject_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProject" type="tns:IProject">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetCountries">
       <soap:operation soapAction="http://tempuri.org/IProject/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectList">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetProjectList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProject">
+      <soap:operation soapAction="http://tempuri.org/IProject/SaveProject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

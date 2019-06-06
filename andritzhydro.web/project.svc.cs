@@ -23,7 +23,7 @@ namespace andritzhydro.web
         /// <summary>
         /// Gets the name of the cache used for the manager providing the lottery game.
         /// </summary>
-        private const string ManagerCache = "LotteryManager";
+        private const string ManagerCache = "ProjectManager";
 
         /// <summary>
         /// Gets the infrastructure of the web service application.
@@ -46,7 +46,7 @@ namespace andritzhydro.web
                     //Compress and delete old log versions...
                     appContext.Log.CleanUp(5);
 
-                    appContext.Log.WriteEntry("The lottery web service has been started...");
+                    appContext.Log.WriteEntry("The project web service has been started...");
 
                     //Map the Database configuration...
                     appContext.Database = System.Web.Configuration.WebConfigurationManager.AppSettings["Database"];
@@ -96,6 +96,23 @@ namespace andritzhydro.web
         {
             this.WriteLogEntry();
             return this.Manager.GetCountries(language);
+        }
+
+        public Projects GetProjectList()
+        {
+            this.WriteLogEntry();
+            return this.Manager.GetProjectList();
+        }
+
+        /// <summary>
+        /// Add a project to the database.
+        /// </summary>
+        /// <param name="ticket">The lottery ticket which should be saved.</param>
+        public void SaveProject(Project project)
+        {
+            this.WriteLogEntry();
+            this.Manager.SaveProject(project);
+
         }
 
 
