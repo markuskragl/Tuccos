@@ -15,15 +15,15 @@
                 Margin="10,0,0,0" Orientation="Horizontal" Height="35">
                 
                 <TextBlock  TextWrapping="Wrap" Width="70" Text="Id"/>
-                <TextBox x:Name="tb1" Height="23" Width="100" TextWrapping="Wrap"/>
+                <TextBox x:Name="tb1" Height="23" Width="100" TextWrapping="Wrap" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
                 <TextBlock TextWrapping="Wrap" Width="70" Text="Name"/>
-                <TextBox Height="23" Width="100" TextWrapping="Wrap" />
+                <TextBox Height="23" Width="100" TextWrapping="Wrap" Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
             <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Height="35">
                 <TextBlock TextWrapping="Wrap" Width="70" Text="Year"/>
-                <TextBox Height="23" Width="100" TextWrapping="Wrap" />
+                <TextBox Height="23" Width="100" TextWrapping="Wrap" Text="{Binding ProjectYear, UpdateSourceTrigger=PropertyChanged}"/>
                 
             </StackPanel>
         </StackPanel>

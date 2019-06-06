@@ -131,6 +131,57 @@ namespace AndritzHydro.Tuccos.ViewModels
         }
 
 
+        private string _ProjectId;
+        public string ProjectId
+        {
+            get
+            {
+                return _ProjectId;
+            }
+            set
+            {
+                if (_ProjectId != value)
+                {
+                    _ProjectId = value;
+                    OnPropertyChanged("ProjectId");
+                }
+            }
+        }
+
+        private string _ProjectName;
+        public string ProjectName
+        {
+            get
+            {
+                return _ProjectName;
+            }
+            set
+            {
+                if (_ProjectName != value)
+                {
+                    _ProjectName = value;
+                    OnPropertyChanged("ProjectName");
+                }
+            }
+        }
+
+        private int _ProjectYear;
+        public int ProjectYear
+        {
+            get
+            {
+                return _ProjectYear;
+            }
+            set
+            {
+                if (_ProjectYear != value)
+                {
+                    _ProjectYear = value;
+                    OnPropertyChanged("ProjectYear");
+                }
+            }
+        }
+
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -143,7 +194,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                this.Controller.SaveProject(new Project { Id = "Mig", Name = "Jagger", Year = 30 });
+                this.Controller.SaveProject(new Project { Id=ProjectId, Name = ProjectName, Year = ProjectYear });
                 return this._SaveProject;
             }
         }
