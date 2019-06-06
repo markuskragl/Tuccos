@@ -5,9 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AndritzHydro.Tuccos.Data.Calculations
+
+
 {
-    public class Orifice
-    {
+    /// <summary>
+    /// Provides the data for the orifice calculation
+    /// </summary>
+    public class Orifice 
+    { 
 
 
     }
