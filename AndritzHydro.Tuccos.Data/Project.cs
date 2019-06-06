@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AndritzHydro.Tuccos.Data
 {
-    public class Project 
+    public class Project
     {
 
         private string _ProjectId = "FEN17";
@@ -54,7 +54,7 @@ namespace AndritzHydro.Tuccos.Data
             }
         }
 
-        private System.Collections.Generic.List<object>  _Subassembly = new List<object>();
+        private System.Collections.Generic.List<object> _Subassembly = new List<object>();
 
         public List<object> Subassembly
         {
@@ -75,3 +75,5 @@ namespace AndritzHydro.Tuccos.Data
 
     }
 }
+
+

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AndritzHydro.Windows
+namespace AndritzHydro.Tuccos.Helpers
 {
     /// <summary>
     /// Hides a method used for Command Binding in WPF.

@@ -26,23 +26,24 @@
                     <RowDefinition />
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
+
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <ListBox 
-                                ItemsSource="{Binding Code}" 
+                                ItemsSource="{Binding CountriesFinal}" 
                                 SelectedItem="{Binding SelectedPerson}" 
-                                DisplayMemberPath="FirstName" 
+                                DisplayMemberPath="Code" 
                                 HorizontalAlignment="Left"/>
                             <DataGrid 
-                                ItemsSource="{Binding Name}" 
+                                ItemsSource="{Binding CountriesFinal}" 
                                 SelectedItem="{Binding SelectedPerson}" 
                                 HorizontalAlignment="Left" 
                                 Margin="5,0,0,0"/>
                             <ComboBox 
-                                ItemsSource="{Binding MaxNumber}" 
+                                ItemsSource="{Binding CountriesFinal}"
                                 SelectedItem="{Binding SelectedPerson}" 
-                                DisplayMemberPath="FirstName" 
+                                DisplayMemberPath="Code" 
                                 Margin="5,0,0,5" 
                                 VerticalAlignment="Top"/>
                         </StackPanel>
@@ -64,7 +65,7 @@
                 <Button 
                     Grid.Row="1" 
                     Content="Add person" 
-                    Command="{Binding AddUserCommand}" 
+                    Command="{Binding GetCountries}" 
                     CommandParameter="{Binding Text, ElementName=tb1}" 
                     Margin="5" 
                     Focusable="False"/>

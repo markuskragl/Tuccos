@@ -5,76 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using AndritzHydro.Tuccos.Data;
+using AndritzHydro.Tuccos.Helpers;
+using AndritzHydro.Tuccos.Model;
+using AndritzHydro.Tuccos.Data.Controller;
 using AndritzHydro.Core.Data.Extensions;
-
+using System.Collections.ObjectModel;
+using AndritzHydro.Tuccos.localhost;
 
 namespace AndritzHydro.Tuccos.ViewModels
 {
     public class ProjectManager : AndritzHydro.Core.Data.DataApplicationObject
     {
 
-        /// <summary>
-        /// Provides a list of lottery countries.
-        /// </summary>
-        public class Countries : System.Collections.Generic.List<Country>
-        {
-
-        }
-
-        /// <summary>
-        /// Provides information about a country
-        /// where the lottery game is supported.
-        /// </summary>
-        public class Country
-        {
-            /// <summary>
-            /// Gets or set the ISO code of the country.
-            /// </summary>
-            public string Code { get; set; }
-
-            /// <summary>
-            /// Gets or sets the readable name of the country.
-            /// </summary>
-            public string Name { get; set; }
-
-            /// <summary>
-            /// Gets or sets the highest lottery number in this country.
-            /// </summary>
-            public int MaxNumber { get; set; }
-
-            /// <summary>
-            /// Gets or sets the count of numbers in a lottery bet.
-            /// </summary>
-            public int NumberCount { get; set; }
-
-        }
-
-
-
-        /// <summary>
-        /// Internal field for the property.
-        /// </summary>
-        private static Country[] _Countries = null;
-
-        /// <summary>
-        /// Gets the supported countries.
-        /// </summary>
-        /// <remarks>The countries are cached.</remarks>
-        public Country[] CountriesNew
-        {
-            get
-            {
-
-                //if (_Countries == null)
-                //{
-                //    this.InitializeCountriesAsync();
-                //}
-
-                return _Countries;
-            }
-        }
-
-        public Country[] GetCountriesMethod()
+        public Country[] GetCountries(string language = "AT")
         {
 
             localhost.ProjectClient mc = new localhost.ProjectClient();
@@ -85,59 +29,21 @@ namespace AndritzHydro.Tuccos.ViewModels
 
             foreach (object c in result)
             {
-                //countries.Add(
-                //    new Country
-                //    {
-                //        //Following code isn't funny...
-                //        Code = c.GetType().GetProperty("Code").GetValue(c).ToString(),
-                //        Name = c.GetType().GetProperty("Name").GetValue(c).ToString()
-                //    });
-
-
                 countries.Add(c.CopyTo<Country>());
             }
             return countries.ToArray();
         }
 
-        //------------------------------------------------------------------------------------------------------------------
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft.
-        /// </summary>
-        private System.Reflection.Assembly _Assembly = null;
+        private Country[] _CountriesFinal;
 
-        /// <summary>
-        /// Ruft die Assembly ab, die die Logik bereitstellt.
-        /// </summary>
-        private System.Reflection.Assembly Assembly
+        public Country[] CountriesFinal
         {
             get
             {
-                if (this._Assembly == null)
-                {
-                    this._Assembly = System.Reflection.Assembly.Load("AndritzHydro.Tuccos.Data");
-                    this.Context.Log.WriteEntry($"{this} hat die {this._Assembly} geladen...");
-                }
-
-                return this._Assembly;
+                this._CountriesFinal = this.GetCountries();
+                return this._CountriesFinal;
             }
-        }
-
-
-
-
-
-
-        public ProjectManager()
-        {
-
-            var AssemblyProp = Assembly;
-
-            var ProjectList = GetCountriesMethod();
-
-            var TypeofProject = ProjectList.GetType();
-
-            ProjectList = ProjectList;
         }
 
         public WindowManager Owner { get; set; }

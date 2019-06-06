@@ -74,10 +74,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Data\FakeDatabaseLayer.cs" />
     <Compile Include="Helpers\Commands.cs" />
     <Compile Include="LogViewer.xaml.cs">
       <DependentUpon>LogViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Model\ProjectController.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskManager.cs" />
@@ -177,9 +179,6 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Connected Services\localhost\AndritzHydro.Tuccos.localhost.Country.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\localhost\project.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -191,6 +190,7 @@
     </None>
     <None Include="Connected Services\localhost\ProjectsView.wsdl" />
     <None Include="Model-View-ViewModel.cd" />
+    <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Country.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

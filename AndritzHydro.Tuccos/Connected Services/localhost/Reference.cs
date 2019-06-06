@@ -9,112 +9,17 @@
 //------------------------------------------------------------------------------
 
 namespace AndritzHydro.Tuccos.localhost {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Country", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
-    [System.SerializableAttribute()]
-    public partial class Country : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MaxNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NumberCountField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MaxNumber {
-            get {
-                return this.MaxNumberField;
-            }
-            set {
-                if ((this.MaxNumberField.Equals(value) != true)) {
-                    this.MaxNumberField = value;
-                    this.RaisePropertyChanged("MaxNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NumberCount {
-            get {
-                return this.NumberCountField;
-            }
-            set {
-                if ((this.NumberCountField.Equals(value) != true)) {
-                    this.NumberCountField = value;
-                    this.RaisePropertyChanged("NumberCount");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="localhost.IProject")]
     public interface IProject {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCountries", ReplyAction="http://tempuri.org/IProject/GetCountriesResponse")]
-        AndritzHydro.Tuccos.localhost.Country[] GetCountries(string language);
+        AndritzHydro.Tuccos.Data.Country[] GetCountries(string language);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCountries", ReplyAction="http://tempuri.org/IProject/GetCountriesResponse")]
-        System.Threading.Tasks.Task<AndritzHydro.Tuccos.localhost.Country[]> GetCountriesAsync(string language);
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Data.Country[]> GetCountriesAsync(string language);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -144,11 +49,11 @@ namespace AndritzHydro.Tuccos.localhost {
                 base(binding, remoteAddress) {
         }
         
-        public AndritzHydro.Tuccos.localhost.Country[] GetCountries(string language) {
+        public AndritzHydro.Tuccos.Data.Country[] GetCountries(string language) {
             return base.Channel.GetCountries(language);
         }
         
-        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.localhost.Country[]> GetCountriesAsync(string language) {
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Data.Country[]> GetCountriesAsync(string language) {
             return base.Channel.GetCountriesAsync(language);
         }
     }

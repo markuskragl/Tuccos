@@ -170,18 +170,18 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private AndritzHydro.Windows.Command _NewWindow = null;
+        private AndritzHydro.Tuccos.Helpers.Command _NewWindow = null;
 
         /// <summary>
         /// Gets the command to open a new window.
         /// </summary>
-        public AndritzHydro.Windows.Command NewWindow
+        public AndritzHydro.Tuccos.Helpers.Command NewWindow
         {
             get
             {
                 if (this._NewWindow == null)
                 {
-                    this._NewWindow = new AndritzHydro.Windows.Command(this.NewWindowExecute);
+                    this._NewWindow = new AndritzHydro.Tuccos.Helpers.Command(this.NewWindowExecute);
                     this.Context.Log.WriteEntry(
                         "NewWindow Command",
                         Core.Data.LogEntryType.NewObject);
@@ -221,20 +221,20 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private AndritzHydro.Windows.Command _CloseWindows = null;
+        private AndritzHydro.Tuccos.Helpers.Command _CloseWindows = null;
 
         /// <summary>
         /// Gets the command to close all open windows.
         /// </summary>
         /// <remarks>Only possible, if more than one window is open.</remarks>
-        public AndritzHydro.Windows.Command CloseWindows
+        public AndritzHydro.Tuccos.Helpers.Command CloseWindows
         {
             get
             {
                 if (this._CloseWindows == null)
                 {
                     this._CloseWindows
-                        = new AndritzHydro.Windows.Command(
+                        = new AndritzHydro.Tuccos.Helpers.Command(
                             this.CloseWindowsExecute,
                             this.CloseWindowsCanExecute);
                     this.Context.Log.WriteEntry(
@@ -405,12 +405,12 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private AndritzHydro.Windows.Command _CloseOtherWindows = null;
+        private AndritzHydro.Tuccos.Helpers.Command _CloseOtherWindows = null;
 
         /// <summary>
         /// Gets the command to close all other windows.
         /// </summary>
-        public AndritzHydro.Windows.Command CloseOtherWindows
+        public AndritzHydro.Tuccos.Helpers.Command CloseOtherWindows
         {
             get
             {
@@ -418,7 +418,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     this.SetBusyOn();
 
-                    this._CloseOtherWindows = new Windows.Command(data =>
+                    this._CloseOtherWindows = new AndritzHydro.Tuccos.Helpers.Command(data =>
                     {
                         this.SetBusyOn();
 
@@ -486,19 +486,19 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private AndritzHydro.Windows.Command _SetDefaulTask = null;
+        private AndritzHydro.Tuccos.Helpers.Command _SetDefaulTask = null;
 
         /// <summary>
         /// Gets the command to set the selected task as default task.
         /// </summary>
-        public AndritzHydro.Windows.Command SetDefaultTask
+        public AndritzHydro.Tuccos.Helpers.Command SetDefaultTask
         {
             get
             {
                 if (this._SetDefaulTask == null)
                 {
                     this.SetBusyOn();
-                    this._SetDefaulTask = new AndritzHydro.Windows.Command(
+                    this._SetDefaulTask = new AndritzHydro.Tuccos.Helpers.Command(
                         data =>
                         {
                             this.SetBusyOn();
