@@ -159,6 +159,9 @@
   <data name="NewWindowTip" xml:space="preserve">
     <value>Opens a new window (Ctrl + N)</value>
   </data>
+  <data name="PartialStrokes" xml:space="preserve">
+    <value>Partial Strokes</value>
+  </data>
   <data name="Requery" xml:space="preserve">
     <value>Requery</value>
   </data>
@@ -197,5 +200,8 @@
   </data>
   <data name="TicketValidUntil" xml:space="preserve">
     <value>Valid until:</value>
+  </data>
+  <data name="TotalStroke" xml:space="preserve">
+    <value>Total Stroke</value>
   </data>
 </root>

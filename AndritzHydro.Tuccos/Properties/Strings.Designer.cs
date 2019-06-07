@@ -187,6 +187,15 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Partial Strokes ähnelt.
+        /// </summary>
+        public static string PartialStrokes {
+            get {
+                return ResourceManager.GetString("PartialStrokes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Requery ähnelt.
         /// </summary>
         public static string Requery {
@@ -300,6 +309,15 @@ namespace AndritzHydro.Tuccos.Properties {
         public static string TicketValidUntil {
             get {
                 return ResourceManager.GetString("TicketValidUntil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Total Stroke ähnelt.
+        /// </summary>
+        public static string TotalStroke {
+            get {
+                return ResourceManager.GetString("TotalStroke", resourceCulture);
             }
         }
     }

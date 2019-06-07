@@ -1,0 +1,229 @@
+﻿<UserControl x:Class="AndritzHydro.Tuccos.Orifice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AndritzHydro.Tuccos"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             xmlns:p="clr-namespace:AndritzHydro.Tuccos.Properties"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Resources>
+            <Thickness x:Key="MarginListBoxes" Left="10" Top="10" Right="0" Bottom="10"/>
+            <sys:Double x:Key="ColumnHeight">300</sys:Double>
+            <sys:Double x:Key="ColumnWidth">100</sys:Double>
+            <sys:Double x:Key="HeaderHeight">60</sys:Double>
+            <Thickness x:Key="MarginInput" Left="10" Top="10" Right="10" Bottom="10"/>
+            <sys:Double x:Key="InputHeight">40</sys:Double>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel  
+            Grid.Column="0"
+            Grid.RowSpan="2"
+            Orientation="Horizontal" 
+            HorizontalAlignment="Left" 
+            Height="Auto" 
+            VerticalAlignment="Top" 
+            Width="Auto">
+            
+            <StackPanel.Resources>
+
+            </StackPanel.Resources>
+
+            <StackPanel  >
+                <ListView  Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}">
+                    <ListView.View >
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
+
+                                <Style TargetType="GridViewColumnHeader" >
+                                    <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
+                                    
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
+                            <GridViewColumn Header="{x:Static p:Strings.PartialStrokes}" Width="{StaticResource ColumnWidth}"  />
+
+                        </GridView>
+
+                    </ListView.View>
+                </ListView>
+
+
+
+
+
+            </StackPanel>
+
+            <StackPanel >
+                <ListView  Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView.View >
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+
+                            <Style TargetType="GridViewColumnHeader" >
+                                    <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                            <GridViewColumn Header="{x:Static p:Strings.TotalStroke }" Width="{StaticResource ColumnWidth}"  />
+
+                    </GridView>
+
+                </ListView.View>
+            </ListView>
+                <TextBox 
+                    Margin="10,0,0,0"
+                    Height="23" 
+                    Width="{StaticResource ColumnWidth}"/>
+
+
+
+
+
+            </StackPanel>
+
+            <StackPanel >
+                <ListView Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView.View >
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+
+                            <Style TargetType="GridViewColumnHeader" >
+                                    <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                            <GridViewColumn Header="Einzelkraft"  Width="{StaticResource ColumnWidth}" />
+
+                    </GridView>
+
+                </ListView.View>
+            </ListView>
+
+   
+
+            </StackPanel>
+
+            <StackPanel >
+                <ListView Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView.View >
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+
+                            <Style TargetType="GridViewColumnHeader" >
+                                    <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                            <GridViewColumn Header="Einzel-&#x0a;Arbeitsvermögen"  Width="{StaticResource ColumnWidth}" />
+
+                    </GridView>
+
+                </ListView.View>
+            </ListView>
+
+                <TextBox 
+                    Margin="10,0,0,0"
+                    Height="23" 
+                    Width="{StaticResource ColumnWidth}"/>
+
+            </StackPanel>
+            
+        </StackPanel>
+
+        <StackPanel
+            Margin="20,0,0,0"
+            Grid.Column="1"
+            Grid.Row="0"
+            Orientation="Horizontal">
+            <StackPanel >
+                <ListView Margin="{StaticResource MarginListBoxes}" Height="150" Width="{StaticResource ColumnWidth}">
+                    <ListView.View >
+                        <GridView>
+                            <GridViewColumn Header="Verlustfaktor&#x0a;Armatur" Width="{StaticResource ColumnWidth}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <TextBox 
+                    Margin="10,0,0,0"
+                    Height="23" 
+                    Width="{StaticResource ColumnWidth}"/>
+            </StackPanel>
+
+            <StackPanel>
+                <StackPanel.Resources>
+ 
+                    
+                </StackPanel.Resources>
+                
+                <StackPanel 
+                    Margin="{StaticResource MarginInput}" 
+                    Height="{StaticResource InputHeight}"
+                    Width="{StaticResource ColumnWidth}">
+                    <TextBlock Text="Verlustziffer"/>
+                    <TextBox />
+                </StackPanel>
+
+                <StackPanel 
+                    Margin="{StaticResource MarginInput}"
+                    Height="{StaticResource InputHeight}"
+                    Width="{StaticResource ColumnWidth}">
+                    <TextBlock Text="Länge Ölleitung"/>
+                    <TextBox />
+                </StackPanel>
+
+                <StackPanel 
+                    Margin="{StaticResource MarginInput}"
+                    Height="{StaticResource InputHeight}"
+                    Width="{StaticResource ColumnWidth}">
+                    <TextBlock Text="DN Ölleitung"/>
+                    <TextBox />
+                </StackPanel>
+
+
+
+
+            </StackPanel>
+            
+            
+            
+        </StackPanel>
+
+        <StackPanel
+            Margin="20,0,0,0"
+            Orientation="Horizontal"
+            Grid.Column="1"
+            Grid.Row="1">
+            <StackPanel 
+                    Margin="{StaticResource MarginInput}" 
+                    Height="{StaticResource InputHeight}"
+                    Width="{StaticResource ColumnWidth}">
+                <TextBlock Text="Zeit"/>
+                <TextBox Background="Lavender"/>
+            </StackPanel>
+
+            <StackPanel 
+                    Margin="{StaticResource MarginInput}" 
+                    Height="{StaticResource InputHeight}"
+                    Width="{StaticResource ColumnWidth}">
+                <TextBlock Text="Blende D"/>
+                <TextBox Background="Lavender" />
+            </StackPanel>
+        </StackPanel>
+ 
+
+
+
+
+
+
+    </Grid>
+</UserControl>

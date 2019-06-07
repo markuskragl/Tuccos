@@ -33,5 +33,23 @@ namespace AndritzHydro.Tuccos.Data
         /// Gets or sets the highest lottery number in this Year.
         /// </summary>
         public int Year { get; set; }
+
+
+        private System.Collections.Generic.List<object> _Subassembly = new List<object>();
+
+        public List<object> Subassembly
+        {
+            get
+            {
+                _Subassembly.Add("Valve 1");
+                _Subassembly.Add("GVM 2");
+                return this._Subassembly;
+            }
+
+            set
+            {
+                this._Subassembly = value;
+            }
+        }
     }
 }

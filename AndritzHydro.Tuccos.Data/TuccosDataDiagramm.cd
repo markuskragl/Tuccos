@@ -1,24 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AndritzHydro.Tuccos.Data.Controller.ProjectManager">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="_Controller" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAEAAAAACAEAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Controller\ProjectManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Tuccos.Data.Calculations.Orifice">
-    <Position X="1" Y="3.75" Width="1.5" />
+    <Position X="1" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Calculations\Orifice.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Tuccos.Data.Project">
-    <Position X="1" Y="1.5" Width="1.5" />
+    <Position X="1" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="_Subassembly" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>oAAAAAAAAAAAAAAACgAAAAAIBAAAAgAAAAACAAAAAAA=</HashCode>
-      <FileName>Project.cs</FileName>
+      <HashCode>AAACAAAABAAAAAAAAgAAAAQAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Projects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Subassembly">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <Members>
+      <Field Name="_Calculations" Hidden="true" />
+      <Field Name="_Project" Hidden="true" />
+      <Field Name="_RngNr" Hidden="true" />
+      <Field Name="_Type" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAACAAAAEAAAEAEAQAAAAAADAA=</HashCode>
+      <FileName>Subassembly.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
