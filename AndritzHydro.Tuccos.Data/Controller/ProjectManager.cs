@@ -73,7 +73,6 @@ namespace AndritzHydro.Tuccos.Data.Controller
         }
 
 
-
         /// <summary>
         /// Adds a  project to the database.
         /// </summary>
@@ -84,6 +83,24 @@ namespace AndritzHydro.Tuccos.Data.Controller
             try
             {
                 this.Controller.SaveProject(project);
+            }
+            catch (System.Exception ex)
+            {
+                this.OnErrorOccurred(new Core.ErrorOccurredEventArgs(ex));
+            }
+        }
+
+
+        /// <summary>
+        /// Deletes a  project from the database.
+        /// </summary>
+        /// <param name="project">The project which
+        /// should be deleted.</param>
+        public virtual void DeleteProject(Project project)
+        {
+            try
+            {
+                this.Controller.DeleteProject(project);
             }
             catch (System.Exception ex)
             {

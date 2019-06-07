@@ -107,16 +107,22 @@ namespace andritzhydro.web
         /// <summary>
         /// Add a project to the database.
         /// </summary>
-        /// <param name="ticket">The lottery ticket which should be saved.</param>
+        /// <param name="project">The project which should be saved.</param>
         public void SaveProject(Project project)
         {
             this.WriteLogEntry();
             this.Manager.SaveProject(project);
-
         }
 
-
-
+        /// <summary>
+        /// Delete a project from the database.
+        /// </summary>
+        /// <param name="project">The project which should be deleted.</param>
+        public void DeleteProject(Project project)
+        {
+            this.WriteLogEntry();
+            this.Manager.DeleteProject(project);
+        }
 
         /// <summary>
         /// Writes an used entry to the log.

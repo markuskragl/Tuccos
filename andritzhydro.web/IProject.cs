@@ -32,5 +32,12 @@ namespace andritzhydro.web
         /// <param name="ticket">The project which should be saved.</param>
         [OperationContract]
         void SaveProject(AndritzHydro.Tuccos.Data.Project project);
+
+        /// <summary>
+        /// Delete a project from the database.
+        /// </summary>
+        /// <param name="ticket">The project which should be saved.</param>
+        [OperationContract]
+        void DeleteProject(AndritzHydro.Tuccos.Data.Project project);
     }
 }

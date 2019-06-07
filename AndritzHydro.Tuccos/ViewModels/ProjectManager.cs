@@ -11,7 +11,7 @@ using AndritzHydro.Tuccos.Model;
 
 namespace AndritzHydro.Tuccos.ViewModels
 {
-    public class ProjectManager : AndritzHydro.Core.Data.DataApplicationObject
+    public class ProjectManager : AndritzHydro.Core.Data.DataApplicationObject, INotifyPropertyChanged
     {
         public WindowManager Owner { get; set; }
 
@@ -183,6 +183,24 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+
+
+        /// <summary>
+        /// If the web service is used, this
+        /// method closes the server connection
+        /// and sets the field to null again.
+        /// </summary>
+        protected void CloseController()
+        {
+            return;
+            if (this._Controller != null)
+            {
+                this.Context.Log.WriteEntry($"{this._Controller} is closed.");
+                ((AndritzHydro.Tuccos.localhost.ProjectClient)this._Controller).Close();
+                this._Controller = null;
+            }
+        }
+
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -193,17 +211,70 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// </summary>
         public AndritzHydro.Tuccos.Helpers.Command SaveProject
         {
-            
+
             get
             {
-                this.Controller.SaveProject(new Project { Id=ProjectId, Name = ProjectName, Year = ProjectYear });
+                if (this._SaveProject == null)
+                {
+                    this.Owner.SetBusyOn();
+
+                    this._SaveProject = new AndritzHydro.Tuccos.Helpers.Command(
+                        data =>
+                        {
+                            this.Owner.SetBusyOn();
+
+                            this.Controller.SaveProject(new Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
+
+                            this.CloseController();
+                            
+                            this.Owner.SetBusyOff();
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+                //this.Controller.SaveProject(new Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
                 return this._SaveProject;
             }
         }
 
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private AndritzHydro.Tuccos.Helpers.Command _DeleteProject = null;
 
-        object _SelectedProject;
-        public object SelectedPerson
+        /// <summary>
+        /// Gets the command to delete a project from the database.
+        /// </summary>
+        public AndritzHydro.Tuccos.Helpers.Command DeleteProject
+        {
+
+            get
+            {
+                if (this._DeleteProject == null)
+                {
+                    this.Owner.SetBusyOn();
+
+                    this._DeleteProject = new AndritzHydro.Tuccos.Helpers.Command(
+                        data =>
+                        {
+                            this.Owner.SetBusyOn();
+
+                            this.Controller.DeleteProject(SelectedProject);
+                            this.CloseController();
+
+                            this.Owner.SetBusyOff();
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+                return this._DeleteProject;
+            }
+        }
+
+        Project _SelectedProject;
+        public Project SelectedProject
         {
             get
             {
@@ -220,35 +291,6 @@ namespace AndritzHydro.Tuccos.ViewModels
         }
 
         public int SelectedIndex { get; set; }
-
-        BindingGroup _UpdateBindingGroup;
-        public BindingGroup UpdateBindingGroup
-        {
-            get
-            {
-                return _UpdateBindingGroup;
-            }
-            set
-            {
-                if (_UpdateBindingGroup != value)
-                {
-                    _UpdateBindingGroup = value;
-                    OnPropertyChanged("UpdateBindingGroup");
-                }
-            }
-        }
-
-        //void DeleteUser(object parameter)
-        //{
-        //    var person = SelectedPerson as PocoPerson;
-        //    if (SelectedIndex != -1)
-        //    {
-        //        personnel.DeletePerson(person);
-        //        RaisePropertyChanged("People"); // Update the list from the data source
-        //    }
-        //    else
-        //        SelectedPerson = null; // Simply discard the new object
-        //}
 
         #endregion ProjectList
     }

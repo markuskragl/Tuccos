@@ -28,10 +28,24 @@ namespace AndritzHydro.Tuccos.localhost {
         System.Threading.Tasks.Task<AndritzHydro.Tuccos.Data.Project[]> GetProjectListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/SaveProject", ReplyAction="http://tempuri.org/IProject/SaveProjectResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AndritzHydro.Tuccos.Data.Country[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AndritzHydro.Tuccos.Data.Country))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AndritzHydro.Tuccos.Data.Project[]))]
         void SaveProject(AndritzHydro.Tuccos.Data.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/SaveProject", ReplyAction="http://tempuri.org/IProject/SaveProjectResponse")]
         System.Threading.Tasks.Task SaveProjectAsync(AndritzHydro.Tuccos.Data.Project project);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/DeleteProject", ReplyAction="http://tempuri.org/IProject/DeleteProjectResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AndritzHydro.Tuccos.Data.Country[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AndritzHydro.Tuccos.Data.Country))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AndritzHydro.Tuccos.Data.Project[]))]
+        void DeleteProject(AndritzHydro.Tuccos.Data.Project project);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/DeleteProject", ReplyAction="http://tempuri.org/IProject/DeleteProjectResponse")]
+        System.Threading.Tasks.Task DeleteProjectAsync(AndritzHydro.Tuccos.Data.Project project);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +97,14 @@ namespace AndritzHydro.Tuccos.localhost {
         
         public System.Threading.Tasks.Task SaveProjectAsync(AndritzHydro.Tuccos.Data.Project project) {
             return base.Channel.SaveProjectAsync(project);
+        }
+        
+        public void DeleteProject(AndritzHydro.Tuccos.Data.Project project) {
+            base.Channel.DeleteProject(project);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProjectAsync(AndritzHydro.Tuccos.Data.Project project) {
+            return base.Channel.DeleteProjectAsync(project);
         }
     }
 }

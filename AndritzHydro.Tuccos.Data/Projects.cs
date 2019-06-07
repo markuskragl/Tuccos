@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,22 +18,75 @@ namespace AndritzHydro.Tuccos.Data
     /// <summary>
     /// Provides the project infomation
     /// </summary>
-    public class Project
+    public class Project : INotifyPropertyChanged
     {
+
+        void OnPropertyChanged(string prop)
+        {
+            if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets or set the Id code of the project.
         /// </summary>
-        public string Id { get; set; }
+        public string _Id;
+        public string Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    _Id = value;
+                    OnPropertyChanged("Id");
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Gets or sets the readable name of the project.
         /// </summary>
-        public string Name { get; set; }
+        public string _Name;
+        public string Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                if (_Name != value)
+                {
+                    _Name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the highest lottery number in this Year.
         /// </summary>
-        public int Year { get; set; }
+        public int _Year;
+        public int Year
+        {
+            get
+            {
+                return _Year;
+            }
+            set
+            {
+                if (_Year != value)
+                {
+                    _Year = value;
+                    OnPropertyChanged("Year");
+                }
+            }
+        }
 
 
         private System.Collections.Generic.List<object> _Subassembly = new List<object>();

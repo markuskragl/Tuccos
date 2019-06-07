@@ -34,10 +34,23 @@
   </Class>
   <Class Name="AndritzHydro.Tuccos.ViewModels.ProjectManager">
     <Position X="5.5" Y="1.25" Width="2" />
+    <Members>
+      <Field Name="_Controller" Hidden="true" />
+      <Field Name="_CountriesFinal" Hidden="true" />
+      <Field Name="_CurrentProject" Hidden="true" />
+      <Field Name="_DeleteProject" Hidden="true" />
+      <Field Name="_ProjectId" Hidden="true" />
+      <Field Name="_ProjectListFinal" Hidden="true" />
+      <Field Name="_ProjectName" Hidden="true" />
+      <Field Name="_ProjectYear" Hidden="true" />
+      <Field Name="_SaveProject" Hidden="true" />
+      <Field Name="_SelectedProject" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAACAgACQgAAAAAAAAAQAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>oAAAAQCAgQCQgAAACDBCAkQIBAAAAggAAIAAAACAAQA=</HashCode>
       <FileName>ViewModels\ProjectManager.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -365,7 +365,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                         this.Context.Log.UnreadError = false;
                     }
 
-                    this.OnPropertyChanged("Countries");
+                    this.OnPropertyChanged("SaveProject");
                     this.OnPropertyChanged("CurrentTask");
                     this.OnPropertyChanged("CurrentViewer");
                 }
@@ -464,8 +464,8 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                     this.SetBusyOff();
                 }
-                this.OnPropertyChanged("CurrentTask");
-                this.OnPropertyChanged("CurrentViewer");
+                //this.OnPropertyChanged("CurrentTask");
+                //this.OnPropertyChanged("CurrentViewer");
                 return this._Project;
             }
         }

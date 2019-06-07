@@ -122,9 +122,49 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
+
                     command.Parameters.AddWithValue("@id", project.Id);
                     command.Parameters.AddWithValue("@name", project.Name);
                     command.Parameters.AddWithValue("@year", project.Year);
+
+                    command.Prepare();
+
+                    connection.Open();
+
+                    //To ensure that changes only are
+                    //saved, if all statements are successfully,
+                    //use "Database Transactions" 
+                    command.Transaction = connection.BeginTransaction();
+
+                    command.ExecuteNonQuery();
+
+                    //A loop for the rows
+                    command.Parameters.Clear();
+
+                    //If the code reaches this line,
+                    //every statement was successfully
+                    //and can be saved in the database
+                    command.Transaction.Commit();
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Deletes a project to the database.
+        /// </summary>
+        /// <param name="project">The project which
+        /// should be deleted.</param>
+        public virtual void DeleteProject(Project project)
+        {
+            using (var connection = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+            {
+                using (var command = new System.Data.SqlClient.SqlCommand("DeleteProject", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@id", project.Id);
 
                     command.Prepare();
 

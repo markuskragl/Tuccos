@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" />
+      <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IProject_GetCountries_InputMessage">
@@ -25,6 +26,12 @@
   <wsdl:message name="IProject_SaveProject_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveProjectResponse" />
   </wsdl:message>
+  <wsdl:message name="IProject_DeleteProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProject" />
+  </wsdl:message>
+  <wsdl:message name="IProject_DeleteProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProjectResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProject">
     <wsdl:operation name="GetCountries">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetCountries" message="tns:IProject_GetCountries_InputMessage" />
@@ -37,6 +44,10 @@
     <wsdl:operation name="SaveProject">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/SaveProject" message="tns:IProject_SaveProject_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProject/SaveProjectResponse" message="tns:IProject_SaveProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/DeleteProject" message="tns:IProject_DeleteProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/DeleteProjectResponse" message="tns:IProject_DeleteProject_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProject" type="tns:IProject">
@@ -61,6 +72,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveProject">
       <soap:operation soapAction="http://tempuri.org/IProject/SaveProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProject">
+      <soap:operation soapAction="http://tempuri.org/IProject/DeleteProject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
