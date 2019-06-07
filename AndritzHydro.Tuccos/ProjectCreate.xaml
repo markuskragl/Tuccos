@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding Project}">
-    <Grid>
+    <!--<Grid>
         
         <StackPanel HorizontalAlignment="Left" Height="200"  VerticalAlignment="Top" Width="300">
             <Label Content="Main Project Information" FontWeight="Bold"/>
@@ -38,5 +38,5 @@
             Command="{Binding SaveProject}"
             Focusable="False"
             />
-    </Grid>
+    </Grid>-->
 </UserControl>

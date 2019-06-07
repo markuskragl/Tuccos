@@ -5,8 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Data;
 using AndritzHydro.Tuccos.Data;
+using AndritzHydro.Tuccos.Model;
 
 namespace AndritzHydro.Tuccos.ViewModels
 {
@@ -192,6 +193,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// </summary>
         public AndritzHydro.Tuccos.Helpers.Command SaveProject
         {
+            
             get
             {
                 this.Controller.SaveProject(new Project { Id=ProjectId, Name = ProjectName, Year = ProjectYear });
@@ -199,12 +201,56 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+
+        object _SelectedProject;
+        public object SelectedPerson
+        {
+            get
+            {
+                return _SelectedProject;
+            }
+            set
+            {
+                if (_SelectedProject != value)
+                {
+                    _SelectedProject = value;
+                    OnPropertyChanged("SelectedProject");
+                }
+            }
+        }
+
+        public int SelectedIndex { get; set; }
+
+        BindingGroup _UpdateBindingGroup;
+        public BindingGroup UpdateBindingGroup
+        {
+            get
+            {
+                return _UpdateBindingGroup;
+            }
+            set
+            {
+                if (_UpdateBindingGroup != value)
+                {
+                    _UpdateBindingGroup = value;
+                    OnPropertyChanged("UpdateBindingGroup");
+                }
+            }
+        }
+
+        //void DeleteUser(object parameter)
+        //{
+        //    var person = SelectedPerson as PocoPerson;
+        //    if (SelectedIndex != -1)
+        //    {
+        //        personnel.DeletePerson(person);
+        //        RaisePropertyChanged("People"); // Update the list from the data source
+        //    }
+        //    else
+        //        SelectedPerson = null; // Simply discard the new object
+        //}
+
         #endregion ProjectList
-
-
-
-
-
     }
 }
 

@@ -80,9 +80,11 @@
     </Compile>
     <Compile Include="Data\FakeDatabaseLayer.cs" />
     <Compile Include="Helpers\Commands.cs" />
+    <Compile Include="Helpers\Converters.cs" />
     <Compile Include="LogViewer.xaml.cs">
       <DependentUpon>LogViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\PocoPerson.cs" />
     <Compile Include="Model\ProjectController.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskManager.cs" />
