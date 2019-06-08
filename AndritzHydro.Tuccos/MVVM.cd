@@ -12,7 +12,7 @@
   <Class Name="AndritzHydro.Tuccos.MainWindow">
     <Position X="3" Y="1.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -24,11 +24,11 @@
       <FileName>Model\ProjectController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AndritzHydro.Tuccos.ProjectViewer">
+  <Class Name="AndritzHydro.Tuccos.ProjectsOverview">
     <Position X="3" Y="3.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ProjectViewer.xaml.cs</FileName>
+      <FileName>ProjectsOverview.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>

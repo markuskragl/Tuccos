@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace AndritzHydro.Tuccos
 {
     /// <summary>
-    /// Interaction logic for ProjectViewer.xaml
+    /// Interaktionslogik für ProjectCreate.xaml
     /// </summary>
     public partial class ProjectViewer : UserControl
     {

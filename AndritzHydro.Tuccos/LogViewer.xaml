@@ -5,18 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AndritzHydro.Tuccos"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             >
     <Border BorderBrush="Black" BorderThickness="1.5">
     <Grid>
 
         <!-- The LogViewer should emulate an old green monitor -->
         <Grid.Background>
-            <SolidColorBrush Color="LightCyan"/>
+                <SolidColorBrush Color="#0075be"/>
 
         </Grid.Background>
 
         <!-- For the lines of the log -->
-        <ListBox
+            <ListBox
             
             Name="ListBoxLog"
             
@@ -30,16 +30,16 @@
             
             >
 
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <!-- First column for the icon -->
-                        <TextBlock
+                            <!-- First column for the icon -->
+                            <TextBlock
                             Name="TextBlockIcon"
                             
                             Grid.Column="0"
@@ -61,8 +61,8 @@
                             
                             />
 
-                        <!-- Second column for the log entry -->
-                        <TextBlock
+                            <!-- Second column for the log entry -->
+                            <TextBlock
                             Name="TextBlockContent"
 
                             Grid.Column="1"
@@ -74,33 +74,30 @@
                             
                             />
 
-                    </Grid>
+                        </Grid>
 
-                    <!-- Use different colors for the entry types -->
-                    <DataTemplate.Triggers>
-                        <DataTrigger Binding="{Binding Type}" Value="NewObject">
-                            <Setter TargetName="TextBlockContent" Property="Foreground" Value="White" />
-                            <Setter TargetName="TextBlockIcon" Property="Text" Value="þ" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Type}" Value="Warning">
-                            <Setter TargetName="TextBlockContent" Property="Foreground" Value="Yellow"/>
-                            <Setter TargetName="TextBlockIcon" Property="Text" Value="n" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Type}" Value="Error">
-                            <Setter TargetName="TextBlockContent" Property="Foreground" Value="Yellow"/>
-                            <Setter TargetName="TextBlockContent" Property="Background" Value="Red" />
-                            <Setter TargetName="TextBlockIcon" Property="Text" Value="M" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Type}" Value="Busy">
-                            <Setter TargetName="TextBlockContent" Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                    </DataTemplate.Triggers>
-
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-
-        </ListBox>
-
-    </Grid>
+                        <!-- Use different colors for the entry types -->
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Type}" Value="NewObject">
+                                <Setter TargetName="TextBlockContent" Property="Foreground" Value="White" />
+                                <Setter TargetName="TextBlockIcon" Property="Text" Value="þ" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Type}" Value="Warning">
+                                <Setter TargetName="TextBlockContent" Property="Foreground" Value="Yellow"/>
+                                <Setter TargetName="TextBlockIcon" Property="Text" Value="n" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Type}" Value="Error">
+                                <Setter TargetName="TextBlockContent" Property="Foreground" Value="Yellow"/>
+                                <Setter TargetName="TextBlockContent" Property="Background" Value="Red" />
+                                <Setter TargetName="TextBlockIcon" Property="Text" Value="M" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Type}" Value="Busy">
+                                <Setter TargetName="TextBlockContent" Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
   </Border>
 </UserControl>

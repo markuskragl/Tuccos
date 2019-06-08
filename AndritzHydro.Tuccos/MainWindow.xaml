@@ -14,8 +14,8 @@
         Icon="/Images/AndritzLogo2.ico"
         
 
-        Height="600" 
-        Width="900"
+        Height="980" 
+        Width="1500"
         
         MinHeight="600"
         MinWidth="900"
@@ -24,85 +24,71 @@
         
         >
 
-    <!-- The base layout is a grid -->
     <Grid>
-        <!-- Two rows -->
+        <!--Three rows-->
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition />
-            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="150" />
         </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition />
-            <ColumnDefinition Width="180"/>
-        </Grid.ColumnDefinitions>
-
+        <Border Grid.Row="0" Grid.Column="0"  Background="#0075be" />
 
         <!-- The title of the current task-->
         <StackPanel
-            Grid.Column="1"
             Grid.Row="0"
- 
             Orientation="Horizontal"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
+            >
 
-            >
-            <!-- A listbox to select a task -->
+             <!--A listbox to select a task--> 
+            
             <ListBox
-            Grid.Column="1"
-            Grid.Row="0"
+                Grid.Column="0"
+                Grid.Row="0"
             
-            Background="Transparent"
-            BorderThickness="0"
+                Background="Transparent"
+                BorderThickness="0"
             
-            HorizontalAlignment="Right"
+                HorizontalAlignment="Right"
             
-            FontFamily="Segoe UI"
-            FontSize="10pt"
-            Margin="10,10,10,10"
+                FontFamily="Segoe UI"
+                FontSize="10pt"
+                Margin="10,10,10,10"
                 
-            ItemsSource="{Binding Tasks.List}"
-            SelectedItem="{Binding CurrentTask}"
-            
-            >
+                ItemsSource="{Binding Tasks.List}"
+                SelectedItem="{Binding CurrentTask}"
+                >
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel
-                        Orientation="Horizontal"
-                        >
-
-
+                            Orientation="Horizontal"
+                            >
+                            
                             <!-- The icon of the task -->
-
                             <TextBlock
                             Width="27"
                             
                             FontFamily="Wingdings"
                             FontSize="14pt"
-                            
+                            Foreground="White"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             
                             Text="{Binding WingdingsIcon}"
-                            
                             />
 
-
-                            <!-- The text of the task-->
-
+                            <!--The text of the task-->
                             <TextBlock
-                            HorizontalAlignment="Left"
-                            Text="{Binding Title}"
-                            />
-
+                                HorizontalAlignment="Left"
+                                Foreground="White"
+                                Text="{Binding Title}"
+                                />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem 
@@ -112,95 +98,73 @@
                     </ContextMenu>
                 </ListBox.ContextMenu>
             </ListBox>
-
             <Label
-                Margin="100,0,0,0"
+                Foreground="White"
+                Margin="150,0,0,0"
                 Content="{Binding CurrentTask.Title}"
                 VerticalContentAlignment="Center"
-                FontFamily="Segoe UI Light"
-                FontSize="16pt"
+                FontFamily="Gilroy"
+                FontStyle="Normal"
+                FontSize="26pt"
+                FontWeight="Bold"
+                
                 />
 
         </StackPanel>
 
-
-
-
         <!-- To select the language -->
         <StackPanel
-            Grid.Column="2"
+            Grid.Column="0"
             Grid.Row="0"          
             Orientation="Horizontal"
             HorizontalAlignment="Right"
             >
 
-
-
             <Label 
+                Foreground="White"
                 Content="{x:Static p:Strings.Language}"
                 VerticalAlignment="Center"
                 />
 
-            <!-- {Binding} uses the DataContext object -->
+        <!-- {Binding} uses the DataContext object -->
             <ComboBox 
-                
                 ItemsSource="{Binding Context.Language.List}"
                 DisplayMemberPath="Name"
                 SelectedItem="{Binding CurrentLanguage}"
-                
                 Width="120"
                 Height="24"
-                
                 Margin="0,0,5,0"
-                
                 />
-
         </StackPanel>
-
-        <!-- Some background in the second row -->
-        <!--<TextBlock
-            
-            Grid.Row="1"
-            
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            
-            Text="û"
-            FontFamily="Webdings"
-            FontSize="400pt"
-            Foreground="WhiteSmoke" Height="244" Margin="10,26,28,109" Width="754"
-            
-            />-->
 
         <!-- A viewer for the task -->
         <ContentControl
+            
+            Grid.Column="0"
             Grid.Row="1"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
+
+            
             Content="{Binding CurrentViewer}"
             />
 
-        <!-- Task panel in the second row -->
-        <local:TaskPanel 
-            Grid.Row="2"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Loaded="TaskPanel_Loaded"
-            />
-
-        <!-- Tree View is in the left grid cell-->
-
-        <local:ProjectTree
-            Grid.Row="1"
-            Grid.RowSpan="3"
+        <!--<local:ProjectsOverview
             Grid.Column="0"
-         
-            Loaded="ProjectTree_Loaded"
+            Grid.Row="1"   
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Margin="5,5,5,5"
+            />-->       
+
+
+        <local:TaskPanel
+            Grid.Column="0"
+            Grid.Row="2"   
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Bottom"
+
+            Margin="10,5,5,10"
             
-
-         
+            
             />
-
     </Grid>
-
 </Window>

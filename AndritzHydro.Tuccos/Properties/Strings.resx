@@ -186,14 +186,14 @@
   <data name="TaskLotteryTip" xml:space="preserve">
     <value>Lottery Tip</value>
   </data>
-  <data name="TaskProjectCreate" xml:space="preserve">
-    <value>Project Create</value>
-  </data>
   <data name="TaskProjectDelete" xml:space="preserve">
     <value>Project Delete</value>
   </data>
+  <data name="TaskProjectsOverview" xml:space="preserve">
+    <value>Projects Overview</value>
+  </data>
   <data name="TaskProjectViewer" xml:space="preserve">
-    <value>Project Overview</value>
+    <value>Project Viewer</value>
   </data>
   <data name="TicketRowsNumber" xml:space="preserve">
     <value>Number of rows:</value>
