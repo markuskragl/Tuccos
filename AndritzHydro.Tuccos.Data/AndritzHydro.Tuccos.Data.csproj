@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculations\Orifice.cs" />
+    <Compile Include="Calculations.cs" />
     <Compile Include="Controller\ProjectManager.cs" />
     <Compile Include="Controller\ProjectController.cs" />
     <Compile Include="Projects.cs" />

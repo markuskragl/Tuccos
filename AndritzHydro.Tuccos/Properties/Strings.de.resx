@@ -135,14 +135,29 @@
   <data name="CloseWindowsTip" xml:space="preserve">
     <value>Schließt alle offenen Fenster</value>
   </data>
+  <data name="DiameterOilPipe" xml:space="preserve">
+    <value>Durchmesser Ölleitung [mm]</value>
+  </data>
   <data name="DrawDate" xml:space="preserve">
     <value>Datum der Ziehung</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Störung</value>
   </data>
+  <data name="InnerDiameterCylinder" xml:space="preserve">
+    <value>Innendurchmesser Zylinder</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Sprache</value>
+  </data>
+  <data name="LengthOilPipe" xml:space="preserve">
+    <value>Länge Ölleitung [mm]</value>
+  </data>
+  <data name="LossFactorArmouring" xml:space="preserve">
+    <value>Verlustfaktor Armatur [-]</value>
+  </data>
+  <data name="LossValue" xml:space="preserve">
+    <value>Verlustziffer [-]</value>
   </data>
   <data name="LotteryDescription" xml:space="preserve">
     <value>Lotto {0} aus {1}</value>
@@ -159,6 +174,12 @@
   <data name="NewWindowTip" xml:space="preserve">
     <value>Öffnet ein neues Fenster (Strg + N)</value>
   </data>
+  <data name="OrificeDiameter" xml:space="preserve">
+    <value>Durchmesser Blende [mm]</value>
+  </data>
+  <data name="OuterDiameterCylinder" xml:space="preserve">
+    <value>Außendurchmesser Zylinder</value>
+  </data>
   <data name="PartialStrokes" xml:space="preserve">
     <value>Teilhübe</value>
   </data>
@@ -173,6 +194,12 @@
   </data>
   <data name="SetDefaultTask" xml:space="preserve">
     <value>Als Standard festlegen</value>
+  </data>
+  <data name="SingleForce" xml:space="preserve">
+    <value>Einzelkraft [kN]</value>
+  </data>
+  <data name="SingleWorkCapacity" xml:space="preserve">
+    <value>Einzelarbeitsvermögen [kW]</value>
   </data>
   <data name="TaskLog" xml:space="preserve">
     <value>Anwendungsprotokoll</value>
@@ -201,7 +228,10 @@
   <data name="TicketValidUntil" xml:space="preserve">
     <value>Gültig bis:</value>
   </data>
+  <data name="Time" xml:space="preserve">
+    <value>Zeit [s]</value>
+  </data>
   <data name="TotalStroke" xml:space="preserve">
-    <value>Gesamthub</value>
+    <value>Gesamthub [mm]</value>
   </data>
 </root>
