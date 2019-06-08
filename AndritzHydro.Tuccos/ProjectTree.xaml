@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AndritzHydro.Tuccos"
-             xmlns:localtree="clr-namespace:AndritzHydro.Tuccos.ViewModel"
              mc:Ignorable="d" 
              DataContext="{Binding Project}"
              >
@@ -20,7 +19,7 @@
         </Grid.Background>
 
 
-            <!--<TreeView 
+            <TreeView 
                 FontFamily="Gilroy"
                 FontSize="12"
                 ItemsSource="{Binding ProjectListFinal}"
@@ -44,16 +43,16 @@
                 <TreeViewItem Header="Orifice2"/>
                 <TreeViewItem Header="Orifice3"/>
             </TreeViewItem>
-        </TreeView>-->
+        </TreeView>
 
 
-        <TreeView Name="viewsTreeView"  >
+        <!--<TreeView Name="viewsTreeView"  >
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type Demo:Foo}" ItemsSource="{Binding Path=Children}">
                     <TreeViewItem Header="{Binding Path=Name}"  />
                 </HierarchicalDataTemplate>
             </TreeView.Resources>
-        </TreeView>
+        </TreeView>-->
 
     </Grid>
 </UserControl>

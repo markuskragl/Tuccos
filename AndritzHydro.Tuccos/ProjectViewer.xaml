@@ -45,7 +45,7 @@
             Grid.Row="1"
             Margin="20,30,20,20" 
             HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch" 
             />
 
         <GroupBox 
