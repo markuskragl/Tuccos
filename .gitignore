@@ -90,6 +90,9 @@ ipch/
 *.vspx
 *.sap
 
+# Zip-Files
+*.zip
+
 # TFS 2012 Local Workspace
 $tf/
 
@@ -210,7 +213,9 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-
+# SQL Server files
+*.mdf
+*.ldf
 
 # Business Intelligence projects
 *.rdl.data
