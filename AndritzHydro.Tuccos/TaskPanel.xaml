@@ -6,32 +6,15 @@
              xmlns:local="clr-namespace:AndritzHydro.Tuccos"
              xmlns:p="clr-namespace:AndritzHydro.Tuccos.Properties"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             >
     <Grid>
-
-
-
-        <Grid  VerticalAlignment="Bottom" Height="100" >
+        <Grid>
             <local:LogViewer
             HorizontalAlignment="Stretch"
-            Margin="150,5,5,5"
-
+            VerticalAlignment="Stretch"
+            Margin="135,5,5,5"
             Grid.Row="0"
             />
-
-
-        <!-- A viewer for the task -->
-        <!--
-            <ContentControl
-            HorizontalAlignment="Right"
-            Width="720"
-            Grid.Column="0"
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            
-            Content="{Binding CurrentViewer}"
-            />-->
-
 
 
             <!-- LEDs for the state -->
@@ -159,74 +142,8 @@
                     VerticalContentAlignment="Center"
                     Content="{x:Static p:Strings.Error}"
                     />
-
                 </StackPanel>
-
             </StackPanel>
-
-            <!-- A listbox to select a task -->
-            <!--<ListBox
-            Grid.Column="0"
-            Grid.Row="0"
-            
-            Background="Transparent"
-            BorderThickness="0"
-            
-            HorizontalAlignment="Right"
-                
-            FontSize="12pt"
-            
-            ItemsSource="{Binding Tasks.List}"
-            SelectedItem="{Binding CurrentTask}"
-            
-            >-->
-
-            <!--<ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel
-                        Orientation="Horizontal"
-                        >
-
-                            -->
-            <!-- The icon of the task -->
-            <!--
-                            <TextBlock
-                            Width="27"
-                            
-                            FontFamily="Wingdings"
-                            FontSize="14pt"
-                            
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            
-                            Text="{Binding WingdingsIcon}"
-                            
-                            />
-
-                            -->
-            <!-- The text of the task-->
-            <!--
-                            <TextBlock
-                            HorizontalAlignment="Left"
-                            Text="{Binding Title}"
-                            />
-
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>-->
-
-            <!--<ListBox.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem 
-                        Header="{x:Static p:Strings.SetDefaultTask}"
-                        Command="{Binding SetDefaultTask}"
-                        />
-                    </ContextMenu>
-                </ListBox.ContextMenu>-->
-            <!--</ListBox>-->
         </Grid>
-
     </Grid>
-
-
 </UserControl>

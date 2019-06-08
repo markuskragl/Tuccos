@@ -213,14 +213,14 @@
   <data name="TaskLotteryTip" xml:space="preserve">
     <value>Lottotipp</value>
   </data>
-  <data name="TaskProjectCreate" xml:space="preserve">
-    <value>Projekt erstellen</value>
-  </data>
   <data name="TaskProjectDelete" xml:space="preserve">
     <value>Projekt löschen</value>
   </data>
+  <data name="TaskProjectsOverview" xml:space="preserve">
+    <value>Projekteliste Überblick</value>
+  </data>
   <data name="TaskProjectViewer" xml:space="preserve">
-    <value>Projektübersicht</value>
+    <value>Projekt Überblick</value>
   </data>
   <data name="TicketRowsNumber" xml:space="preserve">
     <value>Anzahl der Reihen:</value>

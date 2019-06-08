@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AndritzHydro.Tuccos
 {
     /// <summary>
-    /// Interaktionslogik für ProjectCreate.xaml
+    /// Interaction logic for ProjectViewer.xaml
     /// </summary>
-    public partial class ProjectCreate : UserControl
+    public partial class ProjectsOverview : UserControl
     {
-        public ProjectCreate()
+        public ProjectsOverview()
         {
             InitializeComponent();
         }

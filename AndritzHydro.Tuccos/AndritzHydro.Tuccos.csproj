@@ -84,14 +84,17 @@
     <Compile Include="LogViewer.xaml.cs">
       <DependentUpon>LogViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\EmployeeController.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Model\ProjectController.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskManager.cs" />
     <Compile Include="Orifice.xaml.cs">
       <DependentUpon>Orifice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProjectCreate.xaml.cs">
-      <DependentUpon>ProjectCreate.xaml</DependentUpon>
+    <Compile Include="ProjectViewer.xaml.cs">
+      <DependentUpon>ProjectViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectDelete.xaml.cs">
       <DependentUpon>ProjectDelete.xaml</DependentUpon>
@@ -99,8 +102,8 @@
     <Compile Include="ProjectTree.xaml.cs">
       <DependentUpon>ProjectTree.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProjectViewer.xaml.cs">
-      <DependentUpon>ProjectViewer.xaml</DependentUpon>
+    <Compile Include="ProjectsOverview.xaml.cs">
+      <DependentUpon>ProjectsOverview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Strings.de.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -112,8 +115,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="TaskPanel.xaml.cs">
-      <DependentUpon>TaskPanel.xaml</DependentUpon>
+    <Compile Include="Taskpanel.xaml.cs">
+      <DependentUpon>Taskpanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ProjectManager.cs" />
     <Compile Include="ViewModels\WindowManager.cs" />
@@ -141,7 +144,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProjectCreate.xaml">
+    <Page Include="ProjectViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,11 +156,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProjectViewer.xaml">
+    <Page Include="ProjectsOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TaskPanel.xaml">
+    <Page Include="Taskpanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

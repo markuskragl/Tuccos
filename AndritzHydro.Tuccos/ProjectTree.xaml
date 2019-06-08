@@ -4,44 +4,56 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AndritzHydro.Tuccos"
+             xmlns:localtree="clr-namespace:AndritzHydro.Tuccos.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="200">
+             DataContext="{Binding Project}"
+             >
 
-    <Border BorderBrush="Black" BorderThickness="1.5">
     <Grid >
 
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Grid.Background>
-            <SolidColorBrush Color="FloralWhite"/>
+            <SolidColorBrush Color="White"/>
         </Grid.Background>
 
 
+            <!--<TreeView 
+                FontFamily="Gilroy"
+                FontSize="12"
+                ItemsSource="{Binding ProjectListFinal}"
 
-
-
-            <TreeView 
-                FontFamily="Segoe UI"
-                FontSize="12">
+                >
 
             <TreeView.Background>
-                <SolidColorBrush Color="FloralWhite"/>
+                <SolidColorBrush Color="White"/>
             </TreeView.Background>
-            <TreeViewItem Header="Valve">
+                
+                
+            <TreeViewItem 
+                Header="{Binding Id}"
+                >
                 <TreeViewItem Header="Orifice1"/>
                 <TreeViewItem Header="Orifice2"/>
                 <TreeViewItem Header="Orifice3"/>
             </TreeViewItem>
             <TreeViewItem Header="GuideVane">
-                <TreeViewItem Header="Orifice1"/>
+            <TreeViewItem Header="Orifice1"/>
                 <TreeViewItem Header="Orifice2"/>
                 <TreeViewItem Header="Orifice3"/>
             </TreeViewItem>
+        </TreeView>-->
+
+
+        <TreeView Name="viewsTreeView"  >
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type Demo:Foo}" ItemsSource="{Binding Path=Children}">
+                    <TreeViewItem Header="{Binding Path=Name}"  />
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
         </TreeView>
 
     </Grid>
-    </Border>
 </UserControl>

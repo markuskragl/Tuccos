@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -201,6 +202,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+
+
+
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -292,7 +296,50 @@ namespace AndritzHydro.Tuccos.ViewModels
 
         public int SelectedIndex { get; set; }
 
+
         #endregion ProjectList
+
+        //public void GetEmployeeMethod()
+        //{
+
+        //    var manager = new EmployeeController();
+        //    var manager1 = manager.GetEmployees("Matt Manager");
+        //    manager1.GetEmployees("Matt Manager");
+        //    manager1.Employees.Add(new Employee("Sam"));
+        //    manager1.Employees.Add(new Employee("Ella"));
+
+        //    var manager2 = new Employee("Mel Aboss");
+        //    manager2.Employees.Add(new Employee("Tim"));
+        //    manager2.Employees.Add(new Employee("Tom"));
+
+        //    var manager3 = new Employee("Mark Incharge");
+        //    manager3.Employees.Add(new Employee("Jack"));
+        //    manager3.Employees.Add(new Employee("Jill"));
+
+        //    var manager4 = new Employee("Mike Planner");
+        //    manager4.Employees.Add(new Employee("Rita"));
+        //    manager4.Employees.Add(new Employee("Sue"));
+        //    manager4.Employees.Add(new Employee("Bob"));
+
+        //    var manager5 = new Employee("Matt Manager");
+        //    manager5.Employees.Add(new Employee("Chaz"));
+        //    manager5.Employees.Add(new Employee("Dave"));
+
+        //    var director1 = new Employee("Jim Director");
+        //    director1.Employees.Add(manager1);
+        //    director1.Employees.Add(manager2);
+
+        //    var director2 = new Employee("Pam Dictator");
+        //    director2.Employees.Add(manager3);
+        //    director2.Employees.Add(manager4);
+        //    director2.Employees.Add(manager5);
+
+        //    var md = new Employee("Martin Topboss");
+        //    md.Employees.Add(director1);
+        //    md.Employees.Add(director2);
+
+        //    var pa = new Employee("Petra Peeyaa");
+        //}
     }
 }
 

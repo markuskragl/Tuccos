@@ -115,15 +115,6 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Diameter Oil Pipe [mm].
-        /// </summary>
-        public static string DiameterOilPipe {
-            get {
-                return ResourceManager.GetString("DiameterOilPipe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Date of the draw.
         /// </summary>
         public static string DrawDate {
@@ -142,47 +133,11 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inner Diamter Cylinder [mm].
-        /// </summary>
-        public static string InnerDiamterCylinder {
-            get {
-                return ResourceManager.GetString("InnerDiamterCylinder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Length Oil Pipe [mm].
-        /// </summary>
-        public static string LengthOilPipe {
-            get {
-                return ResourceManager.GetString("LengthOilPipe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Loss Factor Armouring [-].
-        /// </summary>
-        public static string LossFactorArmouring {
-            get {
-                return ResourceManager.GetString("LossFactorArmouring", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Loss Value [-].
-        /// </summary>
-        public static string LossValue {
-            get {
-                return ResourceManager.GetString("LossValue", resourceCulture);
             }
         }
         
@@ -232,24 +187,6 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orifice Diameter [mm].
-        /// </summary>
-        public static string OrificeDiameter {
-            get {
-                return ResourceManager.GetString("OrificeDiameter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Outer Diameter Cylinder [mm].
-        /// </summary>
-        public static string OuterDiameterCylinder {
-            get {
-                return ResourceManager.GetString("OuterDiameterCylinder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Partial Strokes.
         /// </summary>
         public static string PartialStrokes {
@@ -295,24 +232,6 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Single Force [kN].
-        /// </summary>
-        public static string SingleForce {
-            get {
-                return ResourceManager.GetString("SingleForce", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Single Work Capacity [kW].
-        /// </summary>
-        public static string SingleWorkCapacity {
-            get {
-                return ResourceManager.GetString("SingleWorkCapacity", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Application Log.
         /// </summary>
         public static string TaskLog {
@@ -349,15 +268,6 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Project Create.
-        /// </summary>
-        public static string TaskProjectCreate {
-            get {
-                return ResourceManager.GetString("TaskProjectCreate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Project Delete.
         /// </summary>
         public static string TaskProjectDelete {
@@ -367,7 +277,16 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Project Overview.
+        ///   Looks up a localized string similar to Projects Overview.
+        /// </summary>
+        public static string TaskProjectsOverview {
+            get {
+                return ResourceManager.GetString("TaskProjectsOverview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project Viewer.
         /// </summary>
         public static string TaskProjectViewer {
             get {
@@ -394,16 +313,7 @@ namespace AndritzHydro.Tuccos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time [s].
-        /// </summary>
-        public static string Time {
-            get {
-                return ResourceManager.GetString("Time", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total Stroke [mm].
+        ///   Looks up a localized string similar to Total Stroke.
         /// </summary>
         public static string TotalStroke {
             get {

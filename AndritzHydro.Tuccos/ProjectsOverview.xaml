@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="AndritzHydro.Tuccos.ProjectsOverview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AndritzHydro.Tuccos"
+             xmlns:p="clr-namespace:AndritzHydro.Tuccos.Properties"
+             xmlns:vm="clr-namespace:AndritzHydro.Tuccos.ViewModels"
+             mc:Ignorable="d" 
+             Height="680"
+             DataContext="{Binding Project}"
+             >
+
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Grid.Column="0"
+            VerticalAlignment="Bottom"
+            Margin="0,0,0,20"    
+            >
+            <Button  Content="New Project" HorizontalAlignment="Left" Margin="20,200,0,0" Width="125" Height="30"  VerticalAlignment="Top"/>
+            <Button Content="Save Project" Command="{Binding SaveProject}" HorizontalAlignment="Right" Margin="0,-30,20,0" Width="125" Height="30"  VerticalAlignment="Top"/>
+            <Button Content="Delete Project" Command="{Binding DeleteProject}" HorizontalAlignment="Left" Margin="20,10,0,0" Width="125" Height="30"  VerticalAlignment="Top"/>
+            <Button Content="Update Project" HorizontalAlignment="Right" Margin="0,-30,20,0" Width="125" Height="30"  VerticalAlignment="Top"/>
+            <!--<Label Content="Project Information" HorizontalAlignment="Left" Margin="447,9,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#003A70" FontFamily="Arial" FontSize="34" FontWeight="Bold" Width="642" Height="55"/>-->  
+        </StackPanel>
+
+        <GroupBox
+            Grid.Column="1"
+            Header="Project List" 
+            Margin="5,5,10,5" 
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Bottom"
+            />
+        <ListView 
+            Grid.Column="1"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Bottom"
+            Margin="20,30,30,20" 
+ 
+            ItemsSource="{Binding ProjectListFinal}"
+            SelectedItem="{Binding SelectedProject, Mode=TwoWay}"
+            x:Name="ProjectInfoListView">
+            <!--<ListView.ContextMenu>
+                <ContextMenu x:Name="lstProjectInfo" StaysOpen="True" Background="WhiteSmoke">
+                    <ContextMenu.BitmapEffect>
+                        <BitmapEffectGroup/>
+                    </ContextMenu.BitmapEffect>
+                    <MenuItem Header="Edit" x:Name="EditProgramContexMenu"/>
+                    <MenuItem Header="Rmove" x:Name="RemoveProgramContexMenu"/>
+                </ContextMenu>
+            </ListView.ContextMenu>-->
+            <ListView.View>
+                <GridView  AllowsColumnReorder="True">
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" Width="260"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="260"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Year}" Header="Year" Width="280"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Search Project :" HorizontalAlignment="Left" Margin="396,101,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtProjectSearch"  Height="23" Margin="514,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <GroupBox 
+            Header="Project Information" 
+            Margin="10,5,10,5" 
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Bottom"
+            >
+            <Grid HorizontalAlignment="Left" Height="514" Margin="0,0,-2,0" VerticalAlignment="Top" Width="353">
+                <Label Content="Project Id :" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Height="26" Width="102" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS"/>
+                <TextBox x:Name="txtProjectId" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Margin="147,6,0,0" />
+                <Label Content="Project Name :"  HorizontalAlignment="Left" Margin="6,34,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="116"/>
+                <TextBox x:Name="txtProjectName" Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" AcceptsReturn="True"/>
+                <Label Content="Project Year :" HorizontalAlignment="Left" Margin="6,68,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="97"/>
+                <TextBox x:Name="txtProjectYear" Text="{Binding ProjectYear, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="147,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</UserControl>
