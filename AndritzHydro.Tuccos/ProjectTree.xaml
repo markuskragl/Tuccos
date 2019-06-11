@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AndritzHydro.Tuccos"
+
              mc:Ignorable="d" 
-             DataContext="{Binding Project}"
+         
              >
 
     <Grid >
@@ -18,32 +18,6 @@
             <SolidColorBrush Color="White"/>
         </Grid.Background>
 
-
-            <TreeView 
-                FontFamily="Gilroy"
-                FontSize="12"
-                ItemsSource="{Binding ProjectListFinal}"
-
-                >
-
-            <TreeView.Background>
-                <SolidColorBrush Color="White"/>
-            </TreeView.Background>
-                
-                
-            <TreeViewItem 
-                Header="{Binding Id}"
-                >
-                <TreeViewItem Header="Orifice1"/>
-                <TreeViewItem Header="Orifice2"/>
-                <TreeViewItem Header="Orifice3"/>
-            </TreeViewItem>
-            <TreeViewItem Header="GuideVane">
-            <TreeViewItem Header="Orifice1"/>
-                <TreeViewItem Header="Orifice2"/>
-                <TreeViewItem Header="Orifice3"/>
-            </TreeViewItem>
-        </TreeView>
 
 
         <!--<TreeView Name="viewsTreeView"  >

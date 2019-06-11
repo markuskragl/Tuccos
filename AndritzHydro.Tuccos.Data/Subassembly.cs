@@ -7,28 +7,75 @@ using System.Threading.Tasks;
 namespace AndritzHydro.Tuccos.Data
 
 {
+
     /// <summary>
-    /// Provides the data for the subassembly
+    /// Provides a list of SubAssemblies.
     /// </summary>
-    public class Subassembly : Project
+    public class SubAssemblies : System.Collections.Generic.List<SubAssembly>
     {
-        private string _Type = null;
+
+    }
+    /// <summary>
+    /// Provides the number of the subassembly
+    /// </summary>
+    public class SubAssembly : Project
+    {
+
+        /// <summary>
+        /// Provides a list of projects.
+        /// </summary>
+        public class Projects : System.Collections.Generic.List<SubAssembly>
+        {
+
+        }
+
+        /// <summary>
+        /// Internal field for the property
+        /// </summary>
+        private int? _SubAssemblyId= null;
 
         /// <summary>
         /// Gets or sets the type of the subassembly
         /// </summary>
-        public string Type
+        public int? SubAssemblyId
         {
             get
             {
-                return this._Type;
+                return this._SubAssemblyId;
             }
 
             set
             {
-                this._Type = value;
+                this._SubAssemblyId = value;
             }
         }
+
+
+
+        /// <summary>
+        /// Internal field for the property
+        /// </summary>
+        private string _SubAssemblyName = null;
+        /// <summary>
+        /// Gets or sets the name of a subassembly
+        /// </summary>
+        public string SubAssemblyName
+        {
+            get
+            {
+                return this._SubAssemblyName;
+            }
+
+            set
+            {
+                this._SubAssemblyName = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Internal field for the property
+        /// </summary>
         private int? _RngNr = null;
 
         /// <summary>
@@ -47,40 +94,25 @@ namespace AndritzHydro.Tuccos.Data
             }
         }
 
-        private string _Project = null;
-        /// <summary>
-        /// Gets or sets the project which the subassembly belongs to
-        /// </summary>
-        public string Project
-        {
-            get
-            {
-                return this._Project;
-            }
 
-            set
-            {
-                this._Project = value;
-            }
-        }
 
-        private System.Collections.Generic.List<object> _Calculations = new List<object>();
+        //private System.Collections.Generic.List<object> _Calculations = new List<object>();
 
-        /// <summary>
-        /// Gets or sets a list of calculations belonging to the subassembly
-        /// </summary>
-        public List<object> Calculations
-        {
-            get
-            {
+        ///// <summary>
+        ///// Gets or sets a list of calculations belonging to the subassembly
+        ///// </summary>
+        //public List<object> Calculations
+        //{
+        //    get
+        //    {
             
-                return this._Calculations;
-            }
+        //        return this._Calculations;
+        //    }
 
-            set
-            {
-                this._Calculations = value;
-            }
-        }
+        //    set
+        //    {
+        //        this._Calculations = value;
+        //    }
+        //}
     }
 }

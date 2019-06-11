@@ -44,10 +44,12 @@
     <Compile Include="Calculations.cs" />
     <Compile Include="Controller\ProjectManager.cs" />
     <Compile Include="Controller\ProjectController.cs" />
+    <Compile Include="Controller\SubAssemblyController.cs" />
+    <Compile Include="Controller\SubAssemblyManager.cs" />
     <Compile Include="Projects.cs" />
     <Compile Include="Countries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Subassembly.cs" />
+    <Compile Include="SubAssembly.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AndritzHydro.Core.Data\AndritzHydro.Core.Data.csproj">

@@ -20,10 +20,6 @@ namespace andritzhydro.web
         /// </summary>
         private const string AppContextCache = "AppContext";
 
-        /// <summary>
-        /// Gets the name of the cache used for the manager providing the lottery game.
-        /// </summary>
-        private const string ManagerCache = "ProjectManager";
 
         /// <summary>
         /// Gets the infrastructure of the web service application.
@@ -67,19 +63,36 @@ namespace andritzhydro.web
         }
 
         /// <summary>
-        /// Gets the object providing the lottery game.
+        /// Writes an used entry to the log.
         /// </summary>
-        protected AndritzHydro.Tuccos.Data.Controller.ProjectManager Manager
+        /// <param name="caller">Default the calling member</param>
+        protected void WriteLogEntry([System.Runtime.CompilerServices.CallerMemberName]string caller = "")
+        {
+            this.AppContext.Log.WriteEntry($"{caller} used from {this.Context.Request.UserHostAddress}...");
+        }
+
+
+#region Project
+
+        /// <summary>
+        /// Gets the name of the cache used for the manager providing the lottery game.
+        /// </summary>
+        private const string ProjectManagerCache = "ProjectManager";
+
+        /// <summary>
+        /// Gets the object providing the projects.
+        /// </summary>
+        protected AndritzHydro.Tuccos.Data.Controller.ProjectManager ProjectManager
         {
             get
             {
-                var manager = this.Application[ProjectsView.ManagerCache] as AndritzHydro.Tuccos.Data.Controller.ProjectManager;
+                var manager = this.Application[ProjectsView.ProjectManagerCache] as AndritzHydro.Tuccos.Data.Controller.ProjectManager;
 
                 if (manager == null)
                 {
                     manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.ProjectManager>();
 
-                    this.Application[ProjectsView.ManagerCache] = manager;
+                    this.Application[ProjectsView.ProjectManagerCache] = manager;
                     this.AppContext.Log.WriteEntry($"{manager} has been cached...");
                 }
 
@@ -95,13 +108,13 @@ namespace andritzhydro.web
         public Countries GetCountries(string language)
         {
             this.WriteLogEntry();
-            return this.Manager.GetCountries(language);
+            return this.ProjectManager.GetCountries(language);
         }
 
         public Projects GetProjectList()
         {
             this.WriteLogEntry();
-            return this.Manager.GetProjectList();
+            return this.ProjectManager.GetProjectList();
         }
 
         /// <summary>
@@ -111,7 +124,7 @@ namespace andritzhydro.web
         public void SaveProject(Project project)
         {
             this.WriteLogEntry();
-            this.Manager.SaveProject(project);
+            this.ProjectManager.SaveProject(project);
         }
 
         /// <summary>
@@ -121,17 +134,49 @@ namespace andritzhydro.web
         public void DeleteProject(Project project)
         {
             this.WriteLogEntry();
-            this.Manager.DeleteProject(project);
+            this.ProjectManager.DeleteProject(project);
         }
+#endregion Project
+
+
+#region SubAssembly
+        /// <summary>
+        /// Gets the name of the cache used for the manager providing the lottery game.
+        /// </summary>
+        private const string SubAssemblyManagerCache = "SubAssemblyManager";
+
 
         /// <summary>
-        /// Writes an used entry to the log.
+        /// Gets the object providing the projects.
         /// </summary>
-        /// <param name="caller">Default the calling member</param>
-        protected void WriteLogEntry([System.Runtime.CompilerServices.CallerMemberName]string caller = "")
+        protected AndritzHydro.Tuccos.Data.Controller.SubAssemblyManager SubAssemblyManager
         {
-            this.AppContext.Log.WriteEntry($"{caller} used from {this.Context.Request.UserHostAddress}...");
+            get
+            {
+                var manager = this.Application[ProjectsView.SubAssemblyManagerCache] as AndritzHydro.Tuccos.Data.Controller.SubAssemblyManager;
+
+                if (manager == null)
+                {
+                    manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.SubAssemblyManager>();
+
+                    this.Application[ProjectsView.SubAssemblyManagerCache] = manager;
+                    this.AppContext.Log.WriteEntry($"{manager} has been cached...");
+                }
+
+                return manager;
+            }
         }
+
+
+        public SubAssemblies GetSubAssemblies()
+        {
+            this.WriteLogEntry();
+            return this.SubAssemblyManager.GetSubAssemblies();
+        }
+
+#endregion SubAssembly
+
+
 
     }
 }
