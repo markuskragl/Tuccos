@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProjectsView" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" />
+      <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProject_GetCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetProjectList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectList" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetProjectList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_SaveProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProject" />
+  </wsdl:message>
+  <wsdl:message name="IProject_SaveProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_DeleteProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProject" />
+  </wsdl:message>
+  <wsdl:message name="IProject_DeleteProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetSubAssemblies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubAssemblies" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetSubAssemblies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubAssembliesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProject">
+    <wsdl:operation name="GetCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetCountries" message="tns:IProject_GetCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetCountriesResponse" message="tns:IProject_GetCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetProjectList" message="tns:IProject_GetProjectList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetProjectListResponse" message="tns:IProject_GetProjectList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/SaveProject" message="tns:IProject_SaveProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/SaveProjectResponse" message="tns:IProject_SaveProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/DeleteProject" message="tns:IProject_DeleteProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/DeleteProjectResponse" message="tns:IProject_DeleteProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubAssemblies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetSubAssemblies" message="tns:IProject_GetSubAssemblies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetSubAssembliesResponse" message="tns:IProject_GetSubAssemblies_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProject" type="tns:IProject">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectList">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetProjectList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProject">
+      <soap:operation soapAction="http://tempuri.org/IProject/SaveProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProject">
+      <soap:operation soapAction="http://tempuri.org/IProject/DeleteProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubAssemblies">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetSubAssemblies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProjectsView">
+    <wsdl:port name="BasicHttpBinding_IProject" binding="tns:BasicHttpBinding_IProject">
+      <soap:address location="http://localhost:50603/project.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

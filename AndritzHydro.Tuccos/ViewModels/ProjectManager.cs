@@ -25,8 +25,8 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <returns></returns>
         public Country[] GetCountriesMethod()
         {
-            var VM = new Model.ProjectController();
-            return VM.GetCountries();
+            var VM = new Model.ProjectClient();
+            return VM.GetCountries("AT");
         }
 
         /// <summary>
@@ -54,13 +54,13 @@ namespace AndritzHydro.Tuccos.ViewModels
         #region ProjectList
 
         /// <summary>
-        /// Provides the country lsit
+        /// Provides the project list
         /// </summary>
         /// <returns></returns>
         public Project[] GetProjectListMethod()
         {
-            var VM = new Model.ProjectController();
-            return VM.GetProjectsList();
+            var VM = new Model.ProjectClient();
+            return VM.GetProjectList();
         }
 
         /// <summary>
@@ -86,20 +86,20 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private localhost.IProject _Controller = null;
+        private Model.IProject _Controller = null;
 
         /// <summary>
         /// Gets the object working with the lottery methods.
         /// </summary>
         /// <remarks>Either the web service or the local assembly
         /// controlled by the "UseWebService" app setting.</remarks>
-        private localhost.IProject Controller
+        private Model.IProject Controller
         {
             get
             {
                 if (this._Controller == null)
                 {
-                    this._Controller = new localhost.ProjectClient();
+                    this._Controller = new Model.ProjectClient();
                     this.Context.Log.WriteEntry(
                         $"{this._Controller} is opened...",
                         Core.Data.LogEntryType.NewObject);
@@ -197,7 +197,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             if (this._Controller != null)
             {
                 this.Context.Log.WriteEntry($"{this._Controller} is closed.");
-                ((AndritzHydro.Tuccos.localhost.ProjectClient)this._Controller).Close();
+                ((AndritzHydro.Tuccos.Model.ProjectClient)this._Controller).Close();
                 this._Controller = null;
             }
         }
@@ -230,8 +230,11 @@ namespace AndritzHydro.Tuccos.ViewModels
                             this.Controller.SaveProject(new Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
 
                             this.CloseController();
-                            
+
+                            OnPropertyChanged("ProjectListFinal");
+
                             this.Owner.SetBusyOff();
+
                         });
 
                     this.Owner.SetBusyOff();
@@ -299,47 +302,6 @@ namespace AndritzHydro.Tuccos.ViewModels
 
         #endregion ProjectList
 
-        //public void GetEmployeeMethod()
-        //{
-
-        //    var manager = new EmployeeController();
-        //    var manager1 = manager.GetEmployees("Matt Manager");
-        //    manager1.GetEmployees("Matt Manager");
-        //    manager1.Employees.Add(new Employee("Sam"));
-        //    manager1.Employees.Add(new Employee("Ella"));
-
-        //    var manager2 = new Employee("Mel Aboss");
-        //    manager2.Employees.Add(new Employee("Tim"));
-        //    manager2.Employees.Add(new Employee("Tom"));
-
-        //    var manager3 = new Employee("Mark Incharge");
-        //    manager3.Employees.Add(new Employee("Jack"));
-        //    manager3.Employees.Add(new Employee("Jill"));
-
-        //    var manager4 = new Employee("Mike Planner");
-        //    manager4.Employees.Add(new Employee("Rita"));
-        //    manager4.Employees.Add(new Employee("Sue"));
-        //    manager4.Employees.Add(new Employee("Bob"));
-
-        //    var manager5 = new Employee("Matt Manager");
-        //    manager5.Employees.Add(new Employee("Chaz"));
-        //    manager5.Employees.Add(new Employee("Dave"));
-
-        //    var director1 = new Employee("Jim Director");
-        //    director1.Employees.Add(manager1);
-        //    director1.Employees.Add(manager2);
-
-        //    var director2 = new Employee("Pam Dictator");
-        //    director2.Employees.Add(manager3);
-        //    director2.Employees.Add(manager4);
-        //    director2.Employees.Add(manager5);
-
-        //    var md = new Employee("Martin Topboss");
-        //    md.Employees.Add(director1);
-        //    md.Employees.Add(director2);
-
-        //    var pa = new Employee("Petra Peeyaa");
-        //}
     }
 }
 

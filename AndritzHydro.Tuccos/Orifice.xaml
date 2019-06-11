@@ -101,7 +101,7 @@
                                     <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
-                            <GridViewColumn Header="{x:Static p:Strings.SingleForce}"  Width="{StaticResource ColumnWidth}" />
+                            <GridViewColumn Header="{x:Static p:Strings.PartialStrokes}"  Width="{StaticResource ColumnWidth}" />
 
                     </GridView>
 
@@ -122,7 +122,7 @@
                                     <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
-                            <GridViewColumn Header="{x:Static p:Strings.SingleWorkCapacity }"  Width="{StaticResource ColumnWidth}" />
+                            <GridViewColumn Header="{x:Static p:Strings.PartialStrokes }"  Width="{StaticResource ColumnWidth}" />
 
                     </GridView>
 
@@ -147,7 +147,7 @@
                 <ListView Margin="{StaticResource MarginListBoxes}" Height="150" Width="{StaticResource ColumnWidth}">
                     <ListView.View >
                         <GridView>
-                            <GridViewColumn Header="{x:Static p:Strings.LossFactorArmouring}" Width="{StaticResource ColumnWidth}" />
+                            <GridViewColumn Header="{x:Static p:Strings.PartialStrokes}" Width="{StaticResource ColumnWidth}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -168,7 +168,7 @@
                     Margin="{StaticResource MarginInput}" 
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
-                    <TextBlock Text="{x:Static p:Strings.OuterDiameterCylinder}"/>
+                    <TextBlock Text="{x:Static p:Strings.PartialStrokes}"/>
                     <TextBox />
                 </StackPanel>
 
@@ -176,7 +176,7 @@
                     Margin="{StaticResource MarginInput}"
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
-                    <TextBlock Text="{x:Static p:Strings.InnerDiamterCylinder}"/>
+                    <TextBlock Text="{x:Static p:Strings.PartialStrokes}"/>
                     <TextBox />
                 </StackPanel>
 
@@ -193,7 +193,7 @@
                     Margin="{StaticResource MarginInput}" 
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
-                    <TextBlock Text="{x:Static p:Strings.LossValue}"/>
+                    <TextBlock Text="{x:Static p:Strings.PartialStrokes}"/>
                     <TextBox />
                 </StackPanel>
 
@@ -201,7 +201,7 @@
                     Margin="{StaticResource MarginInput}"
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
-                    <TextBlock Text="{x:Static p:Strings.LengthOilPipe}"/>
+                    <TextBlock Text="{x:Static p:Strings.PartialStrokes}"/>
                     <TextBox />
                 </StackPanel>
 
@@ -209,7 +209,7 @@
                     Margin="{StaticResource MarginInput}"
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
-                    <TextBlock Text="{x:Static p:Strings.DiameterOilPipe}"/>
+                    <TextBlock Text="{x:Static p:Strings.PartialStrokes}"/>
                     <TextBox />
                 </StackPanel>
 
@@ -231,7 +231,7 @@
                     Margin="{StaticResource MarginInput}" 
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
-                <TextBlock Text="{x:Static p:Strings.Time}"/>
+                <TextBlock Text="{x:Static p:Strings.PartialStrokes}"/>
                 <TextBox Background="Lavender"/>
             </StackPanel>
 
@@ -239,7 +239,7 @@
                     Margin="{StaticResource MarginInput}" 
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
-                <TextBlock Text="{x:Static p:Strings.OrificeDiameter}"/>
+                <TextBlock Text="{x:Static p:Strings.PartialStrokes}"/>
                 <TextBox Background="Lavender" />
             </StackPanel>
         </StackPanel>

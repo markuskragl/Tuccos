@@ -73,7 +73,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\localhost\Reference.cs">
+    <Compile Include="Connected Services\Model\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -84,23 +84,19 @@
     <Compile Include="LogViewer.xaml.cs">
       <DependentUpon>LogViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Employee.cs" />
-    <Compile Include="Model\EmployeeController.cs" />
-    <Compile Include="Model\Person.cs" />
-    <Compile Include="Model\ProjectController.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskManager.cs" />
     <Compile Include="Orifice.xaml.cs">
       <DependentUpon>Orifice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTree.xaml.cs">
+      <DependentUpon>ProjectTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectViewer.xaml.cs">
       <DependentUpon>ProjectViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectDelete.xaml.cs">
       <DependentUpon>ProjectDelete.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectTree.xaml.cs">
-      <DependentUpon>ProjectTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectsOverview.xaml.cs">
       <DependentUpon>ProjectsOverview.xaml</DependentUpon>
@@ -144,15 +140,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProjectTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
     <Page Include="ProjectViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProjectDelete.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ProjectTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,22 +189,32 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Connected Services\localhost\project.xsd">
+    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Country.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Project.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.SubAssembly.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Model\project.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\localhost\project1.xsd">
+    <None Include="Connected Services\Model\project1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\localhost\project2.xsd">
+    <None Include="Connected Services\Model\project2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\localhost\project3.xsd">
+    <None Include="Connected Services\Model\project3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\localhost\ProjectsView.wsdl" />
+    <None Include="Connected Services\Model\ProjectsView.wsdl" />
     <None Include="MVVM.cd" />
     <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Country.datasource" />
     <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Project.datasource" />
+    <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.SubAssembly.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -225,10 +231,6 @@
     <ProjectReference Include="..\AndritzHydro.Core\AndritzHydro.Core.csproj">
       <Project>{022f3a3c-76b4-4cc2-873b-11d3127cdf1d}</Project>
       <Name>AndritzHydro.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AndritzHydro.Tuccos.Data\AndritzHydro.Tuccos.Data.csproj">
-      <Project>{11447cee-ce23-4bb9-ac7d-7ee5f9b210bc}</Project>
-      <Name>AndritzHydro.Tuccos.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -253,19 +255,19 @@
     <Resource Include="Images\AndritzLogo2.ico" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\localhost\" />
+    <WCFMetadataStorage Include="Connected Services\Model\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\localhost\project.disco" />
+    <None Include="Connected Services\Model\project.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\localhost\configuration91.svcinfo" />
+    <None Include="Connected Services\Model\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\localhost\configuration.svcinfo" />
+    <None Include="Connected Services\Model\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\localhost\Reference.svcmap">
+    <None Include="Connected Services\Model\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

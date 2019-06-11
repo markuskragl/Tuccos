@@ -49,6 +49,7 @@ namespace AndritzHydro.Tuccos.Model
             {
                 projects.Add(c.CopyTo<Project>());
             }
+            Project[] _projects = projects.ToArray();
             return projects.ToArray();
         }
     }

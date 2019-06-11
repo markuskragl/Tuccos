@@ -36,8 +36,15 @@ namespace andritzhydro.web
         /// <summary>
         /// Delete a project from the database.
         /// </summary>
-        /// <param name="ticket">The project which should be saved.</param>
+        /// <param name="project">The project which should be deleted.</param>
         [OperationContract]
         void DeleteProject(AndritzHydro.Tuccos.Data.Project project);
+
+        /// <summary>
+        /// Returns all SubAssemlies
+        /// </summary>
+        [OperationContract]
+        AndritzHydro.Tuccos.Data.SubAssemblies GetSubAssemblies();
+
     }
 }
