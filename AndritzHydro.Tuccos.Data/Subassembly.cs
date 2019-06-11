@@ -96,23 +96,23 @@ namespace AndritzHydro.Tuccos.Data
 
 
 
-        //private System.Collections.Generic.List<object> _Calculations = new List<object>();
+        private System.Collections.Generic.List<object> _Calculations = new List<object>();
 
-        ///// <summary>
-        ///// Gets or sets a list of calculations belonging to the subassembly
-        ///// </summary>
-        //public List<object> Calculations
-        //{
-        //    get
-        //    {
-            
-        //        return this._Calculations;
-        //    }
+        /// <summary>
+        /// Gets or sets a list of calculations belonging to the subassembly
+        /// </summary>
+        public List<object> Calculations
+        {
+            get
+            {
 
-        //    set
-        //    {
-        //        this._Calculations = value;
-        //    }
-        //}
+                return this._Calculations;
+            }
+
+            set
+            {
+                this._Calculations = value;
+            }
+        }
     }
 }
