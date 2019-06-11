@@ -90,7 +90,7 @@
     <Compile Include="Model\ProjectController.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskManager.cs" />
-    <Compile Include="Orifice.xaml.cs">
+    <Compile Include="CalculationViews\Orifice.xaml.cs">
       <DependentUpon>Orifice.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectViewer.xaml.cs">
@@ -140,7 +140,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Orifice.xaml">
+    <Page Include="CalculationViews\Orifice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
