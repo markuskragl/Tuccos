@@ -23,11 +23,27 @@
             Grid.Row="0"
             Grid.Column="0"
             Height="30"
+            Width="200"
+            HorizontalAlignment="Left"
             Margin="5,5,5,5"
             
             ItemsSource="{Binding ProjectListFinal}"
             SelectedItem="{Binding SelectedPerson}"
             DisplayMemberPath="Id"
+            >
+        </ComboBox>
+
+        <ComboBox
+            Grid.Row="0"
+            Grid.Column="1"
+            Height="30"
+            Width="200"
+            HorizontalAlignment="Left"
+            Margin="20,5,5,5"
+            
+            ItemsSource="{Binding SubAssemblies}"
+            SelectedItem="{Binding SelectedPerson}"
+            DisplayMemberPath="SubAssemblyName"
             >
         </ComboBox>
 

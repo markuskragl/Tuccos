@@ -82,6 +82,35 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+        /// <summary>
+        /// Provides the SubAssembly list
+        /// </summary>
+        /// <returns></returns>
+        public Project[] GetSubAssembliesMethod()
+        {
+            var VM = new Model.ProjectClient();
+            return VM.GetSubAssemblies();
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private Project[] _SubAssemblies;
+
+
+        /// <summary>
+        /// Gets the supported projects.
+        /// </summary>
+        /// <remarks>The countries are cached.</remarks>
+        public Project[] SubAssemblies
+        {
+            get
+            {
+                this._SubAssemblies = this.GetSubAssembliesMethod();
+                return this._SubAssemblies;
+            }
+        }
+
 
         /// <summary>
         /// Internal field for the property.
@@ -227,7 +256,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                         {
                             this.Owner.SetBusyOn();
 
-                            this.Controller.SaveProject(new Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
+                            this.Controller.SaveProject(new  Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
 
                             this.CloseController();
 
@@ -269,6 +298,8 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                             this.Controller.DeleteProject(SelectedProject);
                             this.CloseController();
+
+                            OnPropertyChanged("ProjectListFinal");
 
                             this.Owner.SetBusyOff();
                         });

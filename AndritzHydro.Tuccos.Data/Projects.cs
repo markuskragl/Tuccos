@@ -18,6 +18,7 @@ namespace AndritzHydro.Tuccos.Data
     /// <summary>
     /// Provides the project infomation
     /// </summary>
+    //[System.Runtime.Serialization.DataContract]
     public class Project : INotifyPropertyChanged
     {
 
@@ -29,7 +30,7 @@ namespace AndritzHydro.Tuccos.Data
         /// <summary>
         /// Gets or set the Id code of the project.
         /// </summary>
-        public string _Id;
+        private string _Id;
         public string Id
         {
             get
@@ -51,7 +52,7 @@ namespace AndritzHydro.Tuccos.Data
         /// <summary>
         /// Gets or sets the readable name of the project.
         /// </summary>
-        public string _Name;
+        private string _Name;
         public string Name
         {
             get
@@ -69,9 +70,9 @@ namespace AndritzHydro.Tuccos.Data
         }
 
         /// <summary>
-        /// Gets or sets the highest lottery number in this Year.
+        /// Gets or sets the highest project number in this Year.
         /// </summary>
-        public int _Year;
+        private int _Year;
         public int Year
         {
             get
@@ -89,21 +90,21 @@ namespace AndritzHydro.Tuccos.Data
         }
 
 
-        private System.Collections.Generic.List<object> _Subassembly = new List<object>();
+        //private System.Collections.Generic.List<object> _Subassembly = new List<object>();
 
-        public List<object> Subassembly
-        {
-            get
-            {
-                _Subassembly.Add("Valve 1");
-                _Subassembly.Add("GVM 2");
-                return this._Subassembly;
-            }
+        //public List<object> Subassembly
+        //{
+        //    get
+        //    {
+        //        _Subassembly.Add("Valve 1");
+        //        _Subassembly.Add("GVM 2");
+        //        return this._Subassembly;
+        //    }
 
-            set
-            {
-                this._Subassembly = value;
-            }
-        }
+        //    set
+        //    {
+        //        this._Subassembly = value;
+        //    }
+        //}
     }
 }

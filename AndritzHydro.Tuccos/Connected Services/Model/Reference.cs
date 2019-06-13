@@ -111,11 +111,6 @@ namespace AndritzHydro.Tuccos.Model {
     [System.Runtime.Serialization.DataContractAttribute(Name="Project", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.SubAssembly))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.Country[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.Country))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.Project[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.SubAssembly[]))]
     public partial class Project : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -128,19 +123,7 @@ namespace AndritzHydro.Tuccos.Model {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private object[] SubassemblyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int YearField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int _YearField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -179,19 +162,6 @@ namespace AndritzHydro.Tuccos.Model {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public object[] Subassembly {
-            get {
-                return this.SubassemblyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SubassemblyField, value) != true)) {
-                    this.SubassemblyField = value;
-                    this.RaisePropertyChanged("Subassembly");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Year {
             get {
                 return this.YearField;
@@ -200,45 +170,6 @@ namespace AndritzHydro.Tuccos.Model {
                 if ((this.YearField.Equals(value) != true)) {
                     this.YearField = value;
                     this.RaisePropertyChanged("Year");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _Id {
-            get {
-                return this._IdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._IdField, value) != true)) {
-                    this._IdField = value;
-                    this.RaisePropertyChanged("_Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _Name {
-            get {
-                return this._NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._NameField, value) != true)) {
-                    this._NameField = value;
-                    this.RaisePropertyChanged("_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int _Year {
-            get {
-                return this._YearField;
-            }
-            set {
-                if ((this._YearField.Equals(value) != true)) {
-                    this._YearField = value;
-                    this.RaisePropertyChanged("_Year");
                 }
             }
         }

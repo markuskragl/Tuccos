@@ -21,13 +21,6 @@ namespace AndritzHydro.Tuccos.Data
     public class SubAssembly : Project
     {
 
-        /// <summary>
-        /// Provides a list of projects.
-        /// </summary>
-        public class Projects : System.Collections.Generic.List<SubAssembly>
-        {
-
-        }
 
         /// <summary>
         /// Internal field for the property
