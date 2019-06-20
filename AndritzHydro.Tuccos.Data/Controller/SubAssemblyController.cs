@@ -42,7 +42,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
                             {
                                 SubAssemblyId = (int)reader["SubAssemblyId"],
                                 SubAssemblyName = reader["SubAssemblyName"].ToString(),
-                                RngNr = (int)reader["RngNr"]
+                                SubAssemblyRngNr = (int)reader["SubAssemblyRngNr"]
                             });
                         }
                     }

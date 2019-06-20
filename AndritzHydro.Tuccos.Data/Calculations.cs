@@ -9,42 +9,124 @@ namespace AndritzHydro.Tuccos.Data
 
 
 {
+
+    /// <summary>
+    /// Provides a class for the parameter
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class Parameter
+    {
+        public string ParameterName { get; set; }
+
+        public double ParameterValue { get; set; }
+
+
+
+       
+
+    }
+
+    /// <summary>
+    /// Provides a class for the calculation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class Calculation
+    {
+
+
+        public string ProjectId { get; set; }
+
+        public int SubAssemblyId { get; set; }
+
+        public int CalculationId { get; set; }
+
+        public string CalculationType { get; set; }
+
+        public List<Parameter> InputParameter { get; set; }
+
+    }
+
+    /// <summary>
+    /// Provides a class for the calculation list
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class Calculations : System.Collections.Generic.List<Calculation>
+    {
+
+    }
+
     /// <summary>
     /// Provides a set of different calculation methods
     /// </summary>
-    public class Calculations 
+    public class CalculationsCollection
+
     {
 
         /// <summary>
         /// Provides a calculation for the orifice time
         /// </summary>
         /// <returns></returns>
-        double OrificeCalculationTime(List<double> partialstroke, List<double> partialforce, 
-            double D_Cyl, double d_Cyl, double D_Orifice,
-            double oil_pipe_length, double oil_pipe_diameter, double zeta_orifice, List<double> k_aux)
+        double OrificeCalculationTime(List<Parameter> inputparameter)
         {
 
-            //List<double> partialstroke = new List<double> { 300, 200, 200, 200, 200, 200, 200, 200, 200 };
+            foreach (Parameter l in inputparameter)
+            {
+                var caseSwitch = l.ParameterName;
 
-            //List<double> partialforce = new List<double> { 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500 };
+                switch (caseSwitch)
+                {
+                    case "partialstroke":
+                        var partialstroke_db = l.ParameterValue;
+                        break;
+                    case "partialforce":
+                        var partialforce_db = l.ParameterValue;
+                        break;
+                    case "D_Cyl":
+                        var D_Cyl_db = l.ParameterValue;
+                        break;
+                    case "d_Cyl":
+                        var d_Cyl_db = l.ParameterValue;
+                        break;
+                    case "D_Orifice":
+                        var D_Orifice_db = l.ParameterValue;
+                        break;
+                    case "oil_pipe_length":
+                        var oil_pipe_length_db = l.ParameterValue;
+                        break;
+                    case "oil_pipe_diameter":
+                        var oil_pipe_diameter_db = l.ParameterValue;
+                        break;
+                    case "zeta_orifice":
+                        var zeta_orifice_db = l.ParameterValue;
+                        break;
 
-            //double D_Cyl = 400; //[mm]
 
-            //double d_Cyl = 0; //[mm]
+                }
+            }
 
-            //double D_Orifice = 1.2; //[mm]
+
+
+            List<double> partialstroke = new List<double> { 300, 200, 200, 200, 200, 200, 200, 200, 200 };
+
+            List<double> partialforce = new List<double> { 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500 };
+
+            double D_Cyl = 400; //[mm]
+
+            double d_Cyl = 0; //[mm]
+
+            double D_Orifice = 1.2; //[mm]
 
             const double oil_density = 8E-10; //[kg/mm³]
 
             const double oil_viscosity = 4E-7; //[MPa*s]
 
-            //double oil_pipe_length = 10000; //[mm]
+            double oil_pipe_length = 10000; //[mm]
 
-            //double oil_pipe_diameter = 25; //[mm]
+            double oil_pipe_diameter = 25; //[mm]
 
-            //double zeta_orifice = 1.562; //
+            double zeta_orifice = 1.562; //
 
-            //List<double> k_aux = new List<double> { 0.00000, };
+            List<double> k_aux = new List<double> { 0.00000, };
 
             //Step time for the iterative calculation
 
@@ -108,4 +190,6 @@ namespace AndritzHydro.Tuccos.Data
         }
 
     }
+
+
 }

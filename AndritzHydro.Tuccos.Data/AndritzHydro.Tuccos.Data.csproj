@@ -43,12 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculations.cs" />
+    <Compile Include="CalculationTemplates.cs" />
+    <Compile Include="Controller\CalculationController.cs" />
+    <Compile Include="Controller\CalculationManager.cs" />
     <Compile Include="Controller\ProjectManager.cs" />
     <Compile Include="Controller\ProjectController.cs" />
+    <Compile Include="Controller\CalculationTemplateController.cs" />
     <Compile Include="Controller\SubAssemblyController.cs" />
+    <Compile Include="Controller\CalculationTemplateManager.cs" />
     <Compile Include="Controller\SubAssemblyManager.cs" />
     <Compile Include="Projects.cs" />
-    <Compile Include="Countries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubAssembly.cs" />
   </ItemGroup>

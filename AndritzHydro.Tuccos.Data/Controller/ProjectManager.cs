@@ -32,26 +32,6 @@ namespace AndritzHydro.Tuccos.Data.Controller
             }
         }
 
-        /// <summary>
-        /// Gibt die unterstützten Lottoländer zurück.
-        /// </summary>
-        /// <param name="sprache">Die Anwendungsprache,
-        /// in der die Namen der Länder geliefert werden sollen.</param>
-        public Countries GetCountries(string language)
-        {
-            try
-            {
-                return this.Controller.GetCountries(language);
-            }
-            catch (System.Exception ex)
-            {
-                this.Context.Log.WriteEntry(
-                    $"{this} hat eine Ausnahme verursacht:\r\n{ex.Message}",
-                    Core.Data.LogEntryType.Error);
-                return new Countries();
-            }
-        }
-
 
 
         /// <summary>

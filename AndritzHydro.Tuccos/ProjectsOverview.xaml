@@ -57,9 +57,9 @@
             </ListView.ContextMenu>-->
             <ListView.View>
                 <GridView  AllowsColumnReorder="True">
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" Width="260"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="260"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Year}" Header="Year" Width="280"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProjectId}" Header="ProjectId" Width="260"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProjectName}" Header="ProjectName" Width="260"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProjectYear}" Header="ProjectYear" Width="280"/>
                 </GridView>
             </ListView.View>
         </ListView>

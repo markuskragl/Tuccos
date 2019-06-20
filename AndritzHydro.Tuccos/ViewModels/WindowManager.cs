@@ -12,6 +12,8 @@ namespace AndritzHydro.Tuccos.ViewModels
     /// </summary>
     public class WindowManager : AndritzHydro.Core.Data.DataApplicationObject
     {
+
+        #region MainWindow
         /// <summary>
         /// Used for the window manager.
         /// </summary>
@@ -36,6 +38,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 this._MainWindowType = value;
             }
         }
+
 
         /// <summary>
         /// Initializes the user interfaces
@@ -70,6 +73,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             System.Windows.Application.Current.Run(w);
         }
 
+        #endregion MainWindow
+
+        #region ApplicationWindow
         /// <summary>
         /// Prepare an application window
         /// </summary>
@@ -112,6 +118,10 @@ namespace AndritzHydro.Tuccos.ViewModels
             this.SetBusyOff();
         }
 
+
+        #endregion ApplicationWindow
+
+        #region RestorePosition SavePosition
         /// <summary>
         /// Restores the old window position and state.
         /// </summary>
@@ -167,6 +177,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             this.Context.Log.WriteEntry($"{window.Name}: State and size of the window saved...");
         }
 
+        #endregion RestorePosition SavePosition
+
+        #region NewWindow
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -218,6 +231,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             this.SetBusyOff();
         }
 
+        #endregion NewWindow
+
+        #region CloseWindow CloseAllWindow
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -277,6 +293,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             return System.Windows.Application.Current.Windows.Count > 1;
         }
 
+        #endregion CloseWindow CloseAllWindow
+
+        #region CurrentLanguage
         /// <summary>
         /// Gets or sets the current language of the applicaiton.
         /// </summary>
@@ -311,6 +330,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+        #endregion CurrentLanguage
+
+        #region TaskManager CurrentTask CurrentViewer
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -372,6 +394,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+
+
+
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -402,6 +427,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+        #endregion  TaskManager CurrentTask CurrentViewer
+
+        #region CloseOtherWindows
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -440,8 +468,9 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+        #endregion CloseOtherWindows
 
-
+        #region Project
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -464,12 +493,15 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                     this.SetBusyOff();
                 }
-                //this.OnPropertyChanged("CurrentTask");
-                //this.OnPropertyChanged("CurrentViewer");
+
                 return this._Project;
             }
         }
 
+
+        #endregion Project
+
+        #region SetCurrentTask SetDefaultTask
         /// <summary>
         /// Sets the task with the index as current task.
         /// </summary>
@@ -513,5 +545,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 return this._SetDefaulTask;
             }
         }
+
+        #endregion SetCurrentTask SetDefaultTask
     }
 }

@@ -73,12 +73,14 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculationViews\RunnerCalc.xaml.cs">
+      <DependentUpon>RunnerCalc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Model\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Data\FakeDatabaseLayer.cs" />
     <Compile Include="Helpers\Commands.cs" />
     <Compile Include="Helpers\Converters.cs" />
     <Compile Include="LogViewer.xaml.cs">
@@ -91,6 +93,9 @@
     </Compile>
     <Compile Include="ProjectTree.xaml.cs">
       <DependentUpon>ProjectTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectCalculation.xaml.cs">
+      <DependentUpon>ProjectCalculation.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectViewer.xaml.cs">
       <DependentUpon>ProjectViewer.xaml</DependentUpon>
@@ -120,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="CalculationViews\RunnerCalc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LogViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +152,10 @@
     <Page Include="ProjectTree.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="ProjectCalculation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ProjectViewer.xaml">
       <SubType>Designer</SubType>
@@ -189,7 +202,10 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Country.datasource">
+    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Calculation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.CalculationTemplate.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Project.datasource">

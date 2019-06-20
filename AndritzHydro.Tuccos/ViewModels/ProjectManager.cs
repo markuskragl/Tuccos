@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using AndritzHydro.Tuccos.Data;
 using AndritzHydro.Tuccos.Model;
 
 namespace AndritzHydro.Tuccos.ViewModels
@@ -15,40 +14,6 @@ namespace AndritzHydro.Tuccos.ViewModels
     public class ProjectManager : AndritzHydro.Core.Data.DataApplicationObject, INotifyPropertyChanged
     {
         public WindowManager Owner { get; set; }
-
-
-        #region Country
-
-        /// <summary>
-        /// Provides the country lsit
-        /// </summary>
-        /// <returns></returns>
-        public Country[] GetCountriesMethod()
-        {
-            var VM = new Model.ProjectClient();
-            return VM.GetCountries("AT");
-        }
-
-        /// <summary>
-        /// Internal field for the property.
-        /// </summary>
-        private Country[] _CountriesFinal;
-
-
-        /// <summary>
-        /// Gets the supported projects.
-        /// </summary>
-        /// <remarks>The countries are cached.</remarks>
-        public Country[] CountriesFinal
-        {
-            get
-            {
-                this._CountriesFinal = this.GetCountriesMethod();
-                return this._CountriesFinal;
-            }
-        }
-
-        #endregion Country
 
 
         #region ProjectList
@@ -82,11 +47,13 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+
+
         /// <summary>
         /// Provides the SubAssembly list
         /// </summary>
         /// <returns></returns>
-        public Project[] GetSubAssembliesMethod()
+        public SubAssembly[] GetSubAssembliesMethod()
         {
             var VM = new Model.ProjectClient();
             return VM.GetSubAssemblies();
@@ -95,14 +62,13 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private Project[] _SubAssemblies;
-
+        private SubAssembly[] _SubAssemblies;
 
         /// <summary>
         /// Gets the supported projects.
         /// </summary>
         /// <remarks>The countries are cached.</remarks>
-        public Project[] SubAssemblies
+        public SubAssembly[] SubAssemblies
         {
             get
             {
@@ -110,6 +76,330 @@ namespace AndritzHydro.Tuccos.ViewModels
                 return this._SubAssemblies;
             }
         }
+
+        /// <summary>
+        /// Provides the template calculation list
+        /// </summary>
+        /// <returns></returns>
+        public CalculationTemplate[] GetCalcualationTemplatesMethod()
+        {
+                try
+                {
+                    //int? _helper = this.SelectedSubAssembly.SubAssemblyId;                    
+                    var VM = new Model.ProjectClient();
+                    //var _helper1 = VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
+                    return VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
+                }
+                catch (System.Exception ex)
+                {
+                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                }
+            
+            return null;
+
+        }
+
+                       /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private CalculationTemplate[] _CalculationTemplates;
+
+        /// <summary>
+        /// Gets the supported projects.
+        /// </summary>
+        /// <remarks>The countries are cached.</remarks>
+        public CalculationTemplate[] CalculationTemplates
+        {
+            get
+            {
+                this._CalculationTemplates = this.GetCalcualationTemplatesMethod();
+                return this._CalculationTemplates;
+            }
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private Model.SubAssembly _SelectedSubAssembly = null;
+
+        /// <summary>
+        /// Gets or set the date of the draw that should be shown.
+        /// </summary>
+        public Model.SubAssembly SelectedSubAssembly
+        {
+            get
+            {
+
+                return this._SelectedSubAssembly;
+                
+            }
+            set
+            {
+
+                this._SelectedSubAssembly = value;
+                OnPropertyChanged("CalculationTemplates");
+                this._SelectedSubAssembly = null;
+            }
+        }
+
+
+
+
+
+        #region Calculations
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private Model.CalculationTemplate _SelectedCalculationTemplate = null;
+
+        /// <summary>
+        /// Gets or set the date of the draw that should be shown.
+        /// </summary>
+        public Model.CalculationTemplate SelectedCalculationTemplate
+        {
+            get
+            {
+
+                return this._SelectedCalculationTemplate;
+
+            }
+            set
+            {
+                this._SelectedCalculationTemplate = value;
+                //OnPropertyChanged("Calculations");
+                //this._SelectedCalculationTemplate = null;
+            }
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private Model.Calculation _SelectedCalculation = null;
+
+        /// <summary>
+        /// Gets or set the date of the calculation that should be deleted.
+        /// </summary>
+        public Model.Calculation SelectedCalculation
+        {
+            get
+            {
+
+                return this._SelectedCalculation;
+
+            }
+            set
+            {
+                this._SelectedCalculation = value;
+                //OnPropertyChanged("Calculations");
+                //this._SelectedCalculation = null;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private Model.Calculation _CurrentCalculation = null;
+
+        /// <summary>
+        /// Gets or set the date of the calculation that should be deleted.
+        /// </summary>
+        public Model.Calculation CurrentCalculation
+        {
+            get
+            {
+
+                return this._CurrentCalculation;
+
+            }
+            set
+            {
+                this._CurrentCalculation = value;
+                this.OnPropertyChanged("CurrentCalculationViewer");
+                this.OnPropertyChanged("CurrentCalculation");
+
+
+                //this._SelectedCalculation = null;
+            }
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private System.Type _ViewerCalculationType = null;
+
+        /// <summary>
+        /// Gets the type of the viewer used for this task.
+        /// </summary>
+        public System.Type ViewerCalculationType
+        {
+            get
+            {
+                return this._ViewerCalculationType;
+            }
+            set
+            {
+                this._ViewerCalculationType = value;
+            }
+
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private System.Windows.Controls.UserControl _CurrentCalculationViewer = null;
+
+        /// <summary>
+        /// Gets the viewer used for the current task.
+        /// </summary>
+        public System.Windows.Controls.UserControl CurrentCalculationViewer
+        {
+            get
+            {
+                try
+                {
+                    this._CurrentCalculationViewer = System.Activator.CreateInstance(Type.GetType("AndritzHydro.Tuccos." + CurrentCalculation.CalculationType))
+                        as System.Windows.Controls.UserControl;
+                }
+                catch (System.Exception ex)
+                {
+                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                }
+
+                return this._CurrentCalculationViewer;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Provides the calculations
+        /// </summary>
+        /// <returns></returns>
+        public Calculation[] GetCalculationsMethod()
+        {
+            var VM = new Model.ProjectClient();
+            return VM.GetCalculations();
+        }
+
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private Calculation[] _Calculations;
+
+        /// <summary>
+        /// Gets the supported calculations.
+        /// </summary>
+        /// <remarks>The countries are cached.</remarks>
+        public Calculation[] Calculations
+        {
+            get
+            {
+                this._Calculations = this.GetCalculationsMethod();
+                return this._Calculations;
+            }
+        }
+
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private AndritzHydro.Tuccos.Helpers.Command _AddCalculation= null;
+
+        /// <summary>
+        /// Gets the command to add a lottery ticket to the database.
+        /// </summary>
+        public AndritzHydro.Tuccos.Helpers.Command AddCalculation
+        {
+
+            get
+            {
+                if (this._AddCalculation == null)
+                {
+                    this.Owner.SetBusyOn();
+
+                    this._AddCalculation = new AndritzHydro.Tuccos.Helpers.Command(
+                        data =>
+                        {
+                            this.Owner.SetBusyOn();
+
+                            var MaxCalculationId= 0;
+                            foreach (Calculation c in this.Controller.GetCalculations())
+                            {
+                                if ((int)c.CalculationId > MaxCalculationId)
+                                {
+                                    MaxCalculationId = (int)c.CalculationId;
+                                }
+                            }
+                            int CurrentCalculationid = MaxCalculationId + 1;
+
+                            var _helper = this.SelectedCalculationTemplate;
+
+                            this.Controller.AddCalculation(new Calculation {
+                                ProjectId = this.SelectedProject.ProjectId,
+                                SubAssemblyId = this.SelectedCalculationTemplate.SubAssemblyId,
+                                CalculationId = CurrentCalculationid,
+                                CalculationType = this.SelectedCalculationTemplate.CalculationType});
+
+                            this.CloseController();
+
+                            
+                            OnPropertyChanged("Calculations");
+
+                            this.Owner.SetBusyOff();
+
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+                return this._AddCalculation;
+            }
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private AndritzHydro.Tuccos.Helpers.Command _DeleteCalculation = null;
+
+        /// <summary>
+        /// Gets the command to delete a project from the database.
+        /// </summary>
+        public AndritzHydro.Tuccos.Helpers.Command DeleteCalculation
+        {
+
+            get
+            {
+                if (this._DeleteCalculation == null)
+                {
+                    this.Owner.SetBusyOn();
+
+                    this._DeleteCalculation = new AndritzHydro.Tuccos.Helpers.Command(
+                        data =>
+                        {
+                            this.Owner.SetBusyOn();
+
+                            this.Controller.DeleteCalculation(SelectedCalculation);
+                            this.CloseController();
+
+                            OnPropertyChanged("Calculations");
+
+                            this.Owner.SetBusyOff();
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+                return this._DeleteCalculation;
+            }
+        }
+
+
+        #endregion Calculations
+
 
 
         /// <summary>
@@ -136,28 +426,6 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
 
                 return this._Controller;
-            }
-        }
-
-
-        /// <summary>
-        /// Internal field the property.
-        /// </summary>
-        private Project _CurrentProject = null;
-
-        /// <summary>
-        /// Gets or sets the lottery ticket which was calculatet.
-        /// </summary>
-        public Project CurrentProject
-        {
-            get
-            {
-                return this._CurrentProject;
-            }
-            set
-            {
-                this._CurrentProject = value;
-                this.OnPropertyChanged();
             }
         }
 
@@ -256,7 +524,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                         {
                             this.Owner.SetBusyOn();
 
-                            this.Controller.SaveProject(new  Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
+                            this.Controller.SaveProject(new  Project { ProjectId = ProjectId, ProjectName = ProjectName, ProjectYear = ProjectYear });
 
                             this.CloseController();
 
@@ -332,6 +600,48 @@ namespace AndritzHydro.Tuccos.ViewModels
 
 
         #endregion ProjectList
+
+        /// <summary>
+        /// Provides the template calculation list
+        /// </summary>
+        /// <returns></returns>
+        public Calculation[] GetOrificeCalcualationMethod()
+        {
+            try
+            {
+                //int? _helper = this.SelectedSubAssembly.SubAssemblyId;                    
+                var VM = new Model.ProjectClient();
+                //var _helper1 = VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
+                var helper = VM.GetOrificeCalculation(999);
+                return VM.GetOrificeCalculation(999);
+
+            }
+            catch (System.Exception ex)
+            {
+                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private Calculation[] _OrificeCalculation;
+
+        /// <summary>
+        /// Gets the supported projects.
+        /// </summary>
+        /// <remarks>The countries are cached.</remarks>
+        public Calculation[] OrificeCalculation
+        {
+            get
+            {
+                this._OrificeCalculation = this.GetOrificeCalcualationMethod();
+                return this._OrificeCalculation;
+            }
+        }
 
     }
 }

@@ -30,19 +30,19 @@ namespace AndritzHydro.Tuccos.Data
         /// <summary>
         /// Gets or set the Id code of the project.
         /// </summary>
-        private string _Id;
-        public string Id
+        private string _ProjectId;
+        public string ProjectId
         {
             get
             {
-                return _Id;
+                return _ProjectId;
             }
             set
             {
-                if (_Id != value)
+                if (_ProjectId != value)
                 {
-                    _Id = value;
-                    OnPropertyChanged("Id");
+                    _ProjectId = value;
+                    OnPropertyChanged("ProjectId");
                 }
             }
         }
@@ -52,19 +52,19 @@ namespace AndritzHydro.Tuccos.Data
         /// <summary>
         /// Gets or sets the readable name of the project.
         /// </summary>
-        private string _Name;
-        public string Name
+        private string _ProjectName;
+        public string ProjectName
         {
             get
             {
-                return _Name;
+                return _ProjectName;
             }
             set
             {
-                if (_Name != value)
+                if (_ProjectName != value)
                 {
-                    _Name = value;
-                    OnPropertyChanged("Name");
+                    _ProjectName = value;
+                    OnPropertyChanged("ProjectName");
                 }
             }
         }
@@ -72,39 +72,21 @@ namespace AndritzHydro.Tuccos.Data
         /// <summary>
         /// Gets or sets the highest project number in this Year.
         /// </summary>
-        private int _Year;
-        public int Year
+        private int _ProjectYear;
+        public int ProjectYear
         {
             get
             {
-                return _Year;
+                return _ProjectYear;
             }
             set
             {
-                if (_Year != value)
+                if (_ProjectYear != value)
                 {
-                    _Year = value;
-                    OnPropertyChanged("Year");
+                    _ProjectYear = value;
+                    OnPropertyChanged("ProjectYear");
                 }
             }
         }
-
-
-        //private System.Collections.Generic.List<object> _Subassembly = new List<object>();
-
-        //public List<object> Subassembly
-        //{
-        //    get
-        //    {
-        //        _Subassembly.Add("Valve 1");
-        //        _Subassembly.Add("GVM 2");
-        //        return this._Subassembly;
-        //    }
-
-        //    set
-        //    {
-        //        this._Subassembly = value;
-        //    }
-        //}
     }
 }

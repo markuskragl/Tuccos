@@ -12,12 +12,6 @@ namespace andritzhydro.web
     [ServiceContract]
     public interface IProject
     {
-        /// <summary>
-        /// Returns the supportet countries.
-        /// </summary>
-        /// <param name="language">Microsoft code for the used language</param>
-        [OperationContract]
-        AndritzHydro.Tuccos.Data.Countries GetCountries(string language);
 
         /// <summary>
         /// Returns all Projects
@@ -45,6 +39,41 @@ namespace andritzhydro.web
         /// </summary>
         [OperationContract]
         AndritzHydro.Tuccos.Data.SubAssemblies GetSubAssemblies();
+
+        /// <summary>
+        /// Returns all CalculationTemplates
+        /// </summary>
+        [OperationContract]
+        AndritzHydro.Tuccos.Data.CalculationTemplates GetCalculationTemplates(int? SubId);
+
+
+
+        /// <summary>
+        /// Returns all calculations
+        /// </summary>
+        [OperationContract]
+        AndritzHydro.Tuccos.Data.Calculations GetCalculations();
+
+        /// <summary>
+        /// Add a calculation to the database.
+        /// </summary>
+        /// <param name="ticket">The project which should be saved.</param>
+        [OperationContract]
+        void AddCalculation(AndritzHydro.Tuccos.Data.Calculation calculation);
+
+        /// <summary>
+        /// Delete a calculation from the database.
+        /// </summary>
+        /// <param name="calculation">The calculation which should be deleted.</param>
+        [OperationContract]
+        void DeleteCalculation(AndritzHydro.Tuccos.Data.Calculation calculation);
+
+        /// <summary>
+        /// Delete a calculation from the database.
+        /// </summary>
+        /// <param name="calculation">The calculation which should be deleted.</param>
+        [OperationContract]
+        AndritzHydro.Tuccos.Data.Calculations GetOrificeCalculation(int? calcId);
 
     }
 }

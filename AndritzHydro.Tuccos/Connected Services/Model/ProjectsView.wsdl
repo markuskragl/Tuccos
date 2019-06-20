@@ -7,12 +7,6 @@
       <xsd:import schemaLocation="http://localhost:50603/project.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IProject_GetCountries_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCountries" />
-  </wsdl:message>
-  <wsdl:message name="IProject_GetCountries_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
-  </wsdl:message>
   <wsdl:message name="IProject_GetProjectList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProjectList" />
   </wsdl:message>
@@ -37,11 +31,37 @@
   <wsdl:message name="IProject_GetSubAssemblies_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSubAssembliesResponse" />
   </wsdl:message>
+  <wsdl:message name="IProject_GetCalculationTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCalculationTemplates" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetCalculationTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCalculationTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetCalculations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCalculations" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetCalculations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCalculationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_AddCalculation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCalculation" />
+  </wsdl:message>
+  <wsdl:message name="IProject_AddCalculation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCalculationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_DeleteCalculation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCalculation" />
+  </wsdl:message>
+  <wsdl:message name="IProject_DeleteCalculation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCalculationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetOrificeCalculation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrificeCalculation" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetOrificeCalculation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrificeCalculationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProject">
-    <wsdl:operation name="GetCountries">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetCountries" message="tns:IProject_GetCountries_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetCountriesResponse" message="tns:IProject_GetCountries_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetProjectList">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetProjectList" message="tns:IProject_GetProjectList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetProjectListResponse" message="tns:IProject_GetProjectList_OutputMessage" />
@@ -58,18 +78,29 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetSubAssemblies" message="tns:IProject_GetSubAssemblies_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetSubAssembliesResponse" message="tns:IProject_GetSubAssemblies_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCalculationTemplates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetCalculationTemplates" message="tns:IProject_GetCalculationTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetCalculationTemplatesResponse" message="tns:IProject_GetCalculationTemplates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCalculations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetCalculations" message="tns:IProject_GetCalculations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetCalculationsResponse" message="tns:IProject_GetCalculations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCalculation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/AddCalculation" message="tns:IProject_AddCalculation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/AddCalculationResponse" message="tns:IProject_AddCalculation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalculation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/DeleteCalculation" message="tns:IProject_DeleteCalculation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/DeleteCalculationResponse" message="tns:IProject_DeleteCalculation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrificeCalculation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetOrificeCalculation" message="tns:IProject_GetOrificeCalculation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetOrificeCalculationResponse" message="tns:IProject_GetOrificeCalculation_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProject" type="tns:IProject">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetCountries">
-      <soap:operation soapAction="http://tempuri.org/IProject/GetCountries" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetProjectList">
       <soap:operation soapAction="http://tempuri.org/IProject/GetProjectList" style="document" />
       <wsdl:input>
@@ -99,6 +130,51 @@
     </wsdl:operation>
     <wsdl:operation name="GetSubAssemblies">
       <soap:operation soapAction="http://tempuri.org/IProject/GetSubAssemblies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalculationTemplates">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetCalculationTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalculations">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetCalculations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCalculation">
+      <soap:operation soapAction="http://tempuri.org/IProject/AddCalculation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalculation">
+      <soap:operation soapAction="http://tempuri.org/IProject/DeleteCalculation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrificeCalculation">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetOrificeCalculation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

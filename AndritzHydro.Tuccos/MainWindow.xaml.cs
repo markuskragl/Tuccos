@@ -24,15 +24,5 @@ namespace AndritzHydro.Tuccos
         {
             InitializeComponent();
         }
-
-        //private void TaskPanel_Loaded(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void ProjectTree_Loaded(object sender, RoutedEventArgs e)
-        //{
-
-        //}
     }
 }

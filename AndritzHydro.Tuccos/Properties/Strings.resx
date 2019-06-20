@@ -234,4 +234,7 @@
   <data name="TotalStroke" xml:space="preserve">
     <value>Total Stroke [mm]</value>
   </data>
+  <data name="TaskProjectCalculation" xml:space="preserve">
+    <value>Project Calculation View</value>
+  </data>
 </root>

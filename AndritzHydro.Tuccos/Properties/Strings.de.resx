@@ -234,4 +234,7 @@
   <data name="TotalStroke" xml:space="preserve">
     <value>Gesamthub [mm]</value>
   </data>
+  <data name="TaskProjectCalculation" xml:space="preserve">
+    <value>Projekt Überblick der Berechnungen</value>
+  </data>
 </root>

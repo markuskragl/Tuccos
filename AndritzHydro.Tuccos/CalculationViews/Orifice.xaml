@@ -26,7 +26,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <StackPanel  
             Grid.Column="0"
             Grid.RowSpan="2"
@@ -35,7 +35,7 @@
             Height="Auto" 
             VerticalAlignment="Top" 
             Width="Auto">
-            
+
             <StackPanel.Resources>
 
             </StackPanel.Resources>
@@ -48,7 +48,7 @@
 
                                 <Style TargetType="GridViewColumnHeader" >
                                     <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
-                                    
+
                                 </Style>
                             </GridView.ColumnHeaderContainerStyle>
                             <GridViewColumn Header="{x:Static p:Strings.PartialStrokes}" Width="{StaticResource ColumnWidth}"  />
@@ -66,20 +66,20 @@
 
             <StackPanel >
                 <ListView  Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
-                <ListView.View >
-                    <GridView>
-                        <GridView.ColumnHeaderContainerStyle>
+                    <ListView.View >
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
 
-                            <Style TargetType="GridViewColumnHeader" >
+                                <Style TargetType="GridViewColumnHeader" >
                                     <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
-                            </Style>
-                        </GridView.ColumnHeaderContainerStyle>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
                             <GridViewColumn Header="{x:Static p:Strings.TotalStroke}" Width="{StaticResource ColumnWidth}"  />
 
-                    </GridView>
+                        </GridView>
 
-                </ListView.View>
-            </ListView>
+                    </ListView.View>
+                </ListView>
                 <TextBox 
                     Margin="10,0,0,0"
                     Height="23" 
@@ -93,41 +93,41 @@
 
             <StackPanel >
                 <ListView Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
-                <ListView.View >
-                    <GridView>
-                        <GridView.ColumnHeaderContainerStyle>
+                    <ListView.View >
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
 
-                            <Style TargetType="GridViewColumnHeader" >
+                                <Style TargetType="GridViewColumnHeader" >
                                     <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
-                            </Style>
-                        </GridView.ColumnHeaderContainerStyle>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
                             <GridViewColumn Header="{x:Static p:Strings.SingleForce}"  Width="{StaticResource ColumnWidth}" />
 
-                    </GridView>
+                        </GridView>
 
-                </ListView.View>
-            </ListView>
+                    </ListView.View>
+                </ListView>
 
-   
+
 
             </StackPanel>
 
             <StackPanel >
                 <ListView Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
-                <ListView.View >
-                    <GridView>
-                        <GridView.ColumnHeaderContainerStyle>
+                    <ListView.View >
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
 
-                            <Style TargetType="GridViewColumnHeader" >
+                                <Style TargetType="GridViewColumnHeader" >
                                     <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
-                            </Style>
-                        </GridView.ColumnHeaderContainerStyle>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
                             <GridViewColumn Header="{x:Static p:Strings.SingleWorkCapacity}"  Width="{StaticResource ColumnWidth}" />
 
-                    </GridView>
+                        </GridView>
 
-                </ListView.View>
-            </ListView>
+                    </ListView.View>
+                </ListView>
 
                 <TextBox 
                     Margin="10,0,0,0"
@@ -135,7 +135,7 @@
                     Width="{StaticResource ColumnWidth}"/>
 
             </StackPanel>
-            
+
         </StackPanel>
 
         <StackPanel
@@ -187,15 +187,15 @@
                     <TextBlock Text="{x:Static p:Strings.LossValue}"/>
                     <TextBox />
                 </StackPanel>
-                
+
             </StackPanel>
 
             <StackPanel>
                 <StackPanel.Resources>
- 
-                    
+
+
                 </StackPanel.Resources>
-                
+
                 <StackPanel 
                     Margin="{StaticResource MarginInput}" 
                     Height="{StaticResource InputHeight}"
@@ -224,9 +224,9 @@
 
 
             </StackPanel>
-            
-            
-            
+
+
+
         </StackPanel>
 
         <StackPanel
@@ -244,7 +244,7 @@
 
 
         </StackPanel>
- 
+
 
 
 

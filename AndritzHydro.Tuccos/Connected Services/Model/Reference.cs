@@ -15,99 +15,6 @@ namespace AndritzHydro.Tuccos.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Country", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
-    [System.SerializableAttribute()]
-    public partial class Country : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MaxNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NumberCountField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MaxNumber {
-            get {
-                return this.MaxNumberField;
-            }
-            set {
-                if ((this.MaxNumberField.Equals(value) != true)) {
-                    this.MaxNumberField = value;
-                    this.RaisePropertyChanged("MaxNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NumberCount {
-            get {
-                return this.NumberCountField;
-            }
-            set {
-                if ((this.NumberCountField.Equals(value) != true)) {
-                    this.NumberCountField = value;
-                    this.RaisePropertyChanged("NumberCount");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Project", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.SubAssembly))]
@@ -117,13 +24,13 @@ namespace AndritzHydro.Tuccos.Model {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private string ProjectIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
+        private string ProjectNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int YearField;
+        private int ProjectYearField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -136,40 +43,40 @@ namespace AndritzHydro.Tuccos.Model {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public string ProjectId {
             get {
-                return this.IdField;
+                return this.ProjectIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((object.ReferenceEquals(this.ProjectIdField, value) != true)) {
+                    this.ProjectIdField = value;
+                    this.RaisePropertyChanged("ProjectId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
+        public string ProjectName {
             get {
-                return this.NameField;
+                return this.ProjectNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.ProjectNameField, value) != true)) {
+                    this.ProjectNameField = value;
+                    this.RaisePropertyChanged("ProjectName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Year {
+        public int ProjectYear {
             get {
-                return this.YearField;
+                return this.ProjectYearField;
             }
             set {
-                if ((this.YearField.Equals(value) != true)) {
-                    this.YearField = value;
-                    this.RaisePropertyChanged("Year");
+                if ((this.ProjectYearField.Equals(value) != true)) {
+                    this.ProjectYearField = value;
+                    this.RaisePropertyChanged("ProjectYear");
                 }
             }
         }
@@ -191,26 +98,13 @@ namespace AndritzHydro.Tuccos.Model {
     public partial class SubAssembly : AndritzHydro.Tuccos.Model.Project {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RngNrField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> SubAssemblyIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SubAssemblyNameField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> RngNr {
-            get {
-                return this.RngNrField;
-            }
-            set {
-                if ((this.RngNrField.Equals(value) != true)) {
-                    this.RngNrField = value;
-                    this.RaisePropertyChanged("RngNr");
-                }
-            }
-        }
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> SubAssemblyRngNrField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> SubAssemblyId {
@@ -237,17 +131,218 @@ namespace AndritzHydro.Tuccos.Model {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> SubAssemblyRngNr {
+            get {
+                return this.SubAssemblyRngNrField;
+            }
+            set {
+                if ((this.SubAssemblyRngNrField.Equals(value) != true)) {
+                    this.SubAssemblyRngNrField = value;
+                    this.RaisePropertyChanged("SubAssemblyRngNr");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CalculationTemplate", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
+    [System.SerializableAttribute()]
+    public partial class CalculationTemplate : AndritzHydro.Tuccos.Model.Calculation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CalculationTemplateIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CalculationTemplateId {
+            get {
+                return this.CalculationTemplateIdField;
+            }
+            set {
+                if ((this.CalculationTemplateIdField.Equals(value) != true)) {
+                    this.CalculationTemplateIdField = value;
+                    this.RaisePropertyChanged("CalculationTemplateId");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Calculation", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.CalculationTemplate))]
+    public partial class Calculation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CalculationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CalculationTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AndritzHydro.Tuccos.Model.Parameter[] InputParameterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SubAssemblyIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CalculationId {
+            get {
+                return this.CalculationIdField;
+            }
+            set {
+                if ((this.CalculationIdField.Equals(value) != true)) {
+                    this.CalculationIdField = value;
+                    this.RaisePropertyChanged("CalculationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CalculationType {
+            get {
+                return this.CalculationTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CalculationTypeField, value) != true)) {
+                    this.CalculationTypeField = value;
+                    this.RaisePropertyChanged("CalculationType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AndritzHydro.Tuccos.Model.Parameter[] InputParameter {
+            get {
+                return this.InputParameterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InputParameterField, value) != true)) {
+                    this.InputParameterField = value;
+                    this.RaisePropertyChanged("InputParameter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProjectId {
+            get {
+                return this.ProjectIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectIdField, value) != true)) {
+                    this.ProjectIdField = value;
+                    this.RaisePropertyChanged("ProjectId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SubAssemblyId {
+            get {
+                return this.SubAssemblyIdField;
+            }
+            set {
+                if ((this.SubAssemblyIdField.Equals(value) != true)) {
+                    this.SubAssemblyIdField = value;
+                    this.RaisePropertyChanged("SubAssemblyId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Parameter", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
+    [System.SerializableAttribute()]
+    public partial class Parameter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ParameterNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ParameterValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ParameterName {
+            get {
+                return this.ParameterNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParameterNameField, value) != true)) {
+                    this.ParameterNameField = value;
+                    this.RaisePropertyChanged("ParameterName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double ParameterValue {
+            get {
+                return this.ParameterValueField;
+            }
+            set {
+                if ((this.ParameterValueField.Equals(value) != true)) {
+                    this.ParameterValueField = value;
+                    this.RaisePropertyChanged("ParameterValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Model.IProject")]
     public interface IProject {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCountries", ReplyAction="http://tempuri.org/IProject/GetCountriesResponse")]
-        AndritzHydro.Tuccos.Model.Country[] GetCountries(string language);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCountries", ReplyAction="http://tempuri.org/IProject/GetCountriesResponse")]
-        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Country[]> GetCountriesAsync(string language);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetProjectList", ReplyAction="http://tempuri.org/IProject/GetProjectListResponse")]
         AndritzHydro.Tuccos.Model.Project[] GetProjectList();
@@ -272,6 +367,36 @@ namespace AndritzHydro.Tuccos.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetSubAssemblies", ReplyAction="http://tempuri.org/IProject/GetSubAssembliesResponse")]
         System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.SubAssembly[]> GetSubAssembliesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCalculationTemplates", ReplyAction="http://tempuri.org/IProject/GetCalculationTemplatesResponse")]
+        AndritzHydro.Tuccos.Model.CalculationTemplate[] GetCalculationTemplates(System.Nullable<int> SubId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCalculationTemplates", ReplyAction="http://tempuri.org/IProject/GetCalculationTemplatesResponse")]
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.CalculationTemplate[]> GetCalculationTemplatesAsync(System.Nullable<int> SubId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCalculations", ReplyAction="http://tempuri.org/IProject/GetCalculationsResponse")]
+        AndritzHydro.Tuccos.Model.Calculation[] GetCalculations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCalculations", ReplyAction="http://tempuri.org/IProject/GetCalculationsResponse")]
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetCalculationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddCalculation", ReplyAction="http://tempuri.org/IProject/AddCalculationResponse")]
+        void AddCalculation(AndritzHydro.Tuccos.Model.Calculation calculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddCalculation", ReplyAction="http://tempuri.org/IProject/AddCalculationResponse")]
+        System.Threading.Tasks.Task AddCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/DeleteCalculation", ReplyAction="http://tempuri.org/IProject/DeleteCalculationResponse")]
+        void DeleteCalculation(AndritzHydro.Tuccos.Model.Calculation calculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/DeleteCalculation", ReplyAction="http://tempuri.org/IProject/DeleteCalculationResponse")]
+        System.Threading.Tasks.Task DeleteCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetOrificeCalculation", ReplyAction="http://tempuri.org/IProject/GetOrificeCalculationResponse")]
+        AndritzHydro.Tuccos.Model.Calculation[] GetOrificeCalculation(System.Nullable<int> calcId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetOrificeCalculation", ReplyAction="http://tempuri.org/IProject/GetOrificeCalculationResponse")]
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetOrificeCalculationAsync(System.Nullable<int> calcId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -299,14 +424,6 @@ namespace AndritzHydro.Tuccos.Model {
         
         public ProjectClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public AndritzHydro.Tuccos.Model.Country[] GetCountries(string language) {
-            return base.Channel.GetCountries(language);
-        }
-        
-        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Country[]> GetCountriesAsync(string language) {
-            return base.Channel.GetCountriesAsync(language);
         }
         
         public AndritzHydro.Tuccos.Model.Project[] GetProjectList() {
@@ -339,6 +456,46 @@ namespace AndritzHydro.Tuccos.Model {
         
         public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.SubAssembly[]> GetSubAssembliesAsync() {
             return base.Channel.GetSubAssembliesAsync();
+        }
+        
+        public AndritzHydro.Tuccos.Model.CalculationTemplate[] GetCalculationTemplates(System.Nullable<int> SubId) {
+            return base.Channel.GetCalculationTemplates(SubId);
+        }
+        
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.CalculationTemplate[]> GetCalculationTemplatesAsync(System.Nullable<int> SubId) {
+            return base.Channel.GetCalculationTemplatesAsync(SubId);
+        }
+        
+        public AndritzHydro.Tuccos.Model.Calculation[] GetCalculations() {
+            return base.Channel.GetCalculations();
+        }
+        
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetCalculationsAsync() {
+            return base.Channel.GetCalculationsAsync();
+        }
+        
+        public void AddCalculation(AndritzHydro.Tuccos.Model.Calculation calculation) {
+            base.Channel.AddCalculation(calculation);
+        }
+        
+        public System.Threading.Tasks.Task AddCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation) {
+            return base.Channel.AddCalculationAsync(calculation);
+        }
+        
+        public void DeleteCalculation(AndritzHydro.Tuccos.Model.Calculation calculation) {
+            base.Channel.DeleteCalculation(calculation);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation) {
+            return base.Channel.DeleteCalculationAsync(calculation);
+        }
+        
+        public AndritzHydro.Tuccos.Model.Calculation[] GetOrificeCalculation(System.Nullable<int> calcId) {
+            return base.Channel.GetOrificeCalculation(calcId);
+        }
+        
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetOrificeCalculationAsync(System.Nullable<int> calcId) {
+            return base.Channel.GetOrificeCalculationAsync(calcId);
         }
     }
 }

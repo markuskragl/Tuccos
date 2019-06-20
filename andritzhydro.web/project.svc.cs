@@ -75,7 +75,7 @@ namespace andritzhydro.web
 #region Project
 
         /// <summary>
-        /// Gets the name of the cache used for the manager providing the lottery game.
+        /// Gets the name of the cache used for the manager providing the project.
         /// </summary>
         private const string ProjectManagerCache = "ProjectManager";
 
@@ -101,15 +101,6 @@ namespace andritzhydro.web
         }
 
 
-        /// <summary>
-        /// Returns the supported countries.
-        /// </summary>
-        /// <param name="language">Microsoft code of the used language.</param>
-        public Countries GetCountries(string language)
-        {
-            this.WriteLogEntry();
-            return this.ProjectManager.GetCountries(language);
-        }
 
         public Projects GetProjectList()
         {
@@ -174,9 +165,110 @@ namespace andritzhydro.web
             return this.SubAssemblyManager.GetSubAssemblies();
         }
 
-#endregion SubAssembly
+        #endregion SubAssembly
+
+        #region CalculationTemplates
+        /// <summary>
+        /// Gets the name of the cache used for the manager providing the lottery game.
+        /// </summary>
+        private const string CalculationTemplateManagerCache = "CalculationTemplateManager";
+
+
+        /// <summary>
+        /// Gets the object providing the projects.
+        /// </summary>
+        protected AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager CalculationTemplateManager
+        {
+            get
+            {
+                var manager = this.Application[ProjectsView.SubAssemblyManagerCache] as AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager;
+
+                if (manager == null)
+                {
+                    manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager>();
+
+                    this.Application[ProjectsView.SubAssemblyManagerCache] = manager;
+                    this.AppContext.Log.WriteEntry($"{manager} has been cached...");
+                }
+
+                return manager;
+            }
+        }
 
 
 
+        #endregion CalculationTemplates
+
+
+        /// <summary>
+        /// Gets the name of the cache used for the manager providing the lottery game.
+        /// </summary>
+        private const string CalculationManagerCache = "CalculationManager";
+
+
+        /// <summary>
+        /// Gets the object providing the projects.
+        /// </summary>
+        protected AndritzHydro.Tuccos.Data.Controller.CalculationManager CalculationManager
+        {
+            get
+            {
+                var manager = this.Application[ProjectsView.SubAssemblyManagerCache] as AndritzHydro.Tuccos.Data.Controller.CalculationManager;
+
+                if (manager == null)
+                {
+                    manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.CalculationManager>();
+
+                    this.Application[ProjectsView.SubAssemblyManagerCache] = manager;
+                    this.AppContext.Log.WriteEntry($"{manager} has been cached...");
+                }
+
+                return manager;
+            }
+        }
+
+
+        public Calculations GetCalculations()
+        {
+            this.WriteLogEntry();
+            return this.CalculationManager.GetCalculations();
+        }
+
+
+
+        /// <summary>
+        /// Add a project to the database.
+        /// </summary>
+        /// <param name="project">The project which should be saved.</param>
+        public void AddCalculation(Calculation calculation)
+        {
+            this.WriteLogEntry();
+            this.CalculationManager.AddCalculation(calculation);
+        }
+
+
+
+
+        /// <summary>
+        /// Delete a calculation from the database.
+        /// </summary>
+        /// <param name="calculation">The Calculation which should be deleted.</param>
+        public void DeleteCalculation(Calculation calculation)
+        {
+            this.WriteLogEntry();
+            this.CalculationManager.DeleteCalculation(calculation);
+        }
+
+        public CalculationTemplates GetCalculationTemplates(int? SubId)
+        {
+            this.WriteLogEntry();
+            return this.CalculationTemplateManager.GetCalculationTemplates(SubId);
+        }
+
+        public Calculations GetOrificeCalculation(int? calcId)
+        {
+            this.WriteLogEntry();
+            return this.CalculationManager.GetOrificeCalculation(calcId);
+        }
     }
 }

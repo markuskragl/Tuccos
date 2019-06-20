@@ -16,6 +16,9 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -23,67 +26,115 @@
             Grid.Row="0"
             Grid.Column="0"
             Height="30"
-            Width="200"
+            Width="280"
             HorizontalAlignment="Left"
-            Margin="5,5,5,5"
+            Margin="10,5,5,5"
             
             ItemsSource="{Binding ProjectListFinal}"
-            SelectedItem="{Binding SelectedPerson}"
-            DisplayMemberPath="Id"
+            SelectedItem="{Binding SelectedProject}"
+            
+            DisplayMemberPath="ProjectId"
             >
         </ComboBox>
 
-        <ComboBox
-            Grid.Row="0"
-            Grid.Column="1"
-            Height="30"
-            Width="200"
-            HorizontalAlignment="Left"
-            Margin="20,5,5,5"
-            
-            ItemsSource="{Binding SubAssemblies}"
-            SelectedItem="{Binding SelectedPerson}"
-            DisplayMemberPath="SubAssemblyName"
-            >
-        </ComboBox>
+
 
         <GroupBox 
             Grid.Column="0"
             Grid.Row="1"
-            Header="Assembly" 
+            Header="SubAssembly" 
             Margin="5,5,10,5" 
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Bottom"
             />
 
-        <local:ProjectTree
+        <!--<local:ProjectTree
             Grid.Column="0"
             Grid.Row="1"
             Margin="20,30,20,20" 
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch" 
+            />-->
+        <ListBox
+            Grid.Column="0"
+            Grid.Row="1"
+            Margin="20,30,20,20" 
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch" 
+            ItemsSource="{Binding SubAssemblies}"
+            DisplayMemberPath="SubAssemblyId"
+            SelectedItem="{Binding SelectedSubAssembly}"
             />
+        
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            Margin="0,0,0,20"    
+            >
+            <!--<Button  Content="Add SubAssembly" HorizontalAlignment="Left" Margin="20,200,0,0" Width="125" Height="30"  VerticalAlignment="Top"/>
+            <Button Content="Delete SubAssembly" Command="{Binding SaveProject}" HorizontalAlignment="Right" Margin="0,-30,20,0" Width="125" Height="30"  VerticalAlignment="Top"/>-->
+        </StackPanel>
 
         <GroupBox 
             Grid.Column="1"
             Grid.Row="1"
-            Header="Project List" 
+            Header="Calculation List" 
             Margin="5,5,10,5" 
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Bottom"
-            
             />
-            
+
         <ListView 
             Grid.Column="1"
             Grid.Row="1"
-
-            Margin="20,30,30,20" 
+            Margin="20,30,30,70" 
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Bottom"
-            ItemsSource="{Binding ProjectListFinal}"
-            SelectedItem="{Binding SelectedProject, Mode=TwoWay}"
-            x:Name="ProjectInfoListView">
+            ItemsSource="{Binding Calculations}"
+            SelectedItem="{Binding SelectedCalculation}"
+            x:Name="CalculationsInfoListView">
+            <ListView.View>
+                <GridView  AllowsColumnReorder="True">
+                    <GridViewColumn DisplayMemberBinding="{Binding ProjectId}" Header="ProjectId"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="CalculationType"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding CalculationId}" Header="CalculationId"/>
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId1}" Header="SubAssemblyId"/>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            Margin="0,0,0,20"    
+            >
+            <Button  Content="Delete Calculation" Command="{Binding DeleteCalculation}" HorizontalAlignment="Left" Margin="20,200,0,0" Width="250" Height="30"  VerticalAlignment="Top"/>
+        </StackPanel>
+
+
+
+        <GroupBox 
+            Grid.Column="2"
+            Grid.Row="1"
+            Header="Calculation Templates pleass Add Calc" 
+            Margin="5,5,10,5" 
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Bottom"
+            />
+
+
+
+        <ListView 
+            Grid.Column="2"
+            Grid.Row="1"
+            Margin="20,30,30,70" 
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Bottom"
+            ItemsSource="{Binding CalculationTemplates}"
+            SelectedItem="{Binding SelectedCalculationTemplate}"
+            x:Name="SubAssemblyInfoListView">
             <!--<ListView.ContextMenu>
                 <ContextMenu x:Name="lstProjectInfo" StaysOpen="True" Background="WhiteSmoke">
                     <ContextMenu.BitmapEffect>
@@ -95,14 +146,29 @@
             </ListView.ContextMenu>-->
             <ListView.View>
                 <GridView  AllowsColumnReorder="True">
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" Width="260"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="260"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Year}" Header="Year" Width="280"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId}" Header="SubAssemblyId"/>                   
+                    <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="CalculationType"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding CalculationTemplateId}" Header="CalculationTemplateId"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Search Project :" HorizontalAlignment="Left" Margin="396,101,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtProjectSearch"  Height="23" Margin="514,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        
+        <StackPanel
+            Grid.Column="2"
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            Margin="0,0,0,20"    
+            >
+            <Button  Content="Add Calculation" Command="{Binding AddCalculation}" HorizontalAlignment="Left" Margin="20,200,0,0" Width="250" Height="30"  VerticalAlignment="Top"/>
+            <!--<Button Content="Delete SubAssembly" Command="{Binding SaveProject}" HorizontalAlignment="Right" Margin="0,-30,20,0" Width="125" Height="30"  VerticalAlignment="Top"/>-->
+        </StackPanel>
+
+        <DataGrid 
+            Grid.Column="3"
+            Grid.Row="1"
+            ItemsSource="{Binding OrificeCalculation}" 
+            HorizontalAlignment="Left" 
+            Margin="0,0,0,20"/>
 
     </Grid>
     
