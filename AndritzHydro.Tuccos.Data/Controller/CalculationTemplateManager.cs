@@ -35,11 +35,11 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Provides all SubAssemblies.
         /// </summary>
-        public CalculationTemplates GetCalculationTemplates(int? SubId)
+        public CalculationTemplates GetCalculationTemplates(int? subId)
         {
             try
             {
-                return this.Controller.GetCalculationTemplates(SubId);
+                return this.Controller.GetCalculationTemplates(subId);
             }
             catch (System.Exception ex)
             {

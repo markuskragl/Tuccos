@@ -36,11 +36,11 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Provides all calculations.
         /// </summary>
-        public Calculations GetCalculations()
+        public Calculations GetCalculations(string projectId, int? subId)
         {
             try
             {
-                return this.Controller.GetCalculations();
+                return this.Controller.GetCalculations(projectId, subId);
             }
             catch (System.Exception ex)
             {

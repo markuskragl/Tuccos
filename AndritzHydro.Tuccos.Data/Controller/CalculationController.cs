@@ -13,7 +13,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Returns the projects.
         /// </summary>
-        public Calculations GetCalculations()
+        public Calculations GetCalculations(string projectId, int? subAssemblyId)
         {
             var result = new Calculations();
 
@@ -25,6 +25,8 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 {
                     //Configure the command
                     command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ProjectIdId", projectId);
+                    command.Parameters.AddWithValue("@SubAssemblyId", subAssemblyId);
                     //command.Parameters.AddWithValue();
 
                     //The Sql Server should cache the procedure...

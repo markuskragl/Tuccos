@@ -228,11 +228,7 @@ namespace andritzhydro.web
         }
 
 
-        public Calculations GetCalculations()
-        {
-            this.WriteLogEntry();
-            return this.CalculationManager.GetCalculations();
-        }
+
 
 
 
@@ -269,6 +265,12 @@ namespace andritzhydro.web
         {
             this.WriteLogEntry();
             return this.CalculationManager.GetOrificeCalculation(calcId);
+        }
+
+        public Calculations GetCalculations(string projectId, int? subassemblyId)
+        {
+            this.WriteLogEntry();
+            return this.CalculationManager.GetCalculations(projectId, subassemblyId);
         }
     }
 }

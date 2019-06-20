@@ -138,6 +138,7 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                 this._SelectedSubAssembly = value;
                 OnPropertyChanged("CalculationTemplates");
+                OnPropertyChanged("Calculations");
                 this._SelectedSubAssembly = null;
             }
         }
@@ -275,15 +276,26 @@ namespace AndritzHydro.Tuccos.ViewModels
 
 
         /// <summary>
-        /// Provides the calculations
+        /// Provides the template calculation list
         /// </summary>
         /// <returns></returns>
-        public Calculation[] GetCalculationsMethod()
+        public Calculation[] GetCalcualationMethod()
         {
-            var VM = new Model.ProjectClient();
-            return VM.GetCalculations();
-        }
+            try
+            {
+                //int? _helper = this.SelectedSubAssembly.SubAssemblyId;                    
+                var VM = new Model.ProjectClient();
+                //var _helper1 = VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
+                return VM.GetCalculations(this.SelectedSubAssembly.SubAssemblyId, this.SelectedProject.ProjectId);
+            }
+            catch (System.Exception ex)
+            {
+                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+            }
 
+            return null;
+
+        }
 
         /// <summary>
         /// Internal field for the property.
@@ -291,14 +303,14 @@ namespace AndritzHydro.Tuccos.ViewModels
         private Calculation[] _Calculations;
 
         /// <summary>
-        /// Gets the supported calculations.
+        /// Gets the supported projects.
         /// </summary>
         /// <remarks>The countries are cached.</remarks>
         public Calculation[] Calculations
         {
             get
             {
-                this._Calculations = this.GetCalculationsMethod();
+                this._Calculations = this.GetCalcualationsMethod();
                 return this._Calculations;
             }
         }
@@ -595,8 +607,6 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
             }
         }
-
-        public int SelectedIndex { get; set; }
 
 
         #endregion ProjectList

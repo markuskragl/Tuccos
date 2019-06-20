@@ -46,20 +46,11 @@ namespace andritzhydro.web
         [OperationContract]
         AndritzHydro.Tuccos.Data.CalculationTemplates GetCalculationTemplates(int? SubId);
 
-
-
-        /// <summary>
-        /// Returns all calculations
-        /// </summary>
-        [OperationContract]
-        AndritzHydro.Tuccos.Data.Calculations GetCalculations();
-
         /// <summary>
         /// Add a calculation to the database.
         /// </summary>
-        /// <param name="ticket">The project which should be saved.</param>
         [OperationContract]
-        void AddCalculation(AndritzHydro.Tuccos.Data.Calculation calculation);
+        AndritzHydro.Tuccos.Data.Calculation GetCalculations(string projectId, int? subassemblyId);
 
         /// <summary>
         /// Delete a calculation from the database.
