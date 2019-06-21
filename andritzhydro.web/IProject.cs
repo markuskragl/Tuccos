@@ -50,7 +50,7 @@ namespace andritzhydro.web
         /// Add a calculation to the database.
         /// </summary>
         [OperationContract]
-        AndritzHydro.Tuccos.Data.Calculation GetCalculations(string projectId, int? subassemblyId);
+        AndritzHydro.Tuccos.Data.Calculations GetCalculations(string projectId, int? subassemblyId);
 
         /// <summary>
         /// Delete a calculation from the database.
@@ -58,6 +58,14 @@ namespace andritzhydro.web
         /// <param name="calculation">The calculation which should be deleted.</param>
         [OperationContract]
         void DeleteCalculation(AndritzHydro.Tuccos.Data.Calculation calculation);
+
+
+        /// <summary>
+        /// Add a project to the database.
+        /// </summary>
+        /// <param name="ticket">The project which should be saved.</param>
+        [OperationContract]
+        void AddCalculation(AndritzHydro.Tuccos.Data.Calculation calculation);
 
         /// <summary>
         /// Delete a calculation from the database.

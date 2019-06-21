@@ -25,7 +25,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 {
                     //Configure the command
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ProjectIdId", projectId);
+                    command.Parameters.AddWithValue("@ProjectId", projectId);
                     command.Parameters.AddWithValue("@SubAssemblyId", subAssemblyId);
                     //command.Parameters.AddWithValue();
 

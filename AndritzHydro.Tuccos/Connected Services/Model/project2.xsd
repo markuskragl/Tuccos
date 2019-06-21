@@ -65,7 +65,10 @@
   </xs:element>
   <xs:element name="GetCalculations">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subassemblyId" nillable="true" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCalculationsResponse">
@@ -75,26 +78,26 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddCalculation">
+  <xs:element name="DeleteCalculation">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="calculation" nillable="true" type="q7:Calculation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddCalculationResponse">
+  <xs:element name="DeleteCalculationResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteCalculation">
+  <xs:element name="AddCalculation">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="calculation" nillable="true" type="q8:Calculation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteCalculationResponse">
+  <xs:element name="AddCalculationResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -375,22 +375,22 @@ namespace AndritzHydro.Tuccos.Model {
         System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.CalculationTemplate[]> GetCalculationTemplatesAsync(System.Nullable<int> SubId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCalculations", ReplyAction="http://tempuri.org/IProject/GetCalculationsResponse")]
-        AndritzHydro.Tuccos.Model.Calculation[] GetCalculations();
+        AndritzHydro.Tuccos.Model.Calculation[] GetCalculations(string projectId, System.Nullable<int> subassemblyId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetCalculations", ReplyAction="http://tempuri.org/IProject/GetCalculationsResponse")]
-        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetCalculationsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddCalculation", ReplyAction="http://tempuri.org/IProject/AddCalculationResponse")]
-        void AddCalculation(AndritzHydro.Tuccos.Model.Calculation calculation);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddCalculation", ReplyAction="http://tempuri.org/IProject/AddCalculationResponse")]
-        System.Threading.Tasks.Task AddCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation);
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetCalculationsAsync(string projectId, System.Nullable<int> subassemblyId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/DeleteCalculation", ReplyAction="http://tempuri.org/IProject/DeleteCalculationResponse")]
         void DeleteCalculation(AndritzHydro.Tuccos.Model.Calculation calculation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/DeleteCalculation", ReplyAction="http://tempuri.org/IProject/DeleteCalculationResponse")]
         System.Threading.Tasks.Task DeleteCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddCalculation", ReplyAction="http://tempuri.org/IProject/AddCalculationResponse")]
+        void AddCalculation(AndritzHydro.Tuccos.Model.Calculation calculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddCalculation", ReplyAction="http://tempuri.org/IProject/AddCalculationResponse")]
+        System.Threading.Tasks.Task AddCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetOrificeCalculation", ReplyAction="http://tempuri.org/IProject/GetOrificeCalculationResponse")]
         AndritzHydro.Tuccos.Model.Calculation[] GetOrificeCalculation(System.Nullable<int> calcId);
@@ -466,20 +466,12 @@ namespace AndritzHydro.Tuccos.Model {
             return base.Channel.GetCalculationTemplatesAsync(SubId);
         }
         
-        public AndritzHydro.Tuccos.Model.Calculation[] GetCalculations() {
-            return base.Channel.GetCalculations();
+        public AndritzHydro.Tuccos.Model.Calculation[] GetCalculations(string projectId, System.Nullable<int> subassemblyId) {
+            return base.Channel.GetCalculations(projectId, subassemblyId);
         }
         
-        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetCalculationsAsync() {
-            return base.Channel.GetCalculationsAsync();
-        }
-        
-        public void AddCalculation(AndritzHydro.Tuccos.Model.Calculation calculation) {
-            base.Channel.AddCalculation(calculation);
-        }
-        
-        public System.Threading.Tasks.Task AddCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation) {
-            return base.Channel.AddCalculationAsync(calculation);
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetCalculationsAsync(string projectId, System.Nullable<int> subassemblyId) {
+            return base.Channel.GetCalculationsAsync(projectId, subassemblyId);
         }
         
         public void DeleteCalculation(AndritzHydro.Tuccos.Model.Calculation calculation) {
@@ -488,6 +480,14 @@ namespace AndritzHydro.Tuccos.Model {
         
         public System.Threading.Tasks.Task DeleteCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation) {
             return base.Channel.DeleteCalculationAsync(calculation);
+        }
+        
+        public void AddCalculation(AndritzHydro.Tuccos.Model.Calculation calculation) {
+            base.Channel.AddCalculation(calculation);
+        }
+        
+        public System.Threading.Tasks.Task AddCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation) {
+            return base.Channel.AddCalculationAsync(calculation);
         }
         
         public AndritzHydro.Tuccos.Model.Calculation[] GetOrificeCalculation(System.Nullable<int> calcId) {
