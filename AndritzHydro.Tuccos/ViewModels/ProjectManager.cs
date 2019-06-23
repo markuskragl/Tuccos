@@ -124,24 +124,43 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// </summary>
         private Project _SelectedProject;
         /// <summary>
-        /// Gets the selecte project view.
+        /// Gets and sets the selected project view.
         /// </summary>
         public Project SelectedProject
         {
             get
             {
                 return _SelectedProject;
+                
             }
             set
             {
                 if (_SelectedProject != value)
                 {
                     _SelectedProject = value;
-                    OnPropertyChanged("SelectedProject");
-                    OnPropertyChanged("Calculations");
+                    //OnPropertyChanged("SelectedProject");
+                    try
+                    {
+                        ProjectId = _SelectedProject.ProjectId;
+                        ProjectName = SelectedProject.ProjectName;
+                        ProjectYear = SelectedProject.ProjectYear;
+
+                        OnPropertyChanged("Calculations");
+                        OnPropertyChanged("ProjectId");
+                        OnPropertyChanged("ProjectName");
+                        OnPropertyChanged("ProjectYear");
+
+                    }
+                    catch (System.Exception ex)
+                    {
+                        this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    }
+
+
                 }
             }
         }
+
 
         /// <summary>
         /// Internal field for the property.
@@ -159,29 +178,6 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
-
-        /// <summary>
-        /// Internal field for the property.
-        /// </summary>
-        private string _ProjectId;
-        /// <summary>
-        /// Gets the textbox ProjectId
-        /// </summary>
-        public string ProjectId
-        {
-            get
-            {
-                return _ProjectId;
-            }
-            set
-            {
-                if (_ProjectId != value)
-                {
-                    _ProjectId = value;
-                    OnPropertyChanged("ProjectId");
-                }
-            }
-        }
 
         /// <summary>
         /// Internal field for the property.
@@ -259,6 +255,88 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private AndritzHydro.Tuccos.Helpers.Command _NewProject = null;
+        /// <summary>
+        /// Gets the command to delete a project from the database.
+        /// </summary>
+        public AndritzHydro.Tuccos.Helpers.Command NewProject
+        {
+            get
+            {
+                if (this._NewProject == null)
+                {
+                    this.Owner.SetBusyOn();
+
+                    this._NewProject = new AndritzHydro.Tuccos.Helpers.Command(
+                        data =>
+                        {
+                            this.Owner.SetBusyOn();
+
+                            ProjectId = null;
+                            ProjectName = null;
+                            ProjectYear = 0;
+
+                            SelectedProject = null;
+
+                            OnPropertyChanged("ProjectId");
+                            OnPropertyChanged("ProjectName");
+                            OnPropertyChanged("ProjectYear");
+                            OnPropertyChanged("SelectedProject");
+                            this.Owner.SetBusyOff();
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+                return this._NewProject;
+
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private string _ProjectId;
+        /// <summary>
+        /// Gets the textbox ProjectId
+        /// </summary>
+        public string ProjectId
+        {
+            get
+            {
+                try
+                {
+                    if (SelectedProject.ProjectId == null)
+                    {
+                        return _ProjectId;
+                    }
+                    return _ProjectId;
+
+                }
+                catch (System.Exception ex)
+                {
+                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    return _ProjectId;
+                }
+
+            }
+            set
+            {
+                if (_ProjectId != value)
+                {
+                    _ProjectId = value;
+                    //OnPropertyChanged("ProjectId");
+                }
+
+            }
+        }
+
         /// <summary>
         /// Internal field for the property.
         /// </summary>
@@ -270,15 +348,29 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                return _ProjectName;
+                try
+                {
+                    if (SelectedProject.ProjectName == null)
+                    {
+                        return _ProjectName;
+                    }
+                    return _ProjectName;
+
+                }
+                catch (System.Exception ex)
+                {
+                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    return _ProjectName;
+                }
+
             }
             set
             {
                 if (_ProjectName != value)
                 {
                     _ProjectName = value;
-                    OnPropertyChanged("ProjectName");
                 }
+
             }
         }
 
@@ -293,15 +385,30 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                return _ProjectYear;
+                try
+                {
+                    if (SelectedProject.ProjectYear == null)
+                    {
+                        return _ProjectYear;
+                    }
+                    return _ProjectYear;
+
+                }
+                catch (System.Exception ex)
+                {
+                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    return _ProjectYear;
+                }
+
             }
             set
             {
                 if (_ProjectYear != value)
                 {
                     _ProjectYear = value;
-                    OnPropertyChanged("ProjectYear");
+                    //OnPropertyChanged("ProjectId");
                 }
+
             }
         }
 
@@ -501,15 +608,19 @@ namespace AndritzHydro.Tuccos.ViewModels
                         {
                             this.Owner.SetBusyOn();
 
-                            var MaxCalculationId = 0;
-                            foreach (Calculation c in this.Controller.GetCalculations(this.SelectedProject.ProjectId, this.SelectedSubAssembly.SubAssemblyId))
-                            {
-                                if ((int)c.CalculationId > MaxCalculationId)
-                                {
-                                    MaxCalculationId = (int)c.CalculationId;
-                                }
-                            }
-                            int CurrentCalculationid = MaxCalculationId + 1;
+                            //var MaxCalculationId = 0;
+                            //foreach (Calculation c in this.Controller.GetCalculations(this.SelectedProject.ProjectId, this.SelectedSubAssembly.SubAssemblyId))
+                            //{
+                            //    if ((int)c.CalculationId > MaxCalculationId)
+                            //    {
+                            //        MaxCalculationId = (int)c.CalculationId;
+                            //    }
+                            //}
+                            //int CurrentCalculationid = MaxCalculationId + 1;
+
+                            Random randomId = new Random();
+
+                            int CurrentCalculationid = randomId.Next();
 
                             var _helper = this.SelectedCalculationTemplate;
 

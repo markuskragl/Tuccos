@@ -21,6 +21,18 @@
 
         </Grid.ColumnDefinitions>
 
+
+        <GroupBox
+            Header="Select a Project"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            
+            Margin="5,5,10,5">
+            
+            
+            
+        </GroupBox>
         <ComboBox
             Grid.Row="0"
             Grid.Column="0"
@@ -51,14 +63,31 @@
                 HorizontalContentAlignment="Stretch"
                 VerticalAlignment="Bottom">
 
-                <ListBox
+
+                <ListView 
+                    Margin="5,10,5,5" 
+                    HorizontalContentAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    
+                    ItemsSource="{Binding SubAssemblies}"
+                    SelectedItem="{Binding SelectedSubAssembly}"
+                    x:Name="SubAssemblyList">
+                    <ListView.View>
+                        <GridView  AllowsColumnReorder="True">
+                            <GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId}" Header="Id"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding SubAssemblyName}" Header="Name" Width="220"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <!--<ListBox
                     Margin="5,10,5,5" 
                     HorizontalContentAlignment="Stretch"
                     VerticalAlignment="Top"
                     ItemsSource="{Binding SubAssemblies}"
                     DisplayMemberPath="SubAssemblyId"
                     SelectedItem="{Binding SelectedSubAssembly}"
-                />
+                />-->
             </GroupBox>
 
 
@@ -69,55 +98,42 @@
                 HorizontalContentAlignment="Stretch"
                 VerticalAlignment="Stretch">
 
-
                 <ListView 
                     Margin="5,5,10,5" 
                     HorizontalContentAlignment="Stretch"
                     VerticalAlignment="Bottom"
                     ItemsSource="{Binding CalculationTemplates}"
                     SelectedItem="{Binding SelectedCalculationTemplate}"
-                    x:Name="SubAssemblyInfoListView">
+                    x:Name="CalculationTemplateList">
                     <ListView.View>
                         <GridView  AllowsColumnReorder="True">
-                            <GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId}" Header="SubAssemblyId"/>
-                            <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="CalculationType"/>
-                            <GridViewColumn DisplayMemberBinding="{Binding CalculationTemplateId}" Header="CalculationTemplateId"/>
+                            <!--<GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId}" Header="SubAssemblyId"/>-->
+                            <GridViewColumn DisplayMemberBinding="{Binding CalculationTemplateId}" Header="Id" />
+                            <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="Type"  Width="220" />
                         </GridView>
                     </ListView.View>
                 </ListView>
             </GroupBox>
-
         </StackPanel>
 
         <StackPanel
             Grid.Column="0"
             Grid.Row="2"
             Margin="5,5,10,10" 
-
-            VerticalAlignment="Bottom" 
-
-
-                >
+            VerticalAlignment="Bottom">
 
             <Button  
-                    
-                    Content="Add Calculation" 
-                    Command="{Binding AddCalculation}" 
-                
+                Content="Add Calculation" 
+                Command="{Binding AddCalculation}" 
 
-                    Width="250" 
-                    Height="30" 
-                    Margin="5,5,5,10"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    />
+                Width="250" 
+                Height="30" 
+                Margin="5,5,5,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                />
 
         </StackPanel>
-
-
-
-
-
 
         <StackPanel
             Grid.Column="0"
@@ -159,9 +175,9 @@
             x:Name="CalculationsInfoListView">
             <ListView.View>
                 <GridView  AllowsColumnReorder="True">
-                    <GridViewColumn DisplayMemberBinding="{Binding ProjectId}" Header="ProjectId"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="CalculationType"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding CalculationId}" Header="CalculationId"/>
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding ProjectId}" Header="ProjectId"/>-->
+                    <GridViewColumn DisplayMemberBinding="{Binding CalculationId}" Header="Id"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="Type" Width="220"/>
                     <!--<GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId1}" Header="SubAssemblyId"/>-->
                 </GridView>
             </ListView.View>
