@@ -9,15 +9,11 @@ namespace AndritzHydro.Tuccos.Data.Controller
     public class CalculationTemplateManager : AndritzHydro.Core.Data.DataApplicationObject
     {
         /// <summary>
-        /// Internes Feld für die Eigenschaft.
+        /// Internal field for the property.
         /// </summary>
-        /// <remarks>Nur das sollte bei einer anderen
-        /// Datenbank ausgetauscht werden müssen.</remarks>
         private CalculationTemplateController _Controller = null;
-
         /// <summary>
-        /// Ruft den Dienst zum Lesen und Schreiben
-        /// der Lottodaten ab.
+        /// Provides the service to read from the database.
         /// </summary>
         private CalculationTemplateController Controller
         {
@@ -27,13 +23,12 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 {
                     this._Controller = this.Context.Create<CalculationTemplateController>();
                 }
-
                 return this._Controller;
             }
         }
 
         /// <summary>
-        /// Provides all SubAssemblies.
+        /// Provides all calculation templates.
         /// </summary>
         public CalculationTemplates GetCalculationTemplates(int? subId)
         {
@@ -49,8 +44,5 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 return new CalculationTemplates();
             }
         }
-
-
-
     }
 }

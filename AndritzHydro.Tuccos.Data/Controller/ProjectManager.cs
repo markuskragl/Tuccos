@@ -9,15 +9,11 @@ namespace AndritzHydro.Tuccos.Data.Controller
     public class ProjectManager : AndritzHydro.Core.Data.DataApplicationObject
     {
         /// <summary>
-        /// Internes Feld für die Eigenschaft.
+        /// Internal field for the property.
         /// </summary>
-        /// <remarks>Nur das sollte bei einer anderen
-        /// Datenbank ausgetauscht werden müssen.</remarks>
         private ProjectController _Controller = null;
-
         /// <summary>
-        /// Ruft den Dienst zum Lesen und Schreiben
-        /// der Lottodaten ab.
+        /// Provides the service to read from the database.
         /// </summary>
         private ProjectController Controller
         {
@@ -31,7 +27,6 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 return this._Controller;
             }
         }
-
 
 
         /// <summary>

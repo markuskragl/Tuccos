@@ -27,6 +27,7 @@ namespace andritzhydro.web
         [OperationContract]
         void SaveProject(AndritzHydro.Tuccos.Data.Project project);
 
+
         /// <summary>
         /// Delete a project from the database.
         /// </summary>
@@ -34,11 +35,13 @@ namespace andritzhydro.web
         [OperationContract]
         void DeleteProject(AndritzHydro.Tuccos.Data.Project project);
 
+
         /// <summary>
         /// Returns all SubAssemlies
         /// </summary>
         [OperationContract]
         AndritzHydro.Tuccos.Data.SubAssemblies GetSubAssemblies();
+
 
         /// <summary>
         /// Returns all CalculationTemplates
@@ -46,11 +49,13 @@ namespace andritzhydro.web
         [OperationContract]
         AndritzHydro.Tuccos.Data.CalculationTemplates GetCalculationTemplates(int? SubId);
 
+
         /// <summary>
         /// Add a calculation to the database.
         /// </summary>
         [OperationContract]
         AndritzHydro.Tuccos.Data.Calculations GetCalculations(string projectId, int? subassemblyId);
+
 
         /// <summary>
         /// Delete a calculation from the database.
@@ -61,16 +66,16 @@ namespace andritzhydro.web
 
 
         /// <summary>
-        /// Add a project to the database.
+        /// Add a calculation to the database.
         /// </summary>
-        /// <param name="ticket">The project which should be saved.</param>
+        /// <param name="calculation">The calculation which should be added.</param>
         [OperationContract]
         void AddCalculation(AndritzHydro.Tuccos.Data.Calculation calculation);
 
+
         /// <summary>
-        /// Delete a calculation from the database.
+        /// Adds a calculation from the database.
         /// </summary>
-        /// <param name="calculation">The calculation which should be deleted.</param>
         [OperationContract]
         AndritzHydro.Tuccos.Data.Calculations GetOrificeCalculation(int? calcId);
 

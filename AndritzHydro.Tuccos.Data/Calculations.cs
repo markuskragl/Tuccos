@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace AndritzHydro.Tuccos.Data
-
-
 {
-
     /// <summary>
     /// Provides a class for the parameter
     /// </summary>
@@ -19,11 +16,6 @@ namespace AndritzHydro.Tuccos.Data
         public string ParameterName { get; set; }
 
         public double ParameterValue { get; set; }
-
-
-
-       
-
     }
 
     /// <summary>
@@ -32,8 +24,6 @@ namespace AndritzHydro.Tuccos.Data
     /// <typeparam name="T"></typeparam>
     public class Calculation
     {
-
-
         public string ProjectId { get; set; }
 
         public int SubAssemblyId { get; set; }
@@ -43,7 +33,6 @@ namespace AndritzHydro.Tuccos.Data
         public string CalculationType { get; set; }
 
         public List<Parameter> InputParameter { get; set; }
-
     }
 
     /// <summary>
@@ -61,7 +50,6 @@ namespace AndritzHydro.Tuccos.Data
     public class CalculationsCollection
 
     {
-
         /// <summary>
         /// Provides a calculation for the orifice time
         /// </summary>
@@ -190,6 +178,4 @@ namespace AndritzHydro.Tuccos.Data
         }
 
     }
-
-
 }

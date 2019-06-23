@@ -17,13 +17,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="AndritzHydro.Tuccos.Model.ProjectController">
-    <Position X="0.5" Y="1.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAABAAAAA=</HashCode>
-      <FileName>Model\ProjectController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="AndritzHydro.Tuccos.ProjectsOverview">
     <Position X="3" Y="3.25" Width="2" />
     <TypeIdentifier>
@@ -35,22 +28,50 @@
   <Class Name="AndritzHydro.Tuccos.ViewModels.ProjectManager">
     <Position X="5.5" Y="1.25" Width="2" />
     <Members>
+      <Field Name="_AddCalculation" Hidden="true" />
+      <Field Name="_Calculations" Hidden="true" />
+      <Field Name="_CalculationTemplates" Hidden="true" />
       <Field Name="_Controller" Hidden="true" />
-      <Field Name="_CountriesFinal" Hidden="true" />
-      <Field Name="_CurrentProject" Hidden="true" />
+      <Field Name="_DeleteCalculation" Hidden="true" />
       <Field Name="_DeleteProject" Hidden="true" />
+      <Field Name="_OrificeCalculation" Hidden="true" />
       <Field Name="_ProjectId" Hidden="true" />
       <Field Name="_ProjectListFinal" Hidden="true" />
       <Field Name="_ProjectName" Hidden="true" />
       <Field Name="_ProjectYear" Hidden="true" />
       <Field Name="_SaveProject" Hidden="true" />
+      <Field Name="_SelectedCalculation" Hidden="true" />
+      <Field Name="_SelectedCalculationTemplate" Hidden="true" />
+      <Field Name="_SelectedCalculationViewer" Hidden="true" />
       <Field Name="_SelectedProject" Hidden="true" />
+      <Field Name="_SelectedSubAssembly" Hidden="true" />
+      <Field Name="_SubAssemblies" Hidden="true" />
+      <Field Name="_ViewerCalculationType" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>oAAAAQCAgQCQgAAACDBCAkQIBAAAAggAAIAAAACAAQA=</HashCode>
+      <HashCode>oBoQAQaggQAAgBBACBBCAkAMBUAAAggEQIiAABSIABA=</HashCode>
       <FileName>ViewModels\ProjectManager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Model.TaskList" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Model.Task">
+    <Position X="0.5" Y="1.25" Width="2" />
+    <Members>
+      <Field Name="_Title" Hidden="true" />
+      <Field Name="_Viewer" Hidden="true" />
+      <Field Name="_ViewerType" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAiAAAAIUAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Task.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -20,13 +20,10 @@ namespace AndritzHydro.Tuccos.Data
     /// </summary>
     public class SubAssembly : Project
     {
-
-
         /// <summary>
         /// Internal field for the property
         /// </summary>
         private int? _SubAssemblyId= null;
-
         /// <summary>
         /// Gets or sets the type of the subassembly
         /// </summary>
@@ -42,7 +39,6 @@ namespace AndritzHydro.Tuccos.Data
                 this._SubAssemblyId = value;
             }
         }
-
 
 
         /// <summary>
@@ -70,7 +66,6 @@ namespace AndritzHydro.Tuccos.Data
         /// Internal field for the property
         /// </summary>
         private int? _SubAssemblyRngNr = null;
-
         /// <summary>
         /// Gets or sets the running number of the subassembly
         /// </summary>

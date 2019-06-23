@@ -1,43 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AndritzHydro.Tuccos.Data.Controller.ProjectManager">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="1" Y="6.25" Width="2" />
     <Members>
       <Field Name="_Controller" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAEAAAAACAEAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAEAAAAACAkAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controller\ProjectManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AndritzHydro.Tuccos.Data.Calculations.Orifice">
-    <Position X="1" Y="4.75" Width="1.5" />
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.ProjectController">
+    <Position X="1" Y="4.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Calculations\Orifice.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAEAAAAACAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\ProjectController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AndritzHydro.Tuccos.Data.Project">
-    <Position X="1" Y="0.5" Width="1.5" />
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.CalculationController">
+    <Position X="6" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAA=</HashCode>
+      <FileName>Controller\CalculationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.CalculationManager">
+    <Position X="6" Y="9.25" Width="2" />
     <Members>
-      <Field Name="_Subassembly" Hidden="true" />
+      <Field Name="_Controller" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAACAAAABAAAAAAAAgAAAAQAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAAIBAA=</HashCode>
+      <FileName>Controller\CalculationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Parameter">
+    <Position X="6" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Calculations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Calculation">
+    <Position X="6" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAQAAAAAAAAgBABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Calculations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Calculations" Collapsed="true">
+    <Position X="6" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Calculations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.CalculationsCollection">
+    <Position X="6" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Calculations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Projects" Collapsed="true">
+    <Position X="1" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Projects.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AndritzHydro.Tuccos.Data.Subassembly">
-    <Position X="1" Y="2.5" Width="1.5" />
+  <Class Name="AndritzHydro.Tuccos.Data.Project">
+    <Position X="1" Y="0.5" Width="2" />
     <Members>
-      <Field Name="_Calculations" Hidden="true" />
-      <Field Name="_Project" Hidden="true" />
-      <Field Name="_RngNr" Hidden="true" />
-      <Field Name="_Type" Hidden="true" />
+      <Field Name="_ProjectId" Hidden="true" />
+      <Field Name="_ProjectName" Hidden="true" />
+      <Field Name="_ProjectYear" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAACAAAAEAAAEAEAQAAAAAADAA=</HashCode>
-      <FileName>Subassembly.cs</FileName>
+      <HashCode>oAAAAAAAAAAAAAAAKAAAAAAIhAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Projects.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.CalculationTemplates" Collapsed="true">
+    <Position X="8.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CalculationTemplates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.CalculationTemplate">
+    <Position X="8.5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="_CalculationTemplateId" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>CalculationTemplates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.SubAssemblies" Collapsed="true">
+    <Position X="3.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubAssembly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.SubAssembly">
+    <Position X="3.5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="_SubAssemblyId" Hidden="true" />
+      <Field Name="_SubAssemblyName" Hidden="true" />
+      <Field Name="_SubAssemblyRngNr" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgAAAABAAIAAAAAAAAAAAAAgAAAAAAAAAAAAQAgAAAA=</HashCode>
+      <FileName>SubAssembly.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
