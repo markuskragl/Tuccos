@@ -477,7 +477,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         private ProjectManager _Project = null;
 
         /// <summary>
-        /// Gets the view model to control the lottery UI.
+        /// Gets the view model to control the project UI.
         /// </summary>
         public ProjectManager Project
         {

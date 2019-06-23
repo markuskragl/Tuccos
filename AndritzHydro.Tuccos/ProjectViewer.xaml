@@ -177,7 +177,7 @@
                 <GridView  AllowsColumnReorder="True">
                     <!--<GridViewColumn DisplayMemberBinding="{Binding ProjectId}" Header="ProjectId"/>-->
                     <GridViewColumn DisplayMemberBinding="{Binding CalculationId}" Header="Id"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="Type" Width="220"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="Type" Width="210"/>
                     <!--<GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId1}" Header="SubAssemblyId"/>-->
                 </GridView>
             </ListView.View>

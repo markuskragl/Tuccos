@@ -11,7 +11,7 @@ using AndritzHydro.Tuccos.Data;
 namespace andritzhydro.web
 {
     /// <summary>
-    /// Publishes the lottery logic from Tuccos Data.
+    /// Publishes the project logic from Tuccos Data.
     /// </summary>
     public class ProjectsView : System.Web.Services.WebService, IProject
     {

@@ -603,42 +603,53 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     this.Owner.SetBusyOn();
 
+
                     this._AddCalculation = new AndritzHydro.Tuccos.Helpers.Command(
                         data =>
                         {
-                            this.Owner.SetBusyOn();
-
-                            //var MaxCalculationId = 0;
-                            //foreach (Calculation c in this.Controller.GetCalculations(this.SelectedProject.ProjectId, this.SelectedSubAssembly.SubAssemblyId))
-                            //{
-                            //    if ((int)c.CalculationId > MaxCalculationId)
-                            //    {
-                            //        MaxCalculationId = (int)c.CalculationId;
-                            //    }
-                            //}
-                            //int CurrentCalculationid = MaxCalculationId + 1;
-
-                            Random randomId = new Random();
-
-                            int CurrentCalculationid = randomId.Next();
-
-                            var _helper = this.SelectedCalculationTemplate;
-
-                            this.Controller.AddCalculation(new Calculation
+                            if (this.SelectedProject == null)
                             {
-                                ProjectId = this.SelectedProject.ProjectId,
-                                SubAssemblyId = this.SelectedCalculationTemplate.SubAssemblyId,
-                                CalculationId = CurrentCalculationid,
-                                CalculationType = this.SelectedCalculationTemplate.CalculationType
-                            });
+                                MessageBox.Show("Please select a Project");
+                            }
+                            if (this.SelectedCalculationTemplate == null)
+                            {
+                                MessageBox.Show("Please select a Calculation Template");
+                            }
+                            else
+                            {
+                                this.Owner.SetBusyOn();
 
-                            this.CloseController();
+                                //var MaxCalculationId = 0;
+                                //foreach (Calculation c in this.Controller.GetCalculations(this.SelectedProject.ProjectId, this.SelectedSubAssembly.SubAssemblyId))
+                                //{
+                                //    if ((int)c.CalculationId > MaxCalculationId)
+                                //    {
+                                //        MaxCalculationId = (int)c.CalculationId;
+                                //    }
+                                //}
+                                //int CurrentCalculationid = MaxCalculationId + 1;
+
+                                Random randomId = new Random();
+
+                                int CurrentCalculationid = randomId.Next();
+
+                                var _helper = this.SelectedCalculationTemplate;
+
+                                this.Controller.AddCalculation(new Calculation
+                                {
+                                    ProjectId = this.SelectedProject.ProjectId,
+                                    SubAssemblyId = this.SelectedCalculationTemplate.SubAssemblyId,
+                                    CalculationId = CurrentCalculationid,
+                                    CalculationType = this.SelectedCalculationTemplate.CalculationType
+                                });
+
+                                this.CloseController();
 
 
-                            OnPropertyChanged("Calculations");
+                                OnPropertyChanged("Calculations");
 
-                            this.Owner.SetBusyOff();
-
+                                this.Owner.SetBusyOff();
+                            }
                         });
 
                     this.Owner.SetBusyOff();
