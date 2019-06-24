@@ -634,7 +634,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                                 int CurrentCalculationid = randomId.Next();
 
                                 var _helper = this.SelectedCalculationTemplate;
-
+                                try { 
                                 this.Controller.AddCalculation(new Calculation
                                 {
                                     ProjectId = this.SelectedProject.ProjectId,
@@ -649,6 +649,11 @@ namespace AndritzHydro.Tuccos.ViewModels
                                 OnPropertyChanged("Calculations");
 
                                 this.Owner.SetBusyOff();
+                                }
+                                catch (System.Exception ex)
+                                {
+                                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                                }
                             }
                         });
 
