@@ -265,10 +265,23 @@ namespace andritzhydro.web
             return this.CalculationTemplateManager.GetCalculationTemplates(SubId);
         }
 
-        public Calculations GetOrificeCalculation(int? calcId)
+
+        public Parameters GetParameters(int? calcId)
         {
             this.WriteLogEntry();
-            return this.CalculationManager.GetOrificeCalculation(calcId);
+            return this.CalculationManager.GetParameters(calcId);
+        }
+
+        public double OrificeCalculationTime(Parameter[] inputparameter)
+        {
+            this.WriteLogEntry();
+            return this.CalculationManager.OrificeCalculationTime(inputparameter);
+        }
+
+        public void AddParameter(Parameter parameter)
+        {
+            this.WriteLogEntry();
+            this.CalculationManager.AddParameter(parameter);
         }
     }
 }

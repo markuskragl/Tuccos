@@ -88,14 +88,16 @@ namespace AndritzHydro.Tuccos.Data.Controller
             }
         }
 
+
+
         /// <summary>
         /// Provides all orifice calculations.
         /// </summary>
-        public Calculations GetOrificeCalculation(int? calcId)
+        public Parameters GetParameters(int? calcId)
         {
             try
             {
-                return this.Controller.GetOrificeCalculation(calcId);
+                return this.Controller.GetParameters(calcId);
 
             }
             catch (System.Exception ex)
@@ -103,7 +105,45 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 this.Context.Log.WriteEntry(
                     $"{this} hat eine Ausnahme verursacht:\r\n{ex.Message}",
                     Core.Data.LogEntryType.Error);
-                return new Calculations();
+                return new Parameters();
+            }
+        }
+
+        /// <summary>
+        /// Provides all orifice calculations.
+        /// </summary>
+        public double OrificeCalculationTime(Parameter[] inputparameter)
+        {
+            try
+            {
+                CalculationsCollection calc = new CalculationsCollection();
+                
+                return calc.OrificeCalculationTime(inputparameter);
+
+            }
+            catch (System.Exception ex)
+            {
+                this.Context.Log.WriteEntry(
+                    $"{this} hat eine Ausnahme verursacht:\r\n{ex.Message}",
+                    Core.Data.LogEntryType.Error);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Adds a  parameter to the database.
+        /// </summary>
+        /// <param name="parameter">The parameter which
+        /// should be added.</param>
+        public virtual void AddParameter(Parameter parameter)
+        {
+            try
+            {
+                this.Controller.AddParameter(parameter);
+            }
+            catch (System.Exception ex)
+            {
+                this.OnErrorOccurred(new Core.ErrorOccurredEventArgs(ex));
             }
         }
     }

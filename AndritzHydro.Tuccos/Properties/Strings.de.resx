@@ -136,7 +136,7 @@
     <value>Schließt alle offenen Fenster</value>
   </data>
   <data name="DiameterOilPipe" xml:space="preserve">
-    <value>Durchmesser Ölleitung [mm]</value>
+    <value>Durchmesser Ölleitung</value>
   </data>
   <data name="DrawDate" xml:space="preserve">
     <value>Datum der Ziehung</value>
@@ -151,13 +151,13 @@
     <value>Sprache</value>
   </data>
   <data name="LengthOilPipe" xml:space="preserve">
-    <value>Länge Ölleitung [mm]</value>
+    <value>Länge Ölleitung</value>
   </data>
   <data name="LossFactorArmouring" xml:space="preserve">
-    <value>Verlustfaktor Armatur [-]</value>
+    <value>Verlustfaktor Armatur</value>
   </data>
   <data name="LossValue" xml:space="preserve">
-    <value>Verlustziffer [-]</value>
+    <value>Verlustziffer</value>
   </data>
   <data name="LotteryDescription" xml:space="preserve">
     <value>Lotto {0} aus {1}</value>
@@ -175,7 +175,7 @@
     <value>Öffnet ein neues Fenster (Strg + N)</value>
   </data>
   <data name="OrificeDiameter" xml:space="preserve">
-    <value>Durchmesser Blende [mm]</value>
+    <value>Durchmesser Blende</value>
   </data>
   <data name="OuterDiameterCylinder" xml:space="preserve">
     <value>Außendurchmesser Zylinder</value>
@@ -196,10 +196,10 @@
     <value>Als Standard festlegen</value>
   </data>
   <data name="SingleForce" xml:space="preserve">
-    <value>Einzelkraft [kN]</value>
+    <value>Einzelkraft</value>
   </data>
   <data name="SingleWorkCapacity" xml:space="preserve">
-    <value>Einzelarbeitsvermögen [kW]</value>
+    <value>Einzelarbeitsvermögen</value>
   </data>
   <data name="TaskLog" xml:space="preserve">
     <value>Anwendungsprotokoll</value>
@@ -232,7 +232,7 @@
     <value>Zeit [s]</value>
   </data>
   <data name="TotalStroke" xml:space="preserve">
-    <value>Gesamthub [mm]</value>
+    <value>Gesamthub</value>
   </data>
   <data name="TaskProjectCalculation" xml:space="preserve">
     <value>Projekt Überblick der Berechnungen</value>

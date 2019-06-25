@@ -144,20 +144,20 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="InnerDiamterCylinder" xml:space="preserve">
-    <value>Inner Diamter Cylinder [mm]</value>
+  <data name="InnerDiameterCylinder" xml:space="preserve">
+    <value>Inner Diamter Cylinder</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="LengthOilPipe" xml:space="preserve">
-    <value>Length Oil Pipe [mm]</value>
+    <value>Length Oil Pipe</value>
   </data>
   <data name="LossFactorArmouring" xml:space="preserve">
-    <value>Loss Factor Armouring [-]</value>
+    <value>Loss Factor Armouring</value>
   </data>
   <data name="LossValue" xml:space="preserve">
-    <value>Loss Value [-]</value>
+    <value>Loss Value</value>
   </data>
   <data name="LotteryDescription" xml:space="preserve">
     <value>Lottery {0} out of {1}</value>
@@ -175,10 +175,10 @@
     <value>Opens a new window (Ctrl + N)</value>
   </data>
   <data name="OrificeDiameter" xml:space="preserve">
-    <value>Orifice Diameter [mm]</value>
+    <value>Orifice Diameter</value>
   </data>
   <data name="OuterDiameterCylinder" xml:space="preserve">
-    <value>Outer Diameter Cylinder [mm]</value>
+    <value>Outer Diameter Cylinder</value>
   </data>
   <data name="PartialStrokes" xml:space="preserve">
     <value>Partial Strokes</value>
@@ -196,10 +196,10 @@
     <value>Set as default</value>
   </data>
   <data name="SingleForce" xml:space="preserve">
-    <value>Single Force [kN]</value>
+    <value>Single Force</value>
   </data>
   <data name="SingleWorkCapacity" xml:space="preserve">
-    <value>Single Work Capacity [kW]</value>
+    <value>Single Work Capacity</value>
   </data>
   <data name="TaskLog" xml:space="preserve">
     <value>Application Log</value>
@@ -232,7 +232,7 @@
     <value>Time [s]</value>
   </data>
   <data name="TotalStroke" xml:space="preserve">
-    <value>Total Stroke [mm]</value>
+    <value>Total Stroke</value>
   </data>
   <data name="TaskProjectCalculation" xml:space="preserve">
     <value>Project Calculation View</value>

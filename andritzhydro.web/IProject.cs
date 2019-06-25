@@ -73,7 +73,21 @@ namespace andritzhydro.web
         /// </summary>
         /// <param name="calculation">The calculation which should be deleted.</param>
         [OperationContract]
-        AndritzHydro.Tuccos.Data.Calculations GetOrificeCalculation(int? calcId);
+        AndritzHydro.Tuccos.Data.Parameters GetParameters(int? calcId);
+
+        /// <summary>
+        /// Delete a calculation from the database.
+        /// </summary>
+        /// <param name="calculation">The calculation which should be deleted.</param>
+        [OperationContract]
+        double OrificeCalculationTime(AndritzHydro.Tuccos.Data.Parameter[] inputparameter);
+
+        /// <summary>
+        /// Add a parameter to the database.
+        /// </summary>
+        /// <param name="parameter">The parameter which should be saved.</param>
+        [OperationContract]
+        void AddParameter(AndritzHydro.Tuccos.Data.Parameter parameter);
 
     }
 }
