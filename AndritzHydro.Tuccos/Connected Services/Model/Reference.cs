@@ -173,6 +173,7 @@ namespace AndritzHydro.Tuccos.Model {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Calculation", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.ExampleCalculation))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AndritzHydro.Tuccos.Model.CalculationTemplate))]
     public partial class Calculation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -275,6 +276,77 @@ namespace AndritzHydro.Tuccos.Model {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExampleCalculation", Namespace="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data")]
+    [System.SerializableAttribute()]
+    public partial class ExampleCalculation : AndritzHydro.Tuccos.Model.Calculation {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CalculationDescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ParameteraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ParameterbField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ResultcField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CalculationDescription {
+            get {
+                return this.CalculationDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CalculationDescriptionField, value) != true)) {
+                    this.CalculationDescriptionField = value;
+                    this.RaisePropertyChanged("CalculationDescription");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Parametera {
+            get {
+                return this.ParameteraField;
+            }
+            set {
+                if ((this.ParameteraField.Equals(value) != true)) {
+                    this.ParameteraField = value;
+                    this.RaisePropertyChanged("Parametera");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Parameterb {
+            get {
+                return this.ParameterbField;
+            }
+            set {
+                if ((this.ParameterbField.Equals(value) != true)) {
+                    this.ParameterbField = value;
+                    this.RaisePropertyChanged("Parameterb");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Resultc {
+            get {
+                return this.ResultcField;
+            }
+            set {
+                if ((this.ResultcField.Equals(value) != true)) {
+                    this.ResultcField = value;
+                    this.RaisePropertyChanged("Resultc");
+                }
             }
         }
     }
@@ -397,6 +469,24 @@ namespace AndritzHydro.Tuccos.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetOrificeCalculation", ReplyAction="http://tempuri.org/IProject/GetOrificeCalculationResponse")]
         System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetOrificeCalculationAsync(System.Nullable<int> calcId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetExampleCalculations", ReplyAction="http://tempuri.org/IProject/GetExampleCalculationsResponse")]
+        AndritzHydro.Tuccos.Model.ExampleCalculation[] GetExampleCalculations(int calcId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetExampleCalculations", ReplyAction="http://tempuri.org/IProject/GetExampleCalculationsResponse")]
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.ExampleCalculation[]> GetExampleCalculationsAsync(int calcId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/ExampleCalculationSum", ReplyAction="http://tempuri.org/IProject/ExampleCalculationSumResponse")]
+        int ExampleCalculationSum(int a, int b);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/ExampleCalculationSum", ReplyAction="http://tempuri.org/IProject/ExampleCalculationSumResponse")]
+        System.Threading.Tasks.Task<int> ExampleCalculationSumAsync(int a, int b);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddExampleCalculation", ReplyAction="http://tempuri.org/IProject/AddExampleCalculationResponse")]
+        void AddExampleCalculation(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddExampleCalculation", ReplyAction="http://tempuri.org/IProject/AddExampleCalculationResponse")]
+        System.Threading.Tasks.Task AddExampleCalculationAsync(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -496,6 +586,30 @@ namespace AndritzHydro.Tuccos.Model {
         
         public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Calculation[]> GetOrificeCalculationAsync(System.Nullable<int> calcId) {
             return base.Channel.GetOrificeCalculationAsync(calcId);
+        }
+        
+        public AndritzHydro.Tuccos.Model.ExampleCalculation[] GetExampleCalculations(int calcId) {
+            return base.Channel.GetExampleCalculations(calcId);
+        }
+        
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.ExampleCalculation[]> GetExampleCalculationsAsync(int calcId) {
+            return base.Channel.GetExampleCalculationsAsync(calcId);
+        }
+        
+        public int ExampleCalculationSum(int a, int b) {
+            return base.Channel.ExampleCalculationSum(a, b);
+        }
+        
+        public System.Threading.Tasks.Task<int> ExampleCalculationSumAsync(int a, int b) {
+            return base.Channel.ExampleCalculationSumAsync(a, b);
+        }
+        
+        public void AddExampleCalculation(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation) {
+            base.Channel.AddExampleCalculation(exampleCalculation);
+        }
+        
+        public System.Threading.Tasks.Task AddExampleCalculationAsync(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation) {
+            return base.Channel.AddExampleCalculationAsync(exampleCalculation);
         }
     }
 }

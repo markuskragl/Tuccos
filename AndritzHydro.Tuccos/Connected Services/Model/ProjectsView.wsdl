@@ -61,6 +61,24 @@
   <wsdl:message name="IProject_GetOrificeCalculation_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOrificeCalculationResponse" />
   </wsdl:message>
+  <wsdl:message name="IProject_GetExampleCalculations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExampleCalculations" />
+  </wsdl:message>
+  <wsdl:message name="IProject_GetExampleCalculations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExampleCalculationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_ExampleCalculationSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExampleCalculationSum" />
+  </wsdl:message>
+  <wsdl:message name="IProject_ExampleCalculationSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExampleCalculationSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_AddExampleCalculation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExampleCalculation" />
+  </wsdl:message>
+  <wsdl:message name="IProject_AddExampleCalculation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExampleCalculationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProject">
     <wsdl:operation name="GetProjectList">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetProjectList" message="tns:IProject_GetProjectList_InputMessage" />
@@ -97,6 +115,18 @@
     <wsdl:operation name="GetOrificeCalculation">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetOrificeCalculation" message="tns:IProject_GetOrificeCalculation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetOrificeCalculationResponse" message="tns:IProject_GetOrificeCalculation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExampleCalculations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetExampleCalculations" message="tns:IProject_GetExampleCalculations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetExampleCalculationsResponse" message="tns:IProject_GetExampleCalculations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExampleCalculationSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/ExampleCalculationSum" message="tns:IProject_ExampleCalculationSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/ExampleCalculationSumResponse" message="tns:IProject_ExampleCalculationSum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExampleCalculation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/AddExampleCalculation" message="tns:IProject_AddExampleCalculation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/AddExampleCalculationResponse" message="tns:IProject_AddExampleCalculation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProject" type="tns:IProject">
@@ -175,6 +205,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrificeCalculation">
       <soap:operation soapAction="http://tempuri.org/IProject/GetOrificeCalculation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExampleCalculations">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetExampleCalculations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExampleCalculationSum">
+      <soap:operation soapAction="http://tempuri.org/IProject/ExampleCalculationSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExampleCalculation">
+      <soap:operation soapAction="http://tempuri.org/IProject/AddExampleCalculation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

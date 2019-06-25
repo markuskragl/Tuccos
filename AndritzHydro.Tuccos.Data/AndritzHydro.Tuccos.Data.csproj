@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculations.cs" />
+    <Compile Include="Controller\ExampleCalculationManager.cs" />
+    <Compile Include="Controller\ExampleCalculationController.cs" />
+    <Compile Include="ExampleCalculations.cs" />
     <Compile Include="CalculationTemplates.cs" />
     <Compile Include="Controller\CalculationController.cs" />
     <Compile Include="Controller\CalculationManager.cs" />

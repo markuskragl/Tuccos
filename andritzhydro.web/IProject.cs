@@ -79,5 +79,27 @@ namespace andritzhydro.web
         [OperationContract]
         AndritzHydro.Tuccos.Data.Calculations GetOrificeCalculation(int? calcId);
 
+
+        /// <summary>
+        /// Returns ExampleCalculation
+        /// </summary>
+        [OperationContract]
+        AndritzHydro.Tuccos.Data.ExampleCalculations GetExampleCalculations(int calcId);
+
+
+        /// <summary>
+        /// Returns ExampleCalculationExecute
+        /// </summary>
+        [OperationContract]
+        int ExampleCalculationSum(int a, int b);
+
+        /// <summary>
+        /// Add a example calculation to the database.
+        /// </summary>
+        /// <param name="exampleCalculation">The calculation which should be added.</param>
+        [OperationContract]
+        void AddExampleCalculation(AndritzHydro.Tuccos.Data.ExampleCalculation exampleCalculation);
+
+
     }
 }

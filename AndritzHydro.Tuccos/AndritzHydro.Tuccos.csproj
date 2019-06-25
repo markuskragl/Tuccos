@@ -73,6 +73,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculationViews\ExampleCalculation.xaml.cs">
+      <DependentUpon>ExampleCalculation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CalculationViews\RunnerCalc.xaml.cs">
       <DependentUpon>RunnerCalc.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
     <Compile Include="ViewModels\ProjectManager.cs" />
     <Compile Include="ViewModels\WindowManager.cs" />
     <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CalculationViews\ExampleCalculation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -206,6 +213,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.CalculationTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.ExampleCalculation.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Project.datasource">

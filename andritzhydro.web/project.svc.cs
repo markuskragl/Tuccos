@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using AndritzHydro.Core.Data;
 using AndritzHydro.Tuccos.Data;
+using AndritzHydro.Tuccos.Data.Controller;
 
 namespace andritzhydro.web
 {
@@ -68,7 +69,7 @@ namespace andritzhydro.web
         /// <param name="caller">Default the calling member</param>
         protected void WriteLogEntry([System.Runtime.CompilerServices.CallerMemberName]string caller = "")
         {
-            this.AppContext.Log.WriteEntry($"{caller} used from {this.Context.Request.UserHostAddress}...");
+            //this.AppContext.Log.WriteEntry($"{caller} used from {this.Context.Request.UserHostAddress}...");
         }
 
 
@@ -173,8 +174,6 @@ namespace andritzhydro.web
             /// Gets the name of the cache used for the manager providing the calculation templates.
             /// </summary>
             private const string CalculationTemplateManagerCache = "CalculationTemplateManager";
-
-
             /// <summary>
             /// Gets the object providing the projects.
             /// </summary>
@@ -200,10 +199,10 @@ namespace andritzhydro.web
             /// Gets all CalculationTemplates to the database.
             /// </summary>
             /// <param name="SubId">The calculation template which should be provided with this subassembly.</param>
-            public CalculationTemplates GetCalculationTemplates(int? SubId)
+            public CalculationTemplates GetCalculationTemplates(int? subId)
             {
                 this.WriteLogEntry();
-                return this.CalculationTemplateManager.GetCalculationTemplates(SubId);
+                return this.CalculationTemplateManager.GetCalculationTemplates(subId);
             }
 
         #endregion CalculationTemplates
@@ -281,7 +280,63 @@ namespace andritzhydro.web
             return this.CalculationManager.GetOrificeCalculation(calcId);
         }
 
-    #endregion Calculation
 
+        #endregion Calculation
+
+
+
+        /// <summary>
+        /// Gets the name of the cache used for the manager providing the calculation templates.
+        /// </summary>
+        private const string ExampleCalculationManagerCache = "ExampleCalculationManager";
+        /// <summary>
+        /// Gets the object providing the projects.
+        /// </summary>
+        protected AndritzHydro.Tuccos.Data.Controller.ExampleCalculationManager ExampleCalculationManager
+        {
+            get
+            {
+                var manager = this.Application[ProjectsView.SubAssemblyManagerCache] as AndritzHydro.Tuccos.Data.Controller.ExampleCalculationManager;
+
+                if (manager == null)
+                {
+                    manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.ExampleCalculationManager>();
+
+                    this.Application[ProjectsView.SubAssemblyManagerCache] = manager;
+                    this.AppContext.Log.WriteEntry($"{manager} has been cached...");
+                }
+
+                return manager;
+            }
+        }
+
+        /// <summary>
+        /// Gets all ExampleCalculations to the database.
+        /// </summary>
+        /// <param name="calcId">The calculation which should be provided with this calcualtion id.</param>
+        public ExampleCalculations GetExampleCalculations(int calcId)
+        {
+            this.WriteLogEntry();
+            return this.ExampleCalculationManager.GetExampleCalculations(calcId);
+        }
+
+
+        /// <summary>
+        /// Gets all ExampleCalculations to the database.
+        /// </summary>
+        /// <param name="a, b">The calculation which should be provided with this calcualtion id.</param>
+        public int ExampleCalculationSum(int a, int b)
+        {
+            this.WriteLogEntry();
+            var execalc = new AndritzHydro.Tuccos.Data.Controller.ExampleCalculationExecute();
+
+            return execalc.ExampleCalculationSum(a, b);
+        }
+
+        public void AddExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            this.WriteLogEntry();
+            this.ExampleCalculationManager.AddExampleCalculation(exampleCalculation);
+        }
     }
 }

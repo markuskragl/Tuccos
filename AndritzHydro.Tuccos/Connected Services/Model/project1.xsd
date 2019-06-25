@@ -77,4 +77,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCalculation" nillable="true" type="tns:ArrayOfCalculation" />
+  <xs:complexType name="ArrayOfExampleCalculation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExampleCalculation" nillable="true" type="tns:ExampleCalculation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExampleCalculation" nillable="true" type="tns:ArrayOfExampleCalculation" />
+  <xs:complexType name="ExampleCalculation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Calculation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CalculationDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Parametera" type="xs:int" />
+          <xs:element minOccurs="0" name="Parameterb" type="xs:int" />
+          <xs:element minOccurs="0" name="Resultc" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExampleCalculation" nillable="true" type="tns:ExampleCalculation" />
 </xs:schema>
