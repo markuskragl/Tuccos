@@ -21,16 +21,21 @@ namespace AndritzHydro.Tuccos.Data
     //[System.Runtime.Serialization.DataContract]
     public class Project : INotifyPropertyChanged
     {
-
         void OnPropertyChanged(string prop)
         {
             if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+
         /// <summary>
-        /// Gets or set the Id code of the project.
+        /// Internal field for the property
         /// </summary>
         private string _ProjectId;
+        /// <summary>
+        /// Gets or sets the readable name of the ProjectId.
+        /// </summary>
         public string ProjectId
         {
             get
@@ -47,12 +52,13 @@ namespace AndritzHydro.Tuccos.Data
             }
         }
 
-
-
+        /// <summary>
+        /// Internal field for the property
+        /// </summary>
+        private string _ProjectName;
         /// <summary>
         /// Gets or sets the readable name of the project.
         /// </summary>
-        private string _ProjectName;
         public string ProjectName
         {
             get
@@ -70,9 +76,12 @@ namespace AndritzHydro.Tuccos.Data
         }
 
         /// <summary>
-        /// Gets or sets the highest project number in this Year.
+        /// Internal field for the property
         /// </summary>
         private int _ProjectYear;
+        /// <summary>
+        /// Gets or sets the project year.
+        /// </summary>
         public int ProjectYear
         {
             get

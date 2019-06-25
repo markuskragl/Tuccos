@@ -7,11 +7,12 @@ using System.ServiceModel.Web;
 using System.Text;
 using AndritzHydro.Core.Data;
 using AndritzHydro.Tuccos.Data;
+using AndritzHydro.Tuccos.Data.Controller;
 
 namespace andritzhydro.web
 {
     /// <summary>
-    /// Publishes the lottery logic from Part Two Data.
+    /// Publishes the project logic from Tuccos Data.
     /// </summary>
     public class ProjectsView : System.Web.Services.WebService, IProject
     {
@@ -68,11 +69,11 @@ namespace andritzhydro.web
         /// <param name="caller">Default the calling member</param>
         protected void WriteLogEntry([System.Runtime.CompilerServices.CallerMemberName]string caller = "")
         {
-            this.AppContext.Log.WriteEntry($"{caller} used from {this.Context.Request.UserHostAddress}...");
+            //this.AppContext.Log.WriteEntry($"{caller} used from {this.Context.Request.UserHostAddress}...");
         }
 
 
-#region Project
+    #region Project
 
         /// <summary>
         /// Gets the name of the cache used for the manager providing the project.
@@ -127,18 +128,18 @@ namespace andritzhydro.web
             this.WriteLogEntry();
             this.ProjectManager.DeleteProject(project);
         }
-#endregion Project
+    #endregion Project
 
 
-#region SubAssembly
+    #region SubAssembly
         /// <summary>
-        /// Gets the name of the cache used for the manager providing the lottery game.
+        /// Gets the name of the cache used for the manager providing the SubAssembly.
         /// </summary>
         private const string SubAssemblyManagerCache = "SubAssemblyManager";
 
 
         /// <summary>
-        /// Gets the object providing the projects.
+        /// Gets the object providing the SubAssembly.
         /// </summary>
         protected AndritzHydro.Tuccos.Data.Controller.SubAssemblyManager SubAssemblyManager
         {
@@ -165,49 +166,57 @@ namespace andritzhydro.web
             return this.SubAssemblyManager.GetSubAssemblies();
         }
 
-        #endregion SubAssembly
-
-        #region CalculationTemplates
-        /// <summary>
-        /// Gets the name of the cache used for the manager providing the lottery game.
-        /// </summary>
-        private const string CalculationTemplateManagerCache = "CalculationTemplateManager";
+    #endregion SubAssembly
 
 
-        /// <summary>
-        /// Gets the object providing the projects.
-        /// </summary>
-        protected AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager CalculationTemplateManager
-        {
-            get
+    #region CalculationTemplates
+            /// <summary>
+            /// Gets the name of the cache used for the manager providing the calculation templates.
+            /// </summary>
+            private const string CalculationTemplateManagerCache = "CalculationTemplateManager";
+            /// <summary>
+            /// Gets the object providing the projects.
+            /// </summary>
+            protected AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager CalculationTemplateManager
             {
-                var manager = this.Application[ProjectsView.SubAssemblyManagerCache] as AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager;
-
-                if (manager == null)
+                get
                 {
-                    manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager>();
+                    var manager = this.Application[ProjectsView.SubAssemblyManagerCache] as AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager;
 
-                    this.Application[ProjectsView.SubAssemblyManagerCache] = manager;
-                    this.AppContext.Log.WriteEntry($"{manager} has been cached...");
+                    if (manager == null)
+                    {
+                        manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager>();
+
+                        this.Application[ProjectsView.SubAssemblyManagerCache] = manager;
+                        this.AppContext.Log.WriteEntry($"{manager} has been cached...");
+                    }
+
+                    return manager;
                 }
-
-                return manager;
             }
-        }
 
-
+            /// <summary>
+            /// Gets all CalculationTemplates to the database.
+            /// </summary>
+            /// <param name="SubId">The calculation template which should be provided with this subassembly.</param>
+            public CalculationTemplates GetCalculationTemplates(int? subId)
+            {
+                this.WriteLogEntry();
+                return this.CalculationTemplateManager.GetCalculationTemplates(subId);
+            }
 
         #endregion CalculationTemplates
 
 
+    #region Calculation
         /// <summary>
-        /// Gets the name of the cache used for the manager providing the lottery game.
+        /// Gets the name of the cache used for the manager providing the Calculation.
         /// </summary>
         private const string CalculationManagerCache = "CalculationManager";
 
 
         /// <summary>
-        /// Gets the object providing the projects.
+        /// Gets the object providing the calculations.
         /// </summary>
         protected AndritzHydro.Tuccos.Data.Controller.CalculationManager CalculationManager
         {
@@ -228,12 +237,15 @@ namespace andritzhydro.web
         }
 
 
-        public Calculations GetCalculations()
+        /// <summary>
+        /// Gets all Calculations to the database.
+        /// </summary>
+        /// <param name="subassemblyId">The calculation which should be provided with this project & subassembly id.</param>
+        public Calculations GetCalculations(string projectId, int? subassemblyId)
         {
             this.WriteLogEntry();
-            return this.CalculationManager.GetCalculations();
+            return this.CalculationManager.GetCalculations(projectId, subassemblyId);
         }
-
 
 
         /// <summary>
@@ -247,10 +259,8 @@ namespace andritzhydro.web
         }
 
 
-
-
         /// <summary>
-        /// Delete a calculation from the database.
+        /// Deletes a calculation from the database.
         /// </summary>
         /// <param name="calculation">The Calculation which should be deleted.</param>
         public void DeleteCalculation(Calculation calculation)
@@ -259,10 +269,68 @@ namespace andritzhydro.web
             this.CalculationManager.DeleteCalculation(calculation);
         }
 
-        public CalculationTemplates GetCalculationTemplates(int? SubId)
+
+        /// <summary>
+        /// Gets all OrificeCalculations to the database.
+        /// </summary>
+        /// <param name="calcId">The Ocalculation which should be provided with this calcualtion id.</param>
+        public Calculations GetOrificeCalculation(int? calcId)
         {
             this.WriteLogEntry();
-            return this.CalculationTemplateManager.GetCalculationTemplates(SubId);
+            return this.CalculationManager.GetOrificeCalculation(calcId);
+        }
+
+
+        #endregion Calculation
+
+
+
+        /// <summary>
+        /// Gets the name of the cache used for the manager providing the calculation templates.
+        /// </summary>
+        private const string ExampleCalculationManagerCache = "ExampleCalculationManager";
+        /// <summary>
+        /// Gets the object providing the projects.
+        /// </summary>
+        protected AndritzHydro.Tuccos.Data.Controller.ExampleCalculationManager ExampleCalculationManager
+        {
+            get
+            {
+                var manager = this.Application[ProjectsView.SubAssemblyManagerCache] as AndritzHydro.Tuccos.Data.Controller.ExampleCalculationManager;
+
+                if (manager == null)
+                {
+                    manager = this.AppContext.Create<AndritzHydro.Tuccos.Data.Controller.ExampleCalculationManager>();
+
+                    this.Application[ProjectsView.SubAssemblyManagerCache] = manager;
+                    this.AppContext.Log.WriteEntry($"{manager} has been cached...");
+                }
+
+                return manager;
+            }
+        }
+
+        /// <summary>
+        /// Gets all ExampleCalculations to the database.
+        /// </summary>
+        /// <param name="calcId">The calculation which should be provided with this calcualtion id.</param>
+        public ExampleCalculations GetExampleCalculations(int calcId)
+        {
+            this.WriteLogEntry();
+            return this.ExampleCalculationManager.GetExampleCalculations(calcId);
+        }
+
+
+        /// <summary>
+        /// Gets all ExampleCalculations to the database.
+        /// </summary>
+        /// <param name="a, b">The calculation which should be provided with this calcualtion id.</param>
+        public int ExampleCalculationSum(int a, int b)
+        {
+            this.WriteLogEntry();
+            var execalc = new AndritzHydro.Tuccos.Data.Controller.ExampleCalculationExecute();
+
+            return execalc.ExampleCalculationSum(a, b);
         }
 
 

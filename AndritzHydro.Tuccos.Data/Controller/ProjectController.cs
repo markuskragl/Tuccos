@@ -98,7 +98,6 @@ namespace AndritzHydro.Tuccos.Data.Controller
         }
 
 
-
         /// <summary>
         /// Deletes a project to the database.
         /// </summary>

@@ -42,8 +42,8 @@
             VerticalAlignment="Center"
             >
 
-             <!--A listbox to select a task--> 
-            
+            <!--A listbox to select a task-->
+
             <ListBox
                 Grid.Column="0"
                 Grid.Row="0"
@@ -66,7 +66,7 @@
                         <StackPanel
                             Orientation="Horizontal"
                             >
-                            
+
                             <!-- The icon of the task -->
                             <TextBlock
                             Width="27"
@@ -126,7 +126,7 @@
                 VerticalAlignment="Center"
                 />
 
-        <!-- {Binding} uses the DataContext object -->
+            <!-- {Binding} uses the DataContext object -->
             <ComboBox 
                 ItemsSource="{Binding Context.Language.List}"
                 DisplayMemberPath="Name"
@@ -146,7 +146,7 @@
             
             Content="{Binding CurrentViewer}"
             />
-   
+
 
         <local:TaskPanel
             Grid.Column="0"

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("AndritzHydro c# Tuccos Data")]
-[assembly: AssemblyDescription("Provides a service for managing lottery draws and bets.")]
+[assembly: AssemblyDescription("Provides a service for managing project.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AndritzHydro International GmbH")]
 [assembly: AssemblyProduct("AndritzHydro C# Developer")]

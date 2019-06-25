@@ -73,6 +73,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculationViews\ExampleCalculation.xaml.cs">
+      <DependentUpon>ExampleCalculation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CalculationViews\RunnerCalc.xaml.cs">
       <DependentUpon>RunnerCalc.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
     <Compile Include="ViewModels\ProjectManager.cs" />
     <Compile Include="ViewModels\WindowManager.cs" />
     <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CalculationViews\ExampleCalculation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -208,7 +215,7 @@
     <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.CalculationTemplate.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Parameter.datasource">
+    <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.ExampleCalculation.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Model\AndritzHydro.Tuccos.Model.Project.datasource">
@@ -228,10 +235,7 @@
     </None>
     <None Include="Connected Services\Model\ProjectsView.wsdl" />
     <None Include="MVVM.cd" />
-    <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Calculation.datasource" />
-    <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.CalculationTemplate.datasource" />
     <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Country.datasource" />
-    <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Parameter.datasource" />
     <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.Project.datasource" />
     <None Include="Properties\DataSources\AndritzHydro.Tuccos.Data.SubAssembly.datasource" />
     <None Include="Properties\Settings.settings">
@@ -290,9 +294,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\OrificeCalculation.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
