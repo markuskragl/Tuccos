@@ -15,7 +15,7 @@ namespace AndritzHydro.Tuccos.Data
     public class Parameter
     {
 
-        public int CalculationId { get; set; }
+        public string CalculationId { get; set; }
 
         public string ParameterType { get; set; }
 
@@ -42,7 +42,7 @@ namespace AndritzHydro.Tuccos.Data
 
         public int SubAssemblyId { get; set; }
 
-        public int CalculationId { get; set; }
+        public string CalculationId { get; set; }
 
         public string CalculationType { get; set; }
 

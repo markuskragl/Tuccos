@@ -181,7 +181,7 @@ namespace AndritzHydro.Tuccos.Model {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CalculationIdField;
+        private string CalculationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CalculationTypeField;
@@ -206,12 +206,12 @@ namespace AndritzHydro.Tuccos.Model {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CalculationId {
+        public string CalculationId {
             get {
                 return this.CalculationIdField;
             }
             set {
-                if ((this.CalculationIdField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.CalculationIdField, value) != true)) {
                     this.CalculationIdField = value;
                     this.RaisePropertyChanged("CalculationId");
                 }
@@ -361,7 +361,7 @@ namespace AndritzHydro.Tuccos.Model {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CalculationIdField;
+        private string CalculationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ParameterTypeField;
@@ -383,12 +383,12 @@ namespace AndritzHydro.Tuccos.Model {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CalculationId {
+        public string CalculationId {
             get {
                 return this.CalculationIdField;
             }
             set {
-                if ((this.CalculationIdField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.CalculationIdField, value) != true)) {
                     this.CalculationIdField = value;
                     this.RaisePropertyChanged("CalculationId");
                 }
@@ -497,10 +497,10 @@ namespace AndritzHydro.Tuccos.Model {
         System.Threading.Tasks.Task AddCalculationAsync(AndritzHydro.Tuccos.Model.Calculation calculation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetExampleCalculations", ReplyAction="http://tempuri.org/IProject/GetExampleCalculationsResponse")]
-        AndritzHydro.Tuccos.Model.ExampleCalculation[] GetExampleCalculations(int calcId);
+        AndritzHydro.Tuccos.Model.ExampleCalculation[] GetExampleCalculations(string calcId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetExampleCalculations", ReplyAction="http://tempuri.org/IProject/GetExampleCalculationsResponse")]
-        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.ExampleCalculation[]> GetExampleCalculationsAsync(int calcId);
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.ExampleCalculation[]> GetExampleCalculationsAsync(string calcId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/ExampleCalculationSum", ReplyAction="http://tempuri.org/IProject/ExampleCalculationSumResponse")]
         int ExampleCalculationSum(int a, int b);
@@ -515,10 +515,10 @@ namespace AndritzHydro.Tuccos.Model {
         System.Threading.Tasks.Task AddExampleCalculationAsync(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetParameters", ReplyAction="http://tempuri.org/IProject/GetParametersResponse")]
-        AndritzHydro.Tuccos.Model.Parameter[] GetParameters(System.Nullable<int> calcId);
+        AndritzHydro.Tuccos.Model.Parameter[] GetParameters(string calcId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/GetParameters", ReplyAction="http://tempuri.org/IProject/GetParametersResponse")]
-        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Parameter[]> GetParametersAsync(System.Nullable<int> calcId);
+        System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Parameter[]> GetParametersAsync(string calcId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/OrificeCalculationTime", ReplyAction="http://tempuri.org/IProject/OrificeCalculationTimeResponse")]
         double OrificeCalculationTime(AndritzHydro.Tuccos.Model.Parameter[] inputparameter);
@@ -624,11 +624,11 @@ namespace AndritzHydro.Tuccos.Model {
             return base.Channel.AddCalculationAsync(calculation);
         }
         
-        public AndritzHydro.Tuccos.Model.ExampleCalculation[] GetExampleCalculations(int calcId) {
+        public AndritzHydro.Tuccos.Model.ExampleCalculation[] GetExampleCalculations(string calcId) {
             return base.Channel.GetExampleCalculations(calcId);
         }
         
-        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.ExampleCalculation[]> GetExampleCalculationsAsync(int calcId) {
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.ExampleCalculation[]> GetExampleCalculationsAsync(string calcId) {
             return base.Channel.GetExampleCalculationsAsync(calcId);
         }
         
@@ -648,11 +648,11 @@ namespace AndritzHydro.Tuccos.Model {
             return base.Channel.AddExampleCalculationAsync(exampleCalculation);
         }
         
-        public AndritzHydro.Tuccos.Model.Parameter[] GetParameters(System.Nullable<int> calcId) {
+        public AndritzHydro.Tuccos.Model.Parameter[] GetParameters(string calcId) {
             return base.Channel.GetParameters(calcId);
         }
         
-        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Parameter[]> GetParametersAsync(System.Nullable<int> calcId) {
+        public System.Threading.Tasks.Task<AndritzHydro.Tuccos.Model.Parameter[]> GetParametersAsync(string calcId) {
             return base.Channel.GetParametersAsync(calcId);
         }
         

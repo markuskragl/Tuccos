@@ -85,7 +85,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Provides all orifice calculations.
         /// </summary>
-        public Parameters GetParameters(int? calcId)
+        public Parameters GetParameters(string calcId)
         {
             try
             {
