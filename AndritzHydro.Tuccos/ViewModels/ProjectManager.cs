@@ -715,47 +715,47 @@ namespace AndritzHydro.Tuccos.ViewModels
 
         #region OrificeCalculation
 
-        /// <summary>
-        /// Provides the template calculation list
-        /// </summary>
-        /// <returns></returns>
-        public Calculation[] GetOrificeCalcualationMethod()
-        {
-            try
-            {
-                //int? _helper = this.SelectedSubAssembly.SubAssemblyId;                    
-                var VM = new Model.ProjectClient();
-                //var _helper1 = VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
-                var helper = VM.GetOrificeCalculation(999);
-                return VM.GetOrificeCalculation(999);
+        ///// <summary>
+        ///// Provides the template calculation list
+        ///// </summary>
+        ///// <returns></returns>
+        //public Calculation[] GetOrificeCalcualationMethod()
+        //{
+        //    try
+        //    {
+        //        //int? _helper = this.SelectedSubAssembly.SubAssemblyId;                    
+        //        var VM = new Model.ProjectClient();
+        //        //var _helper1 = VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
+        //        var helper = VM.GetOrificeCalculation(999);
+        //        return VM.GetOrificeCalculation(999);
 
-            }
-            catch (System.Exception ex)
-            {
-                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
-            }
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+        //    }
 
-            return null;
+        //    return null;
 
-        }
+        //}
 
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private Calculation[] _OrificeCalculation;
+        //private Calculation[] _OrificeCalculation;
 
-        /// <summary>
-        /// Gets the supported projects.
-        /// </summary>
-        /// <remarks>The countries are cached.</remarks>
-        public Calculation[] OrificeCalculation
-        {
-            get
-            {
-                this._OrificeCalculation = this.GetOrificeCalcualationMethod();
-                return this._OrificeCalculation;
-            }
-        }
+        ///// <summary>
+        ///// Gets the supported projects.
+        ///// </summary>
+        ///// <remarks>The countries are cached.</remarks>
+        //public Calculation[] OrificeCalculation
+        //{
+        //    get
+        //    {
+        //        this._OrificeCalculation = this.GetOrificeCalcualationMethod();
+        //        return this._OrificeCalculation;
+        //    }
+        //}
 
         #endregion OrificeCalculation
 
@@ -944,6 +944,22 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                             this.CloseController();
 
+                            OnPropertyChanged("Calculations");
+
+                            this.Owner.SetBusyOff();
+
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+
+                return this._AddExampleCalculation;
+            }
+        }
+
+        #endregion ExampleCalculation
+
         #region Parameter
         /// <summary>
         /// Provides the parameter array for the actual calcualtion.
@@ -954,7 +970,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             try
             {                  
                 var VM = new Model.ProjectClient();
-                return VM.GetParameters(this.CurrentCalculation.CalculationId);
+                return VM.GetParameters(this.SelectedCalculation.CalculationId);
             }
             catch (System.Exception ex)
             {
@@ -1022,7 +1038,7 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                             foreach(Parameter l in this.ParameterCol)
                             {
-                            this.Controller.AddParameter(new Parameter { CalculationId = CurrentCalculation.CalculationId, ParameterType = l.ParameterType , ParameterValue = l.ParameterValue, ParameterUnit = l.ParameterUnit });
+                            this.Controller.AddParameter(new Parameter { CalculationId = SelectedCalculation.CalculationId, ParameterType = l.ParameterType , ParameterValue = l.ParameterValue, ParameterUnit = l.ParameterUnit });
 
                             }
 
@@ -1063,8 +1079,17 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     parameterlist.Add(l);
                 }
+                try
+                {
                 parameterlist.RemoveAll (u => !u.ParameterType.Contains(comp));
                 this._OuterDiameterCylinder = parameterlist[0].ParameterValue;
+                
+                }
+
+                catch (System.Exception ex)
+                {
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                }
                 return this._OuterDiameterCylinder;
             }
 
@@ -1099,8 +1124,17 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     parameterlist.Add(l);
                 }
+                try
+                {
                 parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
                 this._InnerDiameterCylinder = parameterlist[0].ParameterValue;
+                
+                }
+
+                catch (System.Exception ex)
+                {
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                }
                 return this._InnerDiameterCylinder;
             }
 
@@ -1172,8 +1206,15 @@ namespace AndritzHydro.Tuccos.ViewModels
                     {
                         parameterlist.Add(l);
                     }
-                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                    this._LengthOilPipe = parameterlist[0].ParameterValue;
+                    try
+                    {
+                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                        this._LengthOilPipe = parameterlist[0].ParameterValue;
+                    }
+                    catch (System.Exception ex)
+                    {
+                        //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    }
                     
                 }
 
@@ -1191,14 +1232,9 @@ namespace AndritzHydro.Tuccos.ViewModels
                         {
                             l.ParameterValue = value;
 
-                            Console.WriteLine(l.ParameterValue);
                         }
                     }
 
-                    foreach(Parameter l in this.ParameterCol)
-                    {
-                        Console.WriteLine(l.ParameterValue);
-                    }
                     OnPropertyChanged("Time");
                 }
             }

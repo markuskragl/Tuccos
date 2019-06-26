@@ -274,10 +274,10 @@ namespace andritzhydro.web
         /// Gets all OrificeCalculations to the database.
         /// </summary>
         /// <param name="calcId">The Ocalculation which should be provided with this calcualtion id.</param>
-        public Calculations GetOrificeCalculation(int? calcId)
+        public double OrificeCalculationTime(Parameter[] inputparameter)
         {
             this.WriteLogEntry();
-            return this.CalculationManager.GetOrificeCalculation(calcId);
+            return this.CalculationManager.OrificeCalculationTime(inputparameter);
         }
 
 
@@ -340,16 +340,17 @@ namespace andritzhydro.web
             return this.CalculationManager.GetParameters(calcId);
         }
 
-        public double OrificeCalculationTime(Parameter[] inputparameter)
-        {
-            this.WriteLogEntry();
-            return this.CalculationManager.OrificeCalculationTime(inputparameter);
-        }
 
         public void AddParameter(Parameter parameter)
         {
             this.WriteLogEntry();
             this.CalculationManager.AddParameter(parameter);
+        }
+
+        public void AddExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            this.WriteLogEntry();
+            this.ExampleCalculationManager.AddExampleCalculation(exampleCalculation);
         }
     }
 }
