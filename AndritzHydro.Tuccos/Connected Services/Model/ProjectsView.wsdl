@@ -43,17 +43,35 @@
   <wsdl:message name="IProject_GetCalculations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCalculationsResponse" />
   </wsdl:message>
+  <wsdl:message name="IProject_DeleteCalculation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCalculation" />
+  </wsdl:message>
+  <wsdl:message name="IProject_DeleteCalculation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCalculationResponse" />
+  </wsdl:message>
   <wsdl:message name="IProject_AddCalculation_InputMessage">
     <wsdl:part name="parameters" element="tns:AddCalculation" />
   </wsdl:message>
   <wsdl:message name="IProject_AddCalculation_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddCalculationResponse" />
   </wsdl:message>
-  <wsdl:message name="IProject_DeleteCalculation_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteCalculation" />
+  <wsdl:message name="IProject_GetExampleCalculations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExampleCalculations" />
   </wsdl:message>
-  <wsdl:message name="IProject_DeleteCalculation_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteCalculationResponse" />
+  <wsdl:message name="IProject_GetExampleCalculations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExampleCalculationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_ExampleCalculationSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExampleCalculationSum" />
+  </wsdl:message>
+  <wsdl:message name="IProject_ExampleCalculationSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExampleCalculationSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProject_AddExampleCalculation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExampleCalculation" />
+  </wsdl:message>
+  <wsdl:message name="IProject_AddExampleCalculation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExampleCalculationResponse" />
   </wsdl:message>
   <wsdl:message name="IProject_GetParameters_InputMessage">
     <wsdl:part name="parameters" element="tns:GetParameters" />
@@ -98,13 +116,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetCalculations" message="tns:IProject_GetCalculations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetCalculationsResponse" message="tns:IProject_GetCalculations_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="DeleteCalculation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/DeleteCalculation" message="tns:IProject_DeleteCalculation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/DeleteCalculationResponse" message="tns:IProject_DeleteCalculation_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddCalculation">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/AddCalculation" message="tns:IProject_AddCalculation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProject/AddCalculationResponse" message="tns:IProject_AddCalculation_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteCalculation">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProject/DeleteCalculation" message="tns:IProject_DeleteCalculation_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProject/DeleteCalculationResponse" message="tns:IProject_DeleteCalculation_OutputMessage" />
+    <wsdl:operation name="GetExampleCalculations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetExampleCalculations" message="tns:IProject_GetExampleCalculations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/GetExampleCalculationsResponse" message="tns:IProject_GetExampleCalculations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExampleCalculationSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/ExampleCalculationSum" message="tns:IProject_ExampleCalculationSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/ExampleCalculationSumResponse" message="tns:IProject_ExampleCalculationSum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExampleCalculation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProject/AddExampleCalculation" message="tns:IProject_AddExampleCalculation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProject/AddExampleCalculationResponse" message="tns:IProject_AddExampleCalculation_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetParameters">
       <wsdl:input wsaw:Action="http://tempuri.org/IProject/GetParameters" message="tns:IProject_GetParameters_InputMessage" />
@@ -175,6 +205,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteCalculation">
+      <soap:operation soapAction="http://tempuri.org/IProject/DeleteCalculation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddCalculation">
       <soap:operation soapAction="http://tempuri.org/IProject/AddCalculation" style="document" />
       <wsdl:input>
@@ -184,8 +223,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteCalculation">
-      <soap:operation soapAction="http://tempuri.org/IProject/DeleteCalculation" style="document" />
+    <wsdl:operation name="GetExampleCalculations">
+      <soap:operation soapAction="http://tempuri.org/IProject/GetExampleCalculations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExampleCalculationSum">
+      <soap:operation soapAction="http://tempuri.org/IProject/ExampleCalculationSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExampleCalculation">
+      <soap:operation soapAction="http://tempuri.org/IProject/AddExampleCalculation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

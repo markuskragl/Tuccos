@@ -5,28 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AndritzHydro.Tuccos.Data
-
 {
-
     /// <summary>
-    /// Provides a list of SubAssemblies.
+    /// Provides a list of calculation templates.
     /// </summary>
     public class CalculationTemplates : System.Collections.Generic.List<CalculationTemplate>
     {
 
     }
+
     /// <summary>
-    /// Provides the number of the subassembly
+    /// Provides the number of the calculation template
     /// </summary>
     public class CalculationTemplate : Calculation
     {
-
-
         /// <summary>
         /// Internal field for the property
         /// </summary>
         private int? _CalculationTemplateId= null;
-
         /// <summary>
         /// Gets or sets the type of the CalculationTemplateId
         /// </summary>
@@ -36,7 +32,6 @@ namespace AndritzHydro.Tuccos.Data
             {
                 return this._CalculationTemplateId;
             }
-
             set
             {
                 this._CalculationTemplateId = value;

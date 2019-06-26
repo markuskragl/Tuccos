@@ -9,15 +9,11 @@ namespace AndritzHydro.Tuccos.Data.Controller
     public class SubAssemblyManager : AndritzHydro.Core.Data.DataApplicationObject
     {
         /// <summary>
-        /// Internes Feld für die Eigenschaft.
+        /// Internal field for the property.
         /// </summary>
-        /// <remarks>Nur das sollte bei einer anderen
-        /// Datenbank ausgetauscht werden müssen.</remarks>
         private SubAssemblyController _Controller = null;
-
         /// <summary>
-        /// Ruft den Dienst zum Lesen und Schreiben
-        /// der Lottodaten ab.
+        /// Provides the service to read from the database.
         /// </summary>
         private SubAssemblyController Controller
         {
@@ -27,7 +23,6 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 {
                     this._Controller = this.Context.Create<SubAssemblyController>();
                 }
-
                 return this._Controller;
             }
         }
@@ -49,8 +44,5 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 return new SubAssemblies();
             }
         }
-
-
-
     }
 }

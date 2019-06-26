@@ -9,15 +9,11 @@ namespace AndritzHydro.Tuccos.Data.Controller
     public class CalculationManager : AndritzHydro.Core.Data.DataApplicationObject
     {
         /// <summary>
-        /// Internes Feld für die Eigenschaft.
+        /// Internal field for the property.
         /// </summary>
-        /// <remarks>Nur das sollte bei einer anderen
-        /// Datenbank ausgetauscht werden müssen.</remarks>
         private CalculationController _Controller = null;
-
         /// <summary>
-        /// Ruft den Dienst zum Lesen und Schreiben
-        /// der Lottodaten ab.
+        /// Provides the service to read from the database.
         /// </summary>
         private CalculationController Controller
         {
@@ -32,15 +28,14 @@ namespace AndritzHydro.Tuccos.Data.Controller
             }
         }
 
-
         /// <summary>
         /// Provides all calculations.
         /// </summary>
-        public Calculations GetCalculations()
+        public Calculations GetCalculations(string projectId, int? subId)
         {
             try
             {
-                return this.Controller.GetCalculations();
+                return this.Controller.GetCalculations(projectId, subId);
             }
             catch (System.Exception ex)
             {
@@ -50,8 +45,6 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 return new Calculations();
             }
         }
-
-
 
         /// <summary>
         /// Adds a  calculation to the database.
@@ -69,7 +62,6 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 this.OnErrorOccurred(new Core.ErrorOccurredEventArgs(ex));
             }
         }
-
 
         /// <summary>
         /// Deletes a  calculation from the database.

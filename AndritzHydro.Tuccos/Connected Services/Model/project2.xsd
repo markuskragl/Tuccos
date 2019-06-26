@@ -65,7 +65,10 @@
   </xs:element>
   <xs:element name="GetCalculations">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subassemblyId" nillable="true" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCalculationsResponse">
@@ -75,10 +78,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddCalculation">
+  <xs:element name="DeleteCalculation">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="calculation" nillable="true" type="q7:Calculation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCalculationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCalculation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="calculation" nillable="true" type="q8:Calculation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -87,14 +102,43 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteCalculation">
+  <xs:element name="GetExampleCalculations">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="calculation" nillable="true" type="q8:Calculation" />
+        <xs:element minOccurs="0" name="calcId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteCalculationResponse">
+  <xs:element name="GetExampleCalculationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="GetExampleCalculationsResult" nillable="true" type="q9:ArrayOfExampleCalculation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExampleCalculationSum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="a" type="xs:int" />
+        <xs:element minOccurs="0" name="b" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExampleCalculationSumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExampleCalculationSumResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddExampleCalculation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="exampleCalculation" nillable="true" type="q10:ExampleCalculation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddExampleCalculationResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -109,14 +153,14 @@
   <xs:element name="GetParametersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="GetParametersResult" nillable="true" type="q9:ArrayOfParameter" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="GetParametersResult" nillable="true" type="q11:ArrayOfParameter" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="OrificeCalculationTime">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="inputparameter" nillable="true" type="q10:ArrayOfParameter" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="inputparameter" nillable="true" type="q12:ArrayOfParameter" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -130,7 +174,7 @@
   <xs:element name="AddParameter">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="parameter" nillable="true" type="q11:Parameter" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="parameter" nillable="true" type="q13:Parameter" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

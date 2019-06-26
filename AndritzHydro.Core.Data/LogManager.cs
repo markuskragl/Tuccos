@@ -112,7 +112,7 @@ namespace AndritzHydro.Core.Data
                 this.UnreadError = true;
             }
 
-            this.SaveEntry(item);
+            //this.SaveEntry(item);
         }
 
         /// <summary>

@@ -7,7 +7,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              xmlns:p="clr-namespace:AndritzHydro.Tuccos.Properties"
-             d:DesignHeight="450" d:DesignWidth="800">
+>
     <Grid>
         <Grid.Resources>
             <Thickness x:Key="MarginListBoxes" Left="5" Top="5" Right="5" Bottom="0"/>
@@ -186,7 +186,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding Path=LengthOilPipe, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding LengthOilPipe, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
 
@@ -298,7 +298,7 @@
 
         </StackPanel>
 
-        <Button Grid.Row="1" Content="Save Calculation" Command="{Binding AddParameter}" HorizontalAlignment="Left" Margin="20,20,20,20" Width="125" Height="30"  VerticalAlignment="Bottom"/>
+        <Button Grid.Row="1" Content="Save Calculation" Command="{Binding AddParameter}" HorizontalAlignment="Left" Margin="5,5,5,0" Width="250" Height="30"  VerticalAlignment="Bottom"/>
 
 
 
