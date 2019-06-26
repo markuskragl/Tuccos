@@ -1,39 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Math;
 
 
 namespace AndritzHydro.Tuccos.Data
-
-
 {
-
     /// <summary>
     /// Provides a class for the parameter
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class Parameter
     {
-        public string ParameterName { get; set; }
+
+        public int CalculationId { get; set; }
+
+        public string ParameterType { get; set; }
 
         public double ParameterValue { get; set; }
 
+        public string ParameterUnit { get; set; }
 
+    }
 
-       
+    /// <summary>
+    /// Provides a class for the parameter list
+    /// </summary>
+    public class Parameters : System.Collections.Generic.List<Parameter>
+    {
 
     }
 
     /// <summary>
     /// Provides a class for the calculation
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class Calculation
     {
-
-
         public string ProjectId { get; set; }
 
         public int SubAssemblyId { get; set; }
@@ -42,14 +46,12 @@ namespace AndritzHydro.Tuccos.Data
 
         public string CalculationType { get; set; }
 
-        public List<Parameter> InputParameter { get; set; }
-
+        public Parameters InputParameter { get; set; }
     }
 
     /// <summary>
     /// Provides a class for the calculation list
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class Calculations : System.Collections.Generic.List<Calculation>
     {
 
@@ -59,133 +61,130 @@ namespace AndritzHydro.Tuccos.Data
     /// Provides a set of different calculation methods
     /// </summary>
     public class CalculationsCollection
-
     {
+        // Density of the oil
+        // [kg/mm³]
+
+        protected const double oil_density = 8E-10;
+
+        // Dynamic oil viscosity
+        // [MPa*s]
+
+        protected const double oil_viscosity = 4E-7;
 
         /// <summary>
         /// Provides a calculation for the orifice time
         /// </summary>
-        /// <returns></returns>
-        double OrificeCalculationTime(List<Parameter> inputparameter)
+        /// <param name="inputParameter"></param>
+        /// <returns>time of orifice</returns>
+        public double OrificeCalculationTime(Parameter[] inputParameter)
         {
+            List<double> partialStroke = new List<double>();
+            List<double> singleForce = new List<double>();
+            List<double> k_Aux = new List<double>();
+            double d_Cyl = default(double);
+            double dI_Cyl = default(double);
+            double d_Orifice = default(double);
+            double l_OilPipe = default(double);
+            double d_OilPipe = default(double);
+            double lossValue = default(double);
 
-            foreach (Parameter l in inputparameter)
+            foreach (Parameter l in inputParameter)
             {
-                var caseSwitch = l.ParameterName;
+                var type = l.ParameterType;
 
-                switch (caseSwitch)
+                if (type.Contains("PartialStroke"))
                 {
-                    case "partialstroke":
-                        var partialstroke_db = l.ParameterValue;
-                        break;
-                    case "partialforce":
-                        var partialforce_db = l.ParameterValue;
-                        break;
-                    case "D_Cyl":
-                        var D_Cyl_db = l.ParameterValue;
-                        break;
-                    case "d_Cyl":
-                        var d_Cyl_db = l.ParameterValue;
-                        break;
-                    case "D_Orifice":
-                        var D_Orifice_db = l.ParameterValue;
-                        break;
-                    case "oil_pipe_length":
-                        var oil_pipe_length_db = l.ParameterValue;
-                        break;
-                    case "oil_pipe_diameter":
-                        var oil_pipe_diameter_db = l.ParameterValue;
-                        break;
-                    case "zeta_orifice":
-                        var zeta_orifice_db = l.ParameterValue;
-                        break;
-
-
+                    partialStroke.Add(l.ParameterValue);
                 }
+                else if (type.Contains("SingleForce"))
+                {
+                    singleForce.Add(l.ParameterValue);
+                }
+                else if (type.Contains("K_Aux"))
+                {
+                    k_Aux.Add(l.ParameterValue);
+                }
+                else if (type == "D_Cyl")
+                {
+                    d_Cyl = l.ParameterValue;
+                }
+                else if (type == "DI_Cyl")
+                {
+                    dI_Cyl = l.ParameterValue;
+                }
+                else if (type == "D_Orifice")
+                {
+                    d_Orifice = l.ParameterValue;
+                }
+                else if (type == "L_OilPipe")
+                {
+                    l_OilPipe = l.ParameterValue;
+                }
+                else if (type == "D_OilPipe")
+                {
+                    d_OilPipe = l.ParameterValue;
+                }
+                else if (type == "LossValue")
+                {
+                    lossValue = l.ParameterValue;
+                }
+                
             }
 
+            // Step time for the iterative calculation
+            // [mm³/s]
 
+            double step = 0.01; 
 
-            List<double> partialstroke = new List<double> { 300, 200, 200, 200, 200, 200, 200, 200, 200 };
-
-            List<double> partialforce = new List<double> { 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500 };
-
-            double D_Cyl = 400; //[mm]
-
-            double d_Cyl = 0; //[mm]
-
-            double D_Orifice = 1.2; //[mm]
-
-            const double oil_density = 8E-10; //[kg/mm³]
-
-            const double oil_viscosity = 4E-7; //[MPa*s]
-
-            double oil_pipe_length = 10000; //[mm]
-
-            double oil_pipe_diameter = 25; //[mm]
-
-            double zeta_orifice = 1.562; //
-
-            List<double> k_aux = new List<double> { 0.00000, };
-
-            //Step time for the iterative calculation
-
-            double step = 0.01; //[mm³/s]
-
-            //Oil viscosity kinematic
+            // Oil viscosity kinematic
 
             double oil_viscosity_kin = oil_viscosity / oil_density;
 
-            //Cylinder
+            // Cylinder area
 
-            double A_Cyl = (Math.Pow(D_Cyl, 2) - Math.Pow(d_Cyl, 2)) * Math.PI / 4;
+            double a_Cyl = (Pow(d_Cyl, 2) - Pow(dI_Cyl, 2)) * PI / 4;
 
-            //Pressure loss
+            // Pressure loss
 
             List<double> delta_p = new List<double> { };
 
-            foreach (double l in partialforce)
+            foreach (double l in singleForce)
             {
-                delta_p.Add(l / A_Cyl);
+                delta_p.Add(l / a_Cyl);
             }
 
-            //Orifice 
+            // Orifice section
 
-            double A_Orifice = Math.Pow(D_Orifice, 2) * Math.PI / 4;
+            double a_Orifice = Pow(d_Orifice, 2) * PI / 4;
 
-            //Time initial
+            // Time initial
 
             List<double> t = new List<double> { };
 
-            double k_aux_sum = k_aux.Sum();
+            double k_Aux_sum = k_Aux.Sum();
 
             int i = 0;
-            foreach (double l in partialstroke)
+            foreach (double l in partialStroke)
             {
                 double delta_p_act = 0;
                 double delta_p_orifice = 0;
                 double delta_p_aux = 0;
                 double delta_p_pipe = 0;
-                double Q_act = 0;
+                double q_act = 0;
 
                 do
                 {
-
-                    Q_act = Q_act + step;
-
-                    delta_p_orifice = (oil_density / 2 * Math.Pow(Q_act / (Math.Pow(D_Orifice, 2) * Math.PI / 4), 2) * (zeta_orifice));
-                    delta_p_aux = Q_act * k_aux_sum;
-                    delta_p_pipe = ((128 * oil_pipe_length * oil_density * oil_viscosity_kin * Q_act) / (Math.Pow(oil_pipe_diameter, 4) * Math.PI));
-
+                    q_act = q_act + step;
+                    delta_p_orifice = (oil_density / 2 * Pow(q_act / (Pow(d_Orifice, 2) * PI / 4), 2) * (lossValue));
+                    delta_p_aux = q_act * k_Aux_sum;
+                    delta_p_pipe = ((128 * l_OilPipe * oil_density * oil_viscosity_kin * q_act) / (Pow(d_OilPipe, 4) * PI));
                     delta_p_act = delta_p_orifice + delta_p_aux + delta_p_pipe;
-
                 } while (delta_p[i] > delta_p_act);
 
                 i += 1;
-                t.Add(A_Cyl * l / Q_act);
+                t.Add(a_Cyl * l / q_act);
             }
-
-
             return t.Sum();
         }
 

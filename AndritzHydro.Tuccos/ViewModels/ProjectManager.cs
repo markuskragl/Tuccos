@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using AndritzHydro.Tuccos.Model;
 
+
+
 namespace AndritzHydro.Tuccos.ViewModels
 {
     public class ProjectManager : AndritzHydro.Core.Data.DataApplicationObject, INotifyPropertyChanged
@@ -601,20 +603,17 @@ namespace AndritzHydro.Tuccos.ViewModels
 
         #endregion ProjectList
 
+        #region Parameter
         /// <summary>
-        /// Provides the template calculation list
+        /// Provides the parameter array for the actual calcualtion.
         /// </summary>
-        /// <returns></returns>
-        public Calculation[] GetOrificeCalcualationMethod()
+        /// <returns>Array of parameters belonging to calculation id</returns>
+        public Parameter[] GetParametersMethod()
         {
             try
-            {
-                //int? _helper = this.SelectedSubAssembly.SubAssemblyId;                    
+            {                  
                 var VM = new Model.ProjectClient();
-                //var _helper1 = VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
-                var helper = VM.GetOrificeCalculation(999);
-                return VM.GetOrificeCalculation(999);
-
+                return VM.GetParameters(this.CurrentCalculation.CalculationId);
             }
             catch (System.Exception ex)
             {
@@ -625,23 +624,593 @@ namespace AndritzHydro.Tuccos.ViewModels
 
         }
 
+        #region ParameterCol
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private Calculation[] _OrificeCalculation;
+        private List<Parameter> _ParameterCol = new List<Parameter>();
 
         /// <summary>
-        /// Gets the supported projects.
+        /// Gets the outer diameter of the cylinder of the actual calculation id.
         /// </summary>
-        /// <remarks>The countries are cached.</remarks>
-        public Calculation[] OrificeCalculation
+        public List<Parameter> ParameterCol
         {
             get
             {
-                this._OrificeCalculation = this.GetOrificeCalcualationMethod();
-                return this._OrificeCalculation;
+                bool isEmpty = !this._ParameterCol.Any();
+                if (isEmpty)
+                {
+                    List<Parameter> local = this.GetParametersMethod().ToList();
+                    this._ParameterCol = local;
+                }
+
+                return this._ParameterCol;
+            }
+
+            set
+            {
+                if (_ParameterCol != value)
+                {
+                    _ParameterCol = value;
+                    OnPropertyChanged("ParameterCol");
+                }
             }
         }
+
+        #endregion ParameterCol
+
+
+
+        private AndritzHydro.Tuccos.Helpers.Command _AddParameter = null;
+
+        /// <summary>
+        /// Gets the command to add a parameter to the database.
+        /// </summary>
+        public AndritzHydro.Tuccos.Helpers.Command AddParameter
+        {
+
+            get
+            {
+                if (this._AddParameter == null)
+                {
+                    this.Owner.SetBusyOn();
+
+                    this._AddParameter = new AndritzHydro.Tuccos.Helpers.Command(
+                        data =>
+                        {
+                            this.Owner.SetBusyOn();
+
+                            foreach(Parameter l in this.ParameterCol)
+                            {
+                            this.Controller.AddParameter(new Parameter { CalculationId = CurrentCalculation.CalculationId, ParameterType = l.ParameterType , ParameterValue = l.ParameterValue, ParameterUnit = l.ParameterUnit });
+
+                            }
+
+
+                            this.CloseController();
+
+                            OnPropertyChanged("AddParameter");
+
+                            this.Owner.SetBusyOff();
+
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+                
+                return this._AddParameter;
+            }
+        }
+
+        #region OuterDiameterCylinder
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _OuterDiameterCylinder;
+
+        /// <summary>
+        /// Gets the outer diameter of the cylinder of the actual calculation id.
+        /// </summary>
+        public double OuterDiameterCylinder
+        {
+            get
+            {
+
+                const string comp = "D_Cyl";
+                List<Parameter> parameterlist = new List<Parameter>();
+                foreach (Parameter l in this.ParameterCol)
+                {
+                    parameterlist.Add(l);
+                }
+                parameterlist.RemoveAll (u => !u.ParameterType.Contains(comp));
+                this._OuterDiameterCylinder = parameterlist[0].ParameterValue;
+                return this._OuterDiameterCylinder;
+            }
+
+            set
+            {
+                if (_OuterDiameterCylinder != value)
+                {
+                    _OuterDiameterCylinder = value;
+                    OnPropertyChanged("OuterDiameterCylinder");
+                }
+            }
+        }
+
+        #endregion OuterDiameterCylinder
+
+        #region InnerDiameterCylinder
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _InnerDiameterCylinder;
+
+        /// <summary>
+        /// Gets or sets the inner diameter of the cylinder of the actual calculation id.
+        /// </summary>
+        public double InnerDiameterCylinder
+        {
+            get
+            {
+                const string comp = "DI_Cyl";
+                List<Parameter> parameterlist = new List<Parameter>();
+                foreach (Parameter l in this.ParameterCol)
+                {
+                    parameterlist.Add(l);
+                }
+                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                this._InnerDiameterCylinder = parameterlist[0].ParameterValue;
+                return this._InnerDiameterCylinder;
+            }
+
+            set
+            {
+                if (_InnerDiameterCylinder != value)
+                {
+                    _InnerDiameterCylinder = value;
+                    OnPropertyChanged("InnerDiameterCylinder");
+                }
+            }
+        }
+        #endregion InnerDiameterCylinder
+        
+        #region DiameterOrifice
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _DiameterOrifice;
+
+        /// <summary>
+        /// Gets or sets the diameter of the orifice of the actual calculation id.
+        /// </summary>
+        public double DiameterOrifice
+        {
+            get
+            {
+                const string comp = "D_Orifice";
+                List<Parameter> parameterlist = new List<Parameter>();
+                foreach (Parameter l in this.ParameterCol)
+                {
+                    parameterlist.Add(l);
+                }
+                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                this._DiameterOrifice = parameterlist[0].ParameterValue;
+                return this._DiameterOrifice;
+            }
+
+            set
+            {
+                if (_DiameterOrifice != value)
+                {
+                    _DiameterOrifice = value;
+                    OnPropertyChanged("DiameterOrifice");
+                }
+            }
+        }
+
+        #endregion DiameterOrifice
+
+        #region LengthOilPipe
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _LengthOilPipe;
+
+        /// <summary>
+        /// Gets or sets the length of the oil pipe of the actual calculation id.
+        /// </summary>
+        public double LengthOilPipe
+        {
+            get
+            {
+                if(this._LengthOilPipe == 0)
+                {
+                    const string comp = "L_OilPipe";
+                    List<Parameter> parameterlist = new List<Parameter>();
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        parameterlist.Add(l);
+                    }
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    this._LengthOilPipe = parameterlist[0].ParameterValue;
+                }
+
+                return this._LengthOilPipe;
+            }
+
+            set
+           {
+                if (_LengthOilPipe != value)
+                {
+                    _LengthOilPipe = value;
+                    foreach(Parameter l in this.ParameterCol)
+                    {
+                        if(l.ParameterType == "L_OilPipe")
+                        {
+                            l.ParameterValue = value;
+
+                            Console.WriteLine(l.ParameterValue);
+                        }
+                    }
+
+                    foreach(Parameter l in this.ParameterCol)
+                    {
+                        Console.WriteLine(l.ParameterValue);
+                    }
+                    OnPropertyChanged("LengthOilPipe");
+                }
+            }
+        }
+
+        #endregion LengthOilPipe
+
+        #region DiameterOilPipe
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _DiameterOilPipe;
+
+        /// <summary>
+        /// Gets or sets the diameter of the oil pipe of the actual calculation id.
+        /// </summary>
+        public double DiameterOilPipe
+        {
+            get
+            {
+                const string comp = "D_OilPipe";
+                List<Parameter> parameterlist = new List<Parameter>();
+                foreach (Parameter l in this.ParameterCol)
+                {
+                    parameterlist.Add(l);
+                }
+                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                this._DiameterOilPipe = parameterlist[0].ParameterValue;
+                return this._DiameterOilPipe;
+            }
+
+            set
+            {
+                if (_DiameterOilPipe != value)
+                {
+                    _DiameterOilPipe = value;
+                    OnPropertyChanged("DiameterOilPipe");
+                }
+            }
+        }
+        #endregion DiameterOilPipe
+
+        #region LossValue
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _LossValue;
+
+        /// <summary>
+        /// Gets or sets the loss value of the actual calculation id.
+        /// </summary>
+        public double LossValue
+        {
+            get
+            {
+                const string comp = "LossValue";
+                List<Parameter> parameterlist = new List<Parameter>();
+                foreach (Parameter l in this.ParameterCol)
+                {
+                    parameterlist.Add(l);
+                }
+                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                this._LossValue = parameterlist[0].ParameterValue;
+                return this._LossValue;
+            }
+
+            set
+            {
+                if (_LossValue != value)
+                {
+                    _LossValue = value;
+                    OnPropertyChanged("LossValue");
+                }
+            }
+        }
+        #endregion LossValue
+
+        #region SingleForce
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private List<double> _SingleForce = new List<double>();
+
+        /// <summary>
+        /// Gets or sets the single forces of the actual calculation id.
+        /// </summary>
+        public List<double> SingleForce
+        {
+            get
+            {
+                if (!this._SingleForce.Any())
+                {
+                    const string comp = "SingleForce";
+                    List<Parameter> parameterlist = new List<Parameter>();
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        parameterlist.Add(l);
+                    }
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    foreach (Parameter l in parameterlist)
+                    {
+                        this._SingleForce.Add(l.ParameterValue);
+                    }
+                }
+
+                return this._SingleForce;
+            }
+
+            set
+            {
+                if (_SingleForce != value)
+                {
+                    _SingleForce = value;
+                    OnPropertyChanged("SingleForce");
+                }
+            }
+        }
+
+        #endregion SingleForce
+
+        #region PartialStroke
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private List<double> _PartialStroke = new List<double>();
+
+        /// <summary>
+        /// Gets or sets the partial stroke of the actual calculation id.
+        /// </summary>
+        public List<double> PartialStroke
+        {
+            get
+            {
+                if (!this._PartialStroke.Any())
+                {
+                    string comp = "PartialStroke";
+                    List<Parameter> parameterlist = new List<Parameter>();
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        parameterlist.Add(l);
+                    }
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    foreach (Parameter l in parameterlist)
+                    {
+                        this._PartialStroke.Add(l.ParameterValue);
+                    }
+
+                }
+
+                return this._PartialStroke;
+            }
+
+            set
+            {
+                if (_PartialStroke != value)
+                {
+                    _PartialStroke = value;
+                    OnPropertyChanged("PartialStroke");
+                }
+            }
+        }
+
+        #endregion PartialStroke
+
+        #region TotalStroke
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private List<double> _TotalStroke = new List<double>();
+
+        /// <summary>
+        /// Gets the total stroke of the actual calculation id.
+        /// </summary>
+        public List<double> TotalStroke
+        {
+            get
+            {
+                double total = 0;
+                foreach (double l in this.PartialStroke)
+                {
+                    total = total + l;
+                    this._TotalStroke.Add(total);
+                }
+                return this._TotalStroke;
+            }
+        }
+
+        #endregion TotalStroke
+
+        #region SingleWorkCapacity
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private List<double> _SingleWorkCapacity = new List<double>();
+
+        /// <summary>
+        /// Gets the single work capacity of the actual calculation id.
+        /// </summary>
+        public List<double> SingleWorkCapacity
+        {
+            get
+            {
+                if (!this._SingleWorkCapacity.Any())
+                {
+                    int i = 0;
+                    foreach (double l in this.PartialStroke)
+                    {
+                        double cap = 0;
+                        cap = l * this.SingleForce[i];
+                        this._SingleWorkCapacity.Add(cap);
+                        i += 1;
+                    }
+                }
+
+                return this._SingleWorkCapacity;
+            }
+        }
+
+        #endregion SingleWorkCapacity
+
+        #region TotalWorkCapacity
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _TotalWorkCapacity = default(double);
+
+        /// <summary>
+        /// Gets the total work capacity of the actual calculation id.
+        /// </summary>
+        public double TotalWorkCapacity
+        {
+            get
+            {
+                this._TotalWorkCapacity = this._SingleWorkCapacity.Sum();
+                return this._TotalWorkCapacity;
+            }
+            set
+            {
+                if (_TotalWorkCapacity != value)
+                {
+                    _TotalWorkCapacity = value;
+                    OnPropertyChanged("TotalWorkCapacity");
+                }
+            }
+        }
+
+
+
+        #endregion TotalWorkCapacity
+
+        #region KAuxiliaries
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private List<double> _KAuxiliaries = new List<double>();
+
+        /// <summary>
+        /// Gets or sets the loss values of the auxiliaries of the actual calculation id.
+        /// </summary>
+        public List<double> KAuxiliaries
+        {
+            get
+            {
+                if (!this._KAuxiliaries.Any())
+                {
+                    const string comp = "K_Aux";
+                    List<Parameter> parameterlist = new List<Parameter>();
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        parameterlist.Add(l);
+                    }
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    foreach (Parameter l in parameterlist)
+                    {
+                        this._KAuxiliaries.Add(l.ParameterValue);
+                    }
+
+                }
+
+                return this._KAuxiliaries;
+            }
+
+            set
+            {
+                if (_KAuxiliaries != value)
+                {
+                    _KAuxiliaries = value;
+                    OnPropertyChanged("KAuxiliaries");
+                }
+            }
+        }
+
+        #endregion KAuxiliaries
+
+        #region TotalKAuxiliaries
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _TotalKAuxiliaries = default(double);
+
+        /// <summary>
+        /// Gets the total loss values of the auxiliaries of the actual calculation id.
+        /// </summary>
+        public double TotalKAuxiliaries
+        {
+            get
+            {
+                this._TotalKAuxiliaries = this._KAuxiliaries.Sum();
+                return this._TotalKAuxiliaries;
+            }
+            set
+            {
+                if (_TotalKAuxiliaries != value)
+                {
+                    _TotalKAuxiliaries = value;
+                    OnPropertyChanged("TotalKAuxiliaries");
+                }
+            }
+        }
+
+        #endregion TotalKAuxiliaries
+
+        #region Time
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private double _Time;
+
+        /// <summary>
+        /// Gets the time for the servo closing of the actual calculation id.
+        /// </summary>
+        public double Time
+        {
+            get
+            {
+                
+                var VM = new Model.ProjectClient();
+                this._Time = VM.OrificeCalculationTime(this.ParameterCol.ToArray());
+                return this._Time;
+            }
+            set
+            {
+                if (_Time != value)
+                {
+                    _Time = value;
+                    OnPropertyChanged("Time");
+                }
+            }
+        }
+
+        #endregion Time
+
+        #endregion Parameter
 
     }
 }

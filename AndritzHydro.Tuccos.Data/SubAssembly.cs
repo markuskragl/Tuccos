@@ -21,13 +21,6 @@ namespace AndritzHydro.Tuccos.Data
     public class SubAssembly : Project
     {
 
-        /// <summary>
-        /// Provides a list of projects.
-        /// </summary>
-        public class Projects : System.Collections.Generic.List<SubAssembly>
-        {
-
-        }
 
         /// <summary>
         /// Internal field for the property
@@ -76,45 +69,21 @@ namespace AndritzHydro.Tuccos.Data
         /// <summary>
         /// Internal field for the property
         /// </summary>
-        private int? _RngNr = null;
+        private int? _SubAssemblyRngNr = null;
 
         /// <summary>
         /// Gets or sets the running number of the subassembly
         /// </summary>
-        public int? RngNr
+        public int? SubAssemblyRngNr
         {
             get
             {
-                return this._RngNr;
+                return this._SubAssemblyRngNr;
             }
 
             set
             {
-                this._RngNr = value;
-            }
-        }
-
-
-
-        private System.Collections.Generic.List<object> _Calculations = new List<object>();
-
-        /// <summary>
-        /// Gets or sets a list of calculations belonging to the subassembly
-        /// </summary>
-        public List<object> Calculations
-        {
-            get
-            {
-                if(this._Calculations = null)
-                {
-
-                }
-                return this._Calculations;
-            }
-
-            set
-            {
-                this._Calculations = value;
+                this._SubAssemblyRngNr = value;
             }
         }
     }

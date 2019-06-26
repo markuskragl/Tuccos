@@ -9,7 +9,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
     internal class CalculationController : AndritzHydro.Core.Data.SqlBaseController
     {
 
-
+        #region GetCalculation
         /// <summary>
         /// Returns the projects.
         /// </summary>
@@ -60,7 +60,9 @@ namespace AndritzHydro.Tuccos.Data.Controller
         }
 
 
+        #endregion GetCalculation
 
+        #region AddCalculation
         /// <summary>
         /// Adds a project to the database.
         /// </summary>
@@ -101,8 +103,9 @@ namespace AndritzHydro.Tuccos.Data.Controller
             }
         }
 
+        #endregion AddCalculation
 
-
+        #region DeleteCalculation
         /// <summary>
         /// Deletes a calculation to the database.
         /// </summary>
@@ -141,18 +144,21 @@ namespace AndritzHydro.Tuccos.Data.Controller
             }
         }
 
+        #endregion DeleteCalculation
+
+        #region GetParameter
         /// <summary>
         /// Returns the orifice calculations.
         /// </summary>
-        public Calculations GetOrificeCalculation(int? calcId)
+        public Parameters GetParameters(int? calcId)
         {
-            var result = new Calculations();
+            var result = new Parameters();
 
             //First: A connection is needed
             using (var connection = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
             {
                 //Second: A command is needed
-                using (var command = new System.Data.SqlClient.SqlCommand("GetOrificeCalculation", connection))
+                using (var command = new System.Data.SqlClient.SqlCommand("GetParameter", connection))
                 {
                     //Configure the command
                     command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -173,14 +179,14 @@ namespace AndritzHydro.Tuccos.Data.Controller
                         //Map the data to the data transfer objects
                         while (reader.Read())
                         {
-                            result.Add(new Calculation
+                            result.Add(new Parameter
                             {
 
-                             
-                                CalculationId = (int)reader["calculationId"],
 
-      
-
+                                CalculationId = (int)reader["CalculationId"],
+                                ParameterType = reader["ParameterType"].ToString(),
+                                ParameterValue = (double)reader["ParameterValue"],
+                                ParameterUnit = reader["ParameterUnit"].ToString(),
 
 
                             });
@@ -195,5 +201,50 @@ namespace AndritzHydro.Tuccos.Data.Controller
 #endif
             return result;
         }
+
+        #endregion GetParameter
+
+        #region AddParameter
+        /// <summary>
+        /// Adds a project to the database.
+        /// </summary>
+        /// <param name="project">The project which
+        /// should be added.</param>
+        public virtual void AddParameter(Parameter parameter)
+        {
+            using (var connection = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+            {
+                using (var command = new System.Data.SqlClient.SqlCommand("AddParameter", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                    command.Parameters.AddWithValue("@CalculationId", parameter.CalculationId);
+                    command.Parameters.AddWithValue("@ParameterType", parameter.ParameterType);
+                    command.Parameters.AddWithValue("@ParameterValue", parameter.ParameterValue);
+                    command.Parameters.AddWithValue("@ParameterUnit", parameter.ParameterUnit);
+
+                    command.Prepare();
+
+                    connection.Open();
+
+                    //To ensure that changes only are
+                    //saved, if all statements are successfully,
+                    //use "Database Transactions" 
+                    command.Transaction = connection.BeginTransaction();
+
+                    command.ExecuteNonQuery();
+
+                    //A loop for the rows
+                    command.Parameters.Clear();
+
+                    //If the code reaches this line,
+                    //every statement was successfully
+                    //and can be saved in the database
+                    command.Transaction.Commit();
+                }
+            }
+        }
+        #endregion AddParameter
     }
 }

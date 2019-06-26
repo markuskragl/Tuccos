@@ -99,18 +99,44 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetOrificeCalculation">
+  <xs:element name="GetParameters">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="calcId" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetOrificeCalculationResponse">
+  <xs:element name="GetParametersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="GetOrificeCalculationResult" nillable="true" type="q9:ArrayOfCalculation" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="GetParametersResult" nillable="true" type="q9:ArrayOfParameter" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrificeCalculationTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="inputparameter" nillable="true" type="q10:ArrayOfParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrificeCalculationTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrificeCalculationTimeResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddParameter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="parameter" nillable="true" type="q11:Parameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddParameterResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>
