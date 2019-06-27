@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="andritzhydro.web.ProjectsView">
+    <Position X="3" Y="0.75" Width="2" />
+    <Members>
+      <Field Name="AppContextCache" Hidden="true" />
+      <Field Name="CalculationManagerCache" Hidden="true" />
+      <Field Name="CalculationTemplateManagerCache" Hidden="true" />
+      <Field Name="ExampleCalculationManagerCache" Hidden="true" />
+      <Field Name="ProjectManagerCache" Hidden="true" />
+      <Field Name="SubAssemblyManagerCache" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>GDAAAQEAAAAAAEAAQACiEwQWAAAAgAAAAAgAgAhoBQA=</HashCode>
+      <FileName>project.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="andritzhydro.web.IProject">
+    <Position X="0.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ADAAAAEAAAAAAEAAAAAiAgASAAAAAAAAAAAAgAhIBQA=</HashCode>
+      <FileName>IProject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

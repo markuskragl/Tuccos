@@ -7,7 +7,7 @@
     <Position X="2.958" Y="0.5" Height="0.291" Width="2.017" />
   </Comment>
   <Comment CommentText="ViewModel">
-    <Position X="5.467" Y="0.5" Height="0.291" Width="2.017" />
+    <Position X="5.467" Y="0.5" Height="0.291" Width="4.611" />
   </Comment>
   <Class Name="AndritzHydro.Tuccos.MainWindow">
     <Position X="3" Y="1.25" Width="2" />
@@ -26,35 +26,58 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AndritzHydro.Tuccos.ViewModels.ProjectManager">
-    <Position X="5.5" Y="1.25" Width="2" />
+    <Position X="8" Y="1.25" Width="2" />
     <Members>
+      <Field Name="_a" Hidden="true" />
       <Field Name="_AddCalculation" Hidden="true" />
+      <Field Name="_AddParameter" Hidden="true" />
+      <Field Name="_b" Hidden="true" />
+      <Field Name="_c" Hidden="true" />
+      <Field Name="_CalculationDescription" Hidden="true" />
       <Field Name="_Calculations" Hidden="true" />
       <Field Name="_CalculationTemplates" Hidden="true" />
       <Field Name="_Controller" Hidden="true" />
+      <Field Name="_CurrentCalculationId" Hidden="true" />
       <Field Name="_DeleteCalculation" Hidden="true" />
       <Field Name="_DeleteProject" Hidden="true" />
-      <Field Name="_OrificeCalculation" Hidden="true" />
+      <Field Name="_DiameterOilPipe" Hidden="true" />
+      <Field Name="_DiameterOrifice" Hidden="true" />
+      <Field Name="_ExampleCalculation" Hidden="true" />
+      <Field Name="_InnerDiameterCylinder" Hidden="true" />
+      <Field Name="_KAuxiliaries" Hidden="true" />
+      <Field Name="_LengthOilPipe" Hidden="true" />
+      <Field Name="_LossValue" Hidden="true" />
+      <Field Name="_NewProject" Hidden="true" />
+      <Field Name="_OuterDiameterCylinder" Hidden="true" />
+      <Field Name="_ParameterCol" Hidden="true" />
+      <Field Name="_PartialStroke" Hidden="true" />
       <Field Name="_ProjectId" Hidden="true" />
       <Field Name="_ProjectListFinal" Hidden="true" />
       <Field Name="_ProjectName" Hidden="true" />
       <Field Name="_ProjectYear" Hidden="true" />
+      <Field Name="_SaveExampleCalculation" Hidden="true" />
       <Field Name="_SaveProject" Hidden="true" />
       <Field Name="_SelectedCalculation" Hidden="true" />
       <Field Name="_SelectedCalculationTemplate" Hidden="true" />
       <Field Name="_SelectedCalculationViewer" Hidden="true" />
       <Field Name="_SelectedProject" Hidden="true" />
       <Field Name="_SelectedSubAssembly" Hidden="true" />
+      <Field Name="_SingleForce" Hidden="true" />
+      <Field Name="_SingleWorkCapacity" Hidden="true" />
       <Field Name="_SubAssemblies" Hidden="true" />
+      <Field Name="_Time" Hidden="true" />
+      <Field Name="_TotalKAuxiliaries" Hidden="true" />
+      <Field Name="_TotalStroke" Hidden="true" />
+      <Field Name="_TotalWorkCapacity" Hidden="true" />
       <Field Name="_ViewerCalculationType" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>oBoQAQaggQAAgBBACBBCAkAMBUAAAggEQIiAABSIABA=</HashCode>
+      <HashCode>oFsQIWLhhxIAwBFADBFCMkweBEAAAwjnQYqAILSJAdA=</HashCode>
       <FileName>ViewModels\ProjectManager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="AndritzHydro.Tuccos.Model.TaskList" Collapsed="true">
+  <Class Name="AndritzHydro.Tuccos.Model.TaskList">
     <Position X="0.5" Y="3.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -71,6 +94,25 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAiAAAAIUAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.ViewModels.WindowManager">
+    <Position X="5.5" Y="1.25" Width="2" />
+    <Members>
+      <Field Name="_CloseOtherWindows" Hidden="true" />
+      <Field Name="_CloseWindows" Hidden="true" />
+      <Field Name="_CurrentTask" Hidden="true" />
+      <Field Name="_CurrentViewer" Hidden="true" />
+      <Field Name="_MainWindowType" Hidden="true" />
+      <Field Name="_NewWindow" Hidden="true" />
+      <Field Name="_Project" Hidden="true" />
+      <Field Name="_SetDefaulTask" Hidden="true" />
+      <Field Name="_Tasks" Hidden="true" />
+      <Field Name="_WindowName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAEAAAwIMAAAAAgAAlAiCAgkCABKAAEAAAIAgAQCQA=</HashCode>
+      <FileName>ViewModels\WindowManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
