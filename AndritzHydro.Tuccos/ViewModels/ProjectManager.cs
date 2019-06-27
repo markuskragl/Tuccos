@@ -106,7 +106,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                 }
 
                 return this._SelectedCalculationViewer;
@@ -153,7 +153,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                     }
                     catch (System.Exception ex)
                     {
-                        this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                        //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     }
 
 
@@ -321,7 +321,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     return _ProjectId;
                 }
 
@@ -359,7 +359,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     return _ProjectName;
                 }
 
@@ -396,7 +396,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     return _ProjectYear;
                 }
 
@@ -474,7 +474,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
             catch (System.Exception ex)
             {
-                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
             }
             return null;
         }
@@ -540,6 +540,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 
                 return this._SelectedCalculation;
 
+
             }
             set
             {
@@ -585,7 +586,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
             catch (System.Exception ex)
             {
-                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
             }
 
             return null;
@@ -605,6 +606,24 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 this._Calculations = this.GetCalcualationsMethod();
                 return this._Calculations;
+            }
+        }
+
+
+        private string _CurrentCalculationId = null;
+        public string CurrentCalculationId
+        {
+            get
+            {
+                if (_CurrentCalculationId == null)
+                {
+                    _CurrentCalculationId = this.Context.RandomGuid.ToString();
+                }
+                else if (_AddCalculation != null)
+                {
+                    _CurrentCalculationId = this.Context.RandomGuid.ToString();
+                }
+                return _CurrentCalculationId;
             }
         }
 
@@ -640,7 +659,10 @@ namespace AndritzHydro.Tuccos.ViewModels
                             }
                             else
                             {
+
                                 this.Owner.SetBusyOn();
+
+                                //OnPropertyChanged("AddExampleCalculation");
 
                                 //var MaxCalculationId = 0;
                                 //foreach (Calculation c in this.Controller.GetCalculations(this.SelectedProject.ProjectId, this.SelectedSubAssembly.SubAssemblyId))
@@ -653,20 +675,27 @@ namespace AndritzHydro.Tuccos.ViewModels
                                 //int CurrentCalculationid = MaxCalculationId + 1;
 
                                 //Random randomId = new Random();
-
-                                int CurrentCalculationId = this.Context.Random.Next(1, 1000000);
-
-
-                                var _helper = this.SelectedCalculationTemplate;
+                                string calcId = this.CurrentCalculationId;
                                 try
                                 {
                                     this.Controller.AddCalculation(new Calculation
                                     {
                                         ProjectId = this.SelectedProject.ProjectId,
                                         SubAssemblyId = this.SelectedCalculationTemplate.SubAssemblyId,
-                                        CalculationId = CurrentCalculationId,
+                                        CalculationId = calcId,
                                         CalculationType = this.SelectedCalculationTemplate.CalculationType
                                     });
+
+                                    this.Controller.AddExampleCalculation(new Model.ExampleCalculation
+                                    {
+                                        CalculationId = calcId,
+                                        CalculationDescription = "Please add a description...",
+                                        Parametera = 0,
+                                        Parameterb = 0,
+                                        Resultc = 0
+
+                                    });
+
 
                                     this.CloseController();
 
@@ -680,7 +709,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                                 }
                                 catch (System.Exception ex)
                                 {
-                                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                                 }
                             }
                         });
@@ -741,13 +770,13 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             try
             {
-            var excalc = new Model.ProjectClient();
-            var _helper = excalc.GetExampleCalculations(this.SelectedCalculation.CalculationId);
-            return excalc.GetExampleCalculations(this.SelectedCalculation.CalculationId);
+                var excalc = new Model.ProjectClient();
+                var _helper = excalc.GetExampleCalculations(this.SelectedCalculation.CalculationId);
+                return excalc.GetExampleCalculations(this.SelectedCalculation.CalculationId);
             }
             catch (System.Exception ex)
             {
-                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                 return null;
             }
 
@@ -757,7 +786,37 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private int _a=0;
+        private string _CalculationDescription = null;
+        /// <summary>
+        /// Gets the textbox CalculationDescription
+        /// </summary>
+        public string CalculationDescription
+        {
+            get
+            {
+                try
+                {
+                    if (_CalculationDescription == null)
+                    {
+                        _CalculationDescription = this.ExampleCalculation[0].CalculationDescription;
+                    }
+                }
+                catch { }
+                return _CalculationDescription;
+            }
+            set
+            {
+                if (_CalculationDescription != value)
+                {
+                    _CalculationDescription = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private int _a = 0;
         /// <summary>
         /// Gets the textbox a
         /// </summary>
@@ -772,13 +831,8 @@ namespace AndritzHydro.Tuccos.ViewModels
                         _a = this.ExampleCalculation[0].Parametera;
                     }
                 }
-                catch (System.Exception ex)
-                {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
-                }
+                catch{ }
                 return _a;
-
-
             }
             set
             {
@@ -793,7 +847,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private int _b=0;
+        private int _b = 0;
         /// <summary>
         /// Gets the textbox b
         /// </summary>
@@ -808,9 +862,9 @@ namespace AndritzHydro.Tuccos.ViewModels
                         _b = this.ExampleCalculation[0].Parameterb;
                     }
                 }
-                catch (System.Exception ex)
+                catch
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+
                 }
                 return _b;
 
@@ -836,27 +890,9 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                try
-                {
-                    if (_c == 0)
-                    {
-                        _c = this.ExampleCalculation[0].Resultc;
-
-                    }
-                    else
-                    {
-                        var excalc = new Model.ProjectClient();
-                        _c = excalc.ExampleCalculationSum(a, b);
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
-                }
-
+                var excalc = new Model.ProjectClient();
+                _c = excalc.ExampleCalculationSum(a, b);
                 return _c;
-
-
             }
         }
 
@@ -881,51 +917,43 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
-        private AndritzHydro.Tuccos.Helpers.Command _AddExampleCalculation = null;
+        private AndritzHydro.Tuccos.Helpers.Command _SaveExampleCalculation = null;
         /// <summary>
-        /// Gets the command to add a calculation to the database.
+        /// Gets the command to add a project to the database.
         /// </summary>
-        public AndritzHydro.Tuccos.Helpers.Command AddExampleCalculation
+        public AndritzHydro.Tuccos.Helpers.Command SaveExampleCalculation
         {
             get
             {
-                if (this._AddExampleCalculation == null)
+                if (this._SaveExampleCalculation == null)
                 {
                     this.Owner.SetBusyOn();
 
-                    this._AddExampleCalculation = new AndritzHydro.Tuccos.Helpers.Command(
+                    this._SaveExampleCalculation = new AndritzHydro.Tuccos.Helpers.Command(
                         data =>
                         {
-                            this.Owner.SetBusyOn();
 
-                            this.Controller.AddExampleCalculation(new Model.ExampleCalculation {
-                                //CalculationId = this.CurrentCalculationid,
-                                //CalculationDescription = this.ExampleCalculation[0].CalculationDescription,
-                                //Parametera = this.ExampleCalculation[0].Parametera,
-                                //Parameterb = this.ExampleCalculation[0].Parameterb,
-                                //Resultc = this.ExampleCalculation[0].Resultc
-
+                            this.Controller.SaveExampleCalculation(new Model.ExampleCalculation
+                            {
                                 CalculationId = this.SelectedCalculation.CalculationId,
-                                CalculationDescription = "Please add a description...",
-                                Parametera = 1,
-                                Parameterb = 1,
-                                Resultc = 1
+                                CalculationDescription = this.CalculationDescription,
+                                Parametera = this.a,
+                                Parameterb = this.b,
+                                Resultc = this.c
 
                             });
 
                             this.CloseController();
 
-                            OnPropertyChanged("Calculations");
-
-                            this.Owner.SetBusyOff();
+                            OnPropertyChanged("ExampleCalculation");
 
                         });
 
                     this.Owner.SetBusyOff();
                 }
 
-
-                return this._AddExampleCalculation;
+                //this.Controller.SaveProject(new Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
+                return this._SaveExampleCalculation;
             }
         }
 

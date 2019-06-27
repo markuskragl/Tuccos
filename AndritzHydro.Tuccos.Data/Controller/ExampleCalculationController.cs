@@ -11,7 +11,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Returns the Example calculation.
         /// </summary>
-        public ExampleCalculations GetExampleCalculations(int calculationId)
+        public ExampleCalculations GetExampleCalculations(string calculationId)
         {
             var result = new ExampleCalculations();
 
@@ -34,7 +34,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
                             {
                                 ProjectId = reader["ProjectId"].ToString(),
                                 SubAssemblyId = (int)reader["SubAssemblyId"],
-                                CalculationId = (int)reader["CalculationId"],
+                                CalculationId = reader["CalculationId"].ToString(),
                                 CalculationType = reader["CalculationType"].ToString(),
                                 CalculationDescription = reader["CalculationDescription"].ToString(),
                                 Parametera = (int)reader["Parametera"],
@@ -62,6 +62,40 @@ namespace AndritzHydro.Tuccos.Data.Controller
             using (var connection = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
             {
                 using (var command = new System.Data.SqlClient.SqlCommand("AddExampleCalculation", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@CalculationId", exampleCalculation.CalculationId);
+                    command.Parameters.AddWithValue("@CalculationDescription", exampleCalculation.CalculationDescription);
+                    command.Parameters.AddWithValue("@Parametera", exampleCalculation.Parametera);
+                    command.Parameters.AddWithValue("@Parameterb", exampleCalculation.Parameterb);
+                    command.Parameters.AddWithValue("@Resultc", exampleCalculation.Resultc);
+
+                    command.Prepare();
+
+                    connection.Open();
+
+                    command.Transaction = connection.BeginTransaction();
+
+                    command.ExecuteNonQuery();
+
+                    command.Parameters.Clear();
+
+                    command.Transaction.Commit();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Saves a Example Calculation to the database.
+        /// </summary>
+        /// <param name="exampleCalculation">The exampleCalculation which
+        /// should be added.</param>
+        public virtual void SaveExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            using (var connection = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+            {
+                using (var command = new System.Data.SqlClient.SqlCommand("SaveExampleCalculation", connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 

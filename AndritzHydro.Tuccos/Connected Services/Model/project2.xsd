@@ -105,7 +105,7 @@
   <xs:element name="GetExampleCalculations">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="calcId" type="xs:int" />
+        <xs:element minOccurs="0" name="calcId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -146,7 +146,7 @@
   <xs:element name="GetParameters">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="calcId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="calcId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -179,6 +179,18 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="AddParameterResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExampleCalculation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AndritzHydro.Tuccos.Data" minOccurs="0" name="exampleCalculation" nillable="true" type="q14:ExampleCalculation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExampleCalculationResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
