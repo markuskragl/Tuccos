@@ -352,5 +352,11 @@ namespace andritzhydro.web
             this.WriteLogEntry();
             this.ExampleCalculationManager.AddExampleCalculation(exampleCalculation);
         }
+
+        public void SaveExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            this.WriteLogEntry();
+            this.ExampleCalculationManager.SaveExampleCalculation(exampleCalculation);
+        }
     }
 }

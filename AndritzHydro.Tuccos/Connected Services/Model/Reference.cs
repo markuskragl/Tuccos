@@ -531,6 +531,12 @@ namespace AndritzHydro.Tuccos.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/AddParameter", ReplyAction="http://tempuri.org/IProject/AddParameterResponse")]
         System.Threading.Tasks.Task AddParameterAsync(AndritzHydro.Tuccos.Model.Parameter parameter);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/SaveExampleCalculation", ReplyAction="http://tempuri.org/IProject/SaveExampleCalculationResponse")]
+        void SaveExampleCalculation(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProject/SaveExampleCalculation", ReplyAction="http://tempuri.org/IProject/SaveExampleCalculationResponse")]
+        System.Threading.Tasks.Task SaveExampleCalculationAsync(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -670,6 +676,14 @@ namespace AndritzHydro.Tuccos.Model {
         
         public System.Threading.Tasks.Task AddParameterAsync(AndritzHydro.Tuccos.Model.Parameter parameter) {
             return base.Channel.AddParameterAsync(parameter);
+        }
+        
+        public void SaveExampleCalculation(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation) {
+            base.Channel.SaveExampleCalculation(exampleCalculation);
+        }
+        
+        public System.Threading.Tasks.Task SaveExampleCalculationAsync(AndritzHydro.Tuccos.Model.ExampleCalculation exampleCalculation) {
+            return base.Channel.SaveExampleCalculationAsync(exampleCalculation);
         }
     }
 }

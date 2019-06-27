@@ -63,6 +63,23 @@ namespace AndritzHydro.Tuccos.Data.Controller
             }
         }
 
+        /// <summary>
+        /// Save a  calculation to the database.
+        /// </summary>
+        /// <param name="exampleCalculation">The calculation which
+        /// should be added.</param>
+        public virtual void SaveExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            try
+            {
+                this.Controller.SaveExampleCalculation(exampleCalculation);
+            }
+            catch (System.Exception ex)
+            {
+                this.OnErrorOccurred(new Core.ErrorOccurredEventArgs(ex));
+            }
+        }
+
 
     }
 

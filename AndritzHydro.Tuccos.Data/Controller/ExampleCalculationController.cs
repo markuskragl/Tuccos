@@ -85,5 +85,39 @@ namespace AndritzHydro.Tuccos.Data.Controller
                 }
             }
         }
+
+        /// <summary>
+        /// Saves a Example Calculation to the database.
+        /// </summary>
+        /// <param name="exampleCalculation">The exampleCalculation which
+        /// should be added.</param>
+        public virtual void SaveExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            using (var connection = new System.Data.SqlClient.SqlConnection(this.ConnectionString))
+            {
+                using (var command = new System.Data.SqlClient.SqlCommand("SaveExampleCalculation", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@CalculationId", exampleCalculation.CalculationId);
+                    command.Parameters.AddWithValue("@CalculationDescription", exampleCalculation.CalculationDescription);
+                    command.Parameters.AddWithValue("@Parametera", exampleCalculation.Parametera);
+                    command.Parameters.AddWithValue("@Parameterb", exampleCalculation.Parameterb);
+                    command.Parameters.AddWithValue("@Resultc", exampleCalculation.Resultc);
+
+                    command.Prepare();
+
+                    connection.Open();
+
+                    command.Transaction = connection.BeginTransaction();
+
+                    command.ExecuteNonQuery();
+
+                    command.Parameters.Clear();
+
+                    command.Transaction.Commit();
+                }
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace andritzhydro.web
         /// <summary>
         /// Add a project to the database.
         /// </summary>
-        /// <param name="ticket">The project which should be saved.</param>
+        /// <param name="project">The project which should be saved.</param>
         [OperationContract]
         void SaveProject(AndritzHydro.Tuccos.Data.Project project);
 
@@ -113,8 +113,13 @@ namespace andritzhydro.web
         /// <param name="parameter">The parameter which should be saved.</param>
         [OperationContract]
         void AddParameter(AndritzHydro.Tuccos.Data.Parameter parameter);
-        
 
+        /// <summary>
+        /// Add a project to the database.
+        /// </summary>
+        /// <param name="exampleCalculation">The project which should be saved.</param>
+        [OperationContract]
+        void SaveExampleCalculation(AndritzHydro.Tuccos.Data.ExampleCalculation exampleCalculation);
 
     }
 }

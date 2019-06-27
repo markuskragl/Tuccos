@@ -106,7 +106,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                 }
 
                 return this._SelectedCalculationViewer;
@@ -153,7 +153,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                     }
                     catch (System.Exception ex)
                     {
-                        this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                        //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     }
 
 
@@ -321,7 +321,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     return _ProjectId;
                 }
 
@@ -359,7 +359,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     return _ProjectName;
                 }
 
@@ -396,7 +396,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 }
                 catch (System.Exception ex)
                 {
-                    this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
                     return _ProjectYear;
                 }
 
@@ -474,7 +474,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
             catch (System.Exception ex)
             {
-                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
             }
             return null;
         }
@@ -540,6 +540,7 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                 return this._SelectedCalculation;
 
+
             }
             set
             {
@@ -567,7 +568,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
             catch (System.Exception ex)
             {
-                this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
             }
 
             return null;
@@ -764,6 +765,36 @@ namespace AndritzHydro.Tuccos.ViewModels
         /// <summary>
         /// Internal field for the property.
         /// </summary>
+        private string _CalculationDescription = null;
+        /// <summary>
+        /// Gets the textbox CalculationDescription
+        /// </summary>
+        public string CalculationDescription
+        {
+            get
+            {
+                try
+                {
+                    if (_CalculationDescription == null)
+                    {
+                        _CalculationDescription = this.ExampleCalculation[0].CalculationDescription;
+                    }
+                }
+                catch { }
+                return _CalculationDescription;
+            }
+            set
+            {
+                if (_CalculationDescription != value)
+                {
+                    _CalculationDescription = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
         private int _a = 0;
         /// <summary>
         /// Gets the textbox a
@@ -772,14 +803,15 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (_a == 0)
+                try
                 {
-                    _a = this.ExampleCalculation[0].Parametera;
-
-                   
+                    if (_a == 0)
+                    {
+                        _a = this.ExampleCalculation[0].Parametera;
+                    }
                 }
+                catch{ }
                 return _a;
-
             }
             set
             {
@@ -802,9 +834,16 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (_b == 0)
+                try
                 {
-                    _b = this.ExampleCalculation[0].Parameterb;
+                    if (_b == 0)
+                    {
+                        _b = this.ExampleCalculation[0].Parameterb;
+                    }
+                }
+                catch
+                {
+
                 }
                 return _b;
 
@@ -834,10 +873,6 @@ namespace AndritzHydro.Tuccos.ViewModels
                 _c = excalc.ExampleCalculationSum(a, b);
                 return _c;
             }
-                
-
-
-            
         }
 
         /// <summary>
@@ -858,7 +893,48 @@ namespace AndritzHydro.Tuccos.ViewModels
         }
 
 
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private AndritzHydro.Tuccos.Helpers.Command _SaveExampleCalculation = null;
+        /// <summary>
+        /// Gets the command to add a project to the database.
+        /// </summary>
+        public AndritzHydro.Tuccos.Helpers.Command SaveExampleCalculation
+        {
+            get
+            {
+                if (this._SaveExampleCalculation == null)
+                {
+                    this.Owner.SetBusyOn();
 
+                    this._SaveExampleCalculation = new AndritzHydro.Tuccos.Helpers.Command(
+                        data =>
+                        {
+
+                            this.Controller.SaveExampleCalculation(new Model.ExampleCalculation
+                            {
+                                CalculationId = this.SelectedCalculation.CalculationId,
+                                CalculationDescription = this.CalculationDescription,
+                                Parametera = this.a,
+                                Parameterb = this.b,
+                                Resultc = this.c
+
+                            });
+
+                            this.CloseController();
+
+                            OnPropertyChanged("ExampleCalculation");
+
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+                //this.Controller.SaveProject(new Project { Id = ProjectId, Name = ProjectName, Year = ProjectYear });
+                return this._SaveExampleCalculation;
+            }
+        }
 
         #endregion ExampleCalculation
 
