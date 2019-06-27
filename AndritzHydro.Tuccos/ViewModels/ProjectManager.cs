@@ -944,6 +944,22 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                             this.CloseController();
 
+                            OnPropertyChanged("Calculations");
+
+                            this.Owner.SetBusyOff();
+
+                        });
+
+                    this.Owner.SetBusyOff();
+                }
+
+
+                return this._AddExampleCalculation;
+            }
+        }
+
+        #endregion ExampleCalculation
+
         #region Parameter
         /// <summary>
         /// Provides the parameter array for the actual calcualtion.

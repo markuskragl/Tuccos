@@ -98,6 +98,13 @@ namespace andritzhydro.web
         /// </summary>
         /// <param name="exampleCalculation">The calculation which should be added.</param>
         [OperationContract]
+        void AddExampleCalculation(AndritzHydro.Tuccos.Data.ExampleCalculation exampleCalculation);
+
+        /// <summary>
+        /// Add a example calculation to the database.
+        /// </summary>
+        /// <param name="calcId">The calculation id for the parameters which should be added.</param>
+        [OperationContract]
         AndritzHydro.Tuccos.Data.Parameters GetParameters(int? calcId);
 
         /// <summary>
@@ -113,7 +120,7 @@ namespace andritzhydro.web
         /// <param name="parameter">The parameter which should be saved.</param>
         [OperationContract]
         void AddParameter(AndritzHydro.Tuccos.Data.Parameter parameter);
-        void AddExampleCalculation(AndritzHydro.Tuccos.Data.ExampleCalculation exampleCalculation);
+        
 
 
     }
