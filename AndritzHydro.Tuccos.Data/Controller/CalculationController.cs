@@ -37,7 +37,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
                             {
                                 ProjectId = reader["ProjectId"].ToString(),
                                 SubAssemblyId = (int)reader["SubAssemblyId"],
-                                CalculationId = reader["CalculationId"].ToString(),
+                                CalculationId = (Guid)reader["CalculationId"],
                                 CalculationType = reader["CalculationType"].ToString(),
                             });
                         }
@@ -131,7 +131,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Returns the orifice calculations.
         /// </summary>
-        public Parameters GetParameters(string calcId)
+        public Parameters GetParameters(Guid calcId)
         {
             var result = new Parameters();
 
@@ -155,7 +155,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
                             {
 
 
-                                CalculationId = reader["CalculationId"].ToString(),
+                                CalculationId = (Guid)reader["CalculationId"],
                                 ParameterType = reader["ParameterType"].ToString(),
                                 ParameterValue = (double)reader["ParameterValue"],
                                 ParameterUnit = reader["ParameterUnit"].ToString(),

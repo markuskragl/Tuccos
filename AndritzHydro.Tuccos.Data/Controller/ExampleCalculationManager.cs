@@ -30,7 +30,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Provides all calculation templates.
         /// </summary>
-        public ExampleCalculations GetExampleCalculations(string calcId)
+        public ExampleCalculations GetExampleCalculations(Guid calcId)
         {
             try
             {

@@ -19,6 +19,16 @@
             <sys:Double x:Key="InputHeight">60</sys:Double>
             <sys:Double x:Key="Fontheight">8</sys:Double>
             <sys:Double x:Key="FieldHeight">20</sys:Double>
+
+            <DataTemplate x:Key="myCellTemplateMonth">
+                <DockPanel>
+                    <TextBox Text="{Binding PartialStroke}" Foreground="DarkBlue" HorizontalAlignment="Center"/>
+
+
+                </DockPanel>
+            </DataTemplate>
+
+
         </Grid.Resources>
 
         <Grid.RowDefinitions>
@@ -45,10 +55,11 @@
 
             <StackPanel  >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.PartialStrokes}"/>
-                <ListView IsEnabled="True" HorizontalContentAlignment="Right" ItemsSource="{Binding PartialStroke, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}">
+
+                    <ListView  IsManipulationEnabled="True" IsHitTestVisible="True" IsEnabled="True" HorizontalContentAlignment="Right" ItemsSource="{Binding PartialStroke, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}">
                     <ListView.View >
 
-                        <GridView>
+                        <GridView >
                             <GridView.ColumnHeaderContainerStyle>
 
                                 <Style TargetType="GridViewColumnHeader" >
@@ -131,7 +142,7 @@
                                     <Setter Property="Height"  Value="{StaticResource HeaderHeight}"  />
                                 </Style>
                             </GridView.ColumnHeaderContainerStyle>
-                            <GridViewColumn Header="ΔW [W]"  Width="{StaticResource ColumnWidth}" />
+                            <GridViewColumn  Header="ΔW [W]"  Width="{StaticResource ColumnWidth}" />
 
                         </GridView>
 

@@ -610,18 +610,18 @@ namespace AndritzHydro.Tuccos.ViewModels
         }
 
 
-        private string _CurrentCalculationId = null;
-        public string CurrentCalculationId
+        private Guid _CurrentCalculationId;
+        public Guid CurrentCalculationId
         {
             get
             {
                 if (_CurrentCalculationId == null)
                 {
-                    _CurrentCalculationId = this.Context.RandomGuid.ToString();
+                    _CurrentCalculationId = this.Context.RandomGuid;
                 }
                 else if (_AddCalculation != null)
                 {
-                    _CurrentCalculationId = this.Context.RandomGuid.ToString();
+                    _CurrentCalculationId = this.Context.RandomGuid;
                 }
                 return _CurrentCalculationId;
             }
@@ -675,7 +675,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                                 //int CurrentCalculationid = MaxCalculationId + 1;
 
                                 //Random randomId = new Random();
-                                string calcId = this.CurrentCalculationId;
+                                Guid calcId = this.CurrentCalculationId;
                                 try
                                 {
                                     this.Controller.AddCalculation(new Calculation
@@ -956,9 +956,12 @@ namespace AndritzHydro.Tuccos.ViewModels
                 return this._SaveExampleCalculation;
             }
         }
+        #endregion ExampleCalculation
+
+        #region Parameter
 
         #region LastCalculationId
-        public int? LastCalculationId { get; set; }
+        public Guid LastCalculationId { get; set; }
 
         #endregion LastCalculationId
 
@@ -1000,7 +1003,12 @@ namespace AndritzHydro.Tuccos.ViewModels
                 
                 if (!this._ParameterCol.Any())
                 {
-                    this._ParameterCol = this.GetParametersMethod().ToList();
+                    try
+                    {
+                        this._ParameterCol = this.GetParametersMethod().ToList();
+                    }
+                    catch { }
+                    
                 }
 
                 return this._ParameterCol;

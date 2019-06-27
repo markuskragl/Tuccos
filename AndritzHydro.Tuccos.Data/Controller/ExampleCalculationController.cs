@@ -11,7 +11,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Returns the Example calculation.
         /// </summary>
-        public ExampleCalculations GetExampleCalculations(string calculationId)
+        public ExampleCalculations GetExampleCalculations(Guid calculationId)
         {
             var result = new ExampleCalculations();
 
@@ -34,7 +34,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
                             {
                                 ProjectId = reader["ProjectId"].ToString(),
                                 SubAssemblyId = (int)reader["SubAssemblyId"],
-                                CalculationId = reader["CalculationId"].ToString(),
+                                CalculationId = (Guid)reader["CalculationId"],
                                 CalculationType = reader["CalculationType"].ToString(),
                                 CalculationDescription = reader["CalculationDescription"].ToString(),
                                 Parametera = (int)reader["Parametera"],
