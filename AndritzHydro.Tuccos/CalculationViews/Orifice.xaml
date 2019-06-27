@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
              xmlns:p="clr-namespace:AndritzHydro.Tuccos.Properties"
 >
+
     <Grid>
         <Grid.Resources>
             <Thickness x:Key="MarginListBoxes" Left="5" Top="5" Right="5" Bottom="0"/>
@@ -44,9 +45,9 @@
 
             <StackPanel  >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.PartialStrokes}"/>
-                <ListView IsEnabled="True" HorizontalContentAlignment="Right" ItemsSource="{Binding PartialStroke}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}">
+                <ListView IsEnabled="True" HorizontalContentAlignment="Right" ItemsSource="{Binding PartialStroke, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}">
                     <ListView.View >
-                        
+
                         <GridView>
                             <GridView.ColumnHeaderContainerStyle>
 
@@ -70,7 +71,7 @@
 
             <StackPanel >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.TotalStroke}"/>
-                <ListView  Background="Lavender" ItemsSource="{Binding TotalStroke}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView  Background="Lavender" ItemsSource="{Binding TotalStroke, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
                     <ListView.View >
                         <GridView>
                             <GridView.ColumnHeaderContainerStyle>
@@ -95,7 +96,7 @@
 
             <StackPanel >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.SingleForce}"/>
-                <ListView IsEnabled="True" ItemsSource="{Binding SingleForce}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView IsEnabled="True" ItemsSource="{Binding SingleForce, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
                     <ListView.View >
                         <GridView >
                             <GridView.ColumnHeaderContainerStyle>
@@ -121,7 +122,7 @@
 
             <StackPanel >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.SingleWorkCapacity}"/>
-                <ListView Background="Lavender" ItemsSource="{Binding SingleWorkCapacity}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView Background="Lavender" ItemsSource="{Binding SingleWorkCapacity, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
                     <ListView.View >
                         <GridView>
                             <GridView.ColumnHeaderContainerStyle>
@@ -138,7 +139,7 @@
                 </ListView>
                 <TextBlock HorizontalAlignment="Center" Text="Σ ΔW [W]"/>
                 <TextBox 
-                    Text="{Binding TotalWorkCapacity}"
+                    Text="{Binding TotalWorkCapacity, UpdateSourceTrigger=PropertyChanged}"
                     Margin="10,0,0,0"
                     Height="{StaticResource FieldHeight}" 
                     Width="{StaticResource ColumnWidth}"
@@ -155,7 +156,7 @@
             Orientation="Horizontal">
             <StackPanel >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.LossFactorArmouring}"/>
-                <ListView IsEnabled="True" ItemsSource="{Binding KAuxiliaries}" Margin="{StaticResource MarginListBoxes}" Height="130" Width="{StaticResource ColumnWidth}">
+                <ListView IsEnabled="True" ItemsSource="{Binding KAuxiliaries, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="130" Width="{StaticResource ColumnWidth}">
                     <ListView.View >
                         <GridView>
                             <GridViewColumn Header="k__Aux [-]" Width="{StaticResource ColumnWidth}" />
@@ -165,7 +166,7 @@
                 <TextBlock HorizontalAlignment="Center" Text="Σ k_Aux [-]"/>
                 <TextBox 
                     Background="Lavender"
-                    Text="{Binding TotalKAuxiliaries}"
+                    Text="{Binding TotalKAuxiliaries, UpdateSourceTrigger=PropertyChanged}"
                     Margin="10,0,0,0"
                     Height="{StaticResource FieldHeight}" 
                     Width="{StaticResource ColumnWidth}"/>
@@ -199,7 +200,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding Path=DiameterOilPipe}"
+                        Text="{Binding DiameterOilPipe, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
 
@@ -208,11 +209,11 @@
                     Height="{StaticResource InputHeight}"
                     Width="{StaticResource ColumnWidth}">
                     <TextBlock FontSize="{StaticResource Fontheight}" Text="{x:Static p:Strings.LossValue}"/>
-                    <TextBlock Text="L_OilPi [mm]"/>
+                    <TextBlock Text="ζ_Orif [-]"/>
                     <TextBox
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding Path=LossValue}"
+                        Text="{Binding LossValue, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
 
@@ -233,7 +234,7 @@
                     <TextBox
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding Path=OuterDiameterCylinder}"
+                        Text="{Binding OuterDiameterCylinder, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
 
@@ -246,7 +247,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding Path=InnerDiameterCylinder}"
+                        Text="{Binding InnerDiameterCylinder, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
 
@@ -259,7 +260,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding Path=DiameterOrifice}"
+                        Text="{Binding DiameterOrifice, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
 

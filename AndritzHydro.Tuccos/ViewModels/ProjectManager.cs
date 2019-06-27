@@ -537,19 +537,37 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-
+                
                 return this._SelectedCalculation;
 
             }
             set
             {
+                try
+                {
+                    this.LastCalculationId = this.SelectedCalculation.CalculationId;
+                }
+                catch(System.Exception ex)
+                {
+
+                }
+                
                 this._SelectedCalculation = value;
                 this.OnPropertyChanged("SelectedCalculationViewer");
                 this.OnPropertyChanged("a");
                 this.OnPropertyChanged("b");
                 this.OnPropertyChanged("c");
                 this.OnPropertyChanged("ExampleCalculation");
-                //this._SelectedCalculation = null;
+                try
+                {
+                    this.ParameterCol.Clear();      
+                }
+                catch(Exception ex)
+                {
+
+                }
+                this.OnPropertyChanged("ParameterCol");
+                
             }
         }
 
@@ -656,6 +674,8 @@ namespace AndritzHydro.Tuccos.ViewModels
 
                                     OnPropertyChanged("AddExampleCalculation");
 
+                                    OnPropertyChanged("ParameterCol");
+
                                     this.Owner.SetBusyOff();
                                 }
                                 catch (System.Exception ex)
@@ -711,55 +731,6 @@ namespace AndritzHydro.Tuccos.ViewModels
         }
 
         #endregion Calculation
-
-
-        #region OrificeCalculation
-
-        ///// <summary>
-        ///// Provides the template calculation list
-        ///// </summary>
-        ///// <returns></returns>
-        //public Calculation[] GetOrificeCalcualationMethod()
-        //{
-        //    try
-        //    {
-        //        //int? _helper = this.SelectedSubAssembly.SubAssemblyId;                    
-        //        var VM = new Model.ProjectClient();
-        //        //var _helper1 = VM.GetCalculationTemplates(this.SelectedSubAssembly.SubAssemblyId);
-        //        var helper = VM.GetOrificeCalculation(999);
-        //        return VM.GetOrificeCalculation(999);
-
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
-        //    }
-
-        //    return null;
-
-        //}
-
-        /// <summary>
-        /// Internal field for the property.
-        /// </summary>
-        //private Calculation[] _OrificeCalculation;
-
-        ///// <summary>
-        ///// Gets the supported projects.
-        ///// </summary>
-        ///// <remarks>The countries are cached.</remarks>
-        //public Calculation[] OrificeCalculation
-        //{
-        //    get
-        //    {
-        //        this._OrificeCalculation = this.GetOrificeCalcualationMethod();
-        //        return this._OrificeCalculation;
-        //    }
-        //}
-
-        #endregion OrificeCalculation
-
-
 
         #region ExampleCalculation
         /// <summary>
@@ -958,9 +929,12 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
-        #endregion ExampleCalculation
+        #region LastCalculationId
+        public int? LastCalculationId { get; set; }
 
-        #region Parameter
+        #endregion LastCalculationId
+
+        #region GetParametersMethod
         /// <summary>
         /// Provides the parameter array for the actual calcualtion.
         /// </summary>
@@ -980,6 +954,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             return null;
 
         }
+        #endregion GetParametersMethod
 
         #region ParameterCol
         /// <summary>
@@ -1008,14 +983,33 @@ namespace AndritzHydro.Tuccos.ViewModels
                 if (_ParameterCol != value)
                 {
                     _ParameterCol = value;
-                    OnPropertyChanged("ParameterCol");
+                    OnPropertyChanged("OuterDiameterCylinder");
+                    OnPropertyChanged("InnerDiameterCylinder");
+                    OnPropertyChanged("DiameterOrifice");
+                    OnPropertyChanged("LengthOilPipe");
+                    OnPropertyChanged("DiameterOilPipe");
+                    OnPropertyChanged("LossValue");
+                    OnPropertyChanged("SingleForce");
+                    OnPropertyChanged("KAuxiliaries");
                 }
             }
         }
 
         #endregion ParameterCol
 
+        #region AddParameterToParameterCol
+        public void AddParameterToParameterCol(string type, double value, string unit)
+        {
+            Parameter parameter = new Parameter();
+            parameter.CalculationId = this.SelectedCalculation.CalculationId;
+            parameter.ParameterType = type;
+            parameter.ParameterValue = value;
+            parameter.ParameterUnit = unit;
+            this._ParameterCol.Add(parameter);
+        }
+        #endregion AddParameterToParameterCol
 
+        #region AddParameter
 
         private AndritzHydro.Tuccos.Helpers.Command _AddParameter = null;
 
@@ -1059,6 +1053,8 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+        #endregion AddParameter
+
         #region OuterDiameterCylinder
         /// <summary>
         /// Internal field for the property.
@@ -1079,16 +1075,21 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     parameterlist.Add(l);
                 }
-                try
+                if (parameterlist.Any())
                 {
-                parameterlist.RemoveAll (u => !u.ParameterType.Contains(comp));
-                this._OuterDiameterCylinder = parameterlist[0].ParameterValue;
-                
+                    parameterlist.RemoveAll (u => !u.ParameterType.Contains(comp));
+                    if (parameterlist.Any())
+                    {
+                        this._OuterDiameterCylinder = parameterlist[0].ParameterValue;
+                    }
+                    else
+                    {
+                        this._OuterDiameterCylinder = default(double);
+                    }
                 }
-
-                catch (System.Exception ex)
+                else
                 {
-                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                    this._OuterDiameterCylinder = default(double);
                 }
                 return this._OuterDiameterCylinder;
             }
@@ -1097,11 +1098,29 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 if (_OuterDiameterCylinder != value)
                 {
+                    const string comp = "D_Cyl";
+                    bool flag = default(bool);
                     _OuterDiameterCylinder = value;
+                    
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        if (l.ParameterType == "D_Cyl")
+                        {
+                            l.ParameterValue = value;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        AddParameterToParameterCol(comp, value, "mm");
+                    }
                     OnPropertyChanged("Time");
                 }
             }
         }
+
+
 
         #endregion OuterDiameterCylinder
 
@@ -1124,17 +1143,23 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     parameterlist.Add(l);
                 }
-                try
+                if (parameterlist.Any())
                 {
-                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                this._InnerDiameterCylinder = parameterlist[0].ParameterValue;
-                
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    if (parameterlist.Any())
+                    {
+                        this._InnerDiameterCylinder = parameterlist[0].ParameterValue;
+                    }
+                    else
+                    {
+                        this._InnerDiameterCylinder = default(double);
+                    }
+                }
+                else
+                {
+                    this._InnerDiameterCylinder = default(double);
                 }
 
-                catch (System.Exception ex)
-                {
-                    //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
-                }
                 return this._InnerDiameterCylinder;
             }
 
@@ -1142,7 +1167,24 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 if (_InnerDiameterCylinder != value)
                 {
+                    const string comp = "DI_Cyl";
+                    bool flag = default(bool);
                     _InnerDiameterCylinder = value;
+
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        if (l.ParameterType == comp)
+                        {
+                            l.ParameterValue = value;
+                            flag = true;
+                            break;
+
+                        }
+                    }
+                    if (!flag)
+                    {
+                        AddParameterToParameterCol(comp, value, "mm");
+                    }
                     OnPropertyChanged("Time");
                 }
             }
@@ -1168,8 +1210,24 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     parameterlist.Add(l);
                 }
-                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                this._DiameterOrifice = parameterlist[0].ParameterValue;
+                if (parameterlist.Any())
+                {
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    if (parameterlist.Any())
+                    {
+                        this._DiameterOrifice = parameterlist[0].ParameterValue;
+                    }
+                    else
+                    {
+                        this._DiameterOrifice = default(double);
+                    }
+
+                }
+                else
+                {
+                    this._DiameterOrifice = default(double);
+                }
+
                 return this._DiameterOrifice;
             }
 
@@ -1177,7 +1235,24 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 if (_DiameterOrifice != value)
                 {
+                    const string comp = "D_Orifice";
+                    bool flag = default(bool);
                     _DiameterOrifice = value;
+
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        if (l.ParameterType == comp)
+                        {
+                            l.ParameterValue = value;
+                            flag = true;
+                            break;
+
+                        }
+                    }
+                    if (!flag)
+                    {
+                        AddParameterToParameterCol(comp, value, "mm");
+                    }
                     OnPropertyChanged("Time");
                 }
             }
@@ -1198,24 +1273,27 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if(this._LengthOilPipe == 0)
+                const string comp = "L_OilPipe";
+                List<Parameter> parameterlist = new List<Parameter>();
+                foreach (Parameter l in this.ParameterCol)
                 {
-                    const string comp = "L_OilPipe";
-                    List<Parameter> parameterlist = new List<Parameter>();
-                    foreach (Parameter l in this.ParameterCol)
+                    parameterlist.Add(l);
+                }
+                if (parameterlist.Any())
+                {
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    if (parameterlist.Any())
                     {
-                        parameterlist.Add(l);
-                    }
-                    try
-                    {
-                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
                         this._LengthOilPipe = parameterlist[0].ParameterValue;
                     }
-                    catch (System.Exception ex)
+                    else
                     {
-                        //this.Context.Log.WriteEntry($"{ex.Message}", Core.Data.LogEntryType.Error);
+                        this._LengthOilPipe = default(double);
                     }
-                    
+                }
+                else
+                {
+                    this._LengthOilPipe = default(double);
                 }
 
                 return this._LengthOilPipe;
@@ -1225,16 +1303,23 @@ namespace AndritzHydro.Tuccos.ViewModels
            {
                 if (_LengthOilPipe != value)
                 {
+                    const string comp = "L_OilPipe";
+                    bool flag = default(bool);
                     _LengthOilPipe = value;
                     foreach(Parameter l in this.ParameterCol)
                     {
-                        if(l.ParameterType == "L_OilPipe")
+                        if(l.ParameterType == comp)
                         {
                             l.ParameterValue = value;
+                            flag = true;
+                            break;
 
                         }
                     }
-
+                    if (!flag)
+                    {
+                        AddParameterToParameterCol(comp, value, "mm");
+                    }
                     OnPropertyChanged("Time");
                 }
             }
@@ -1261,8 +1346,25 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     parameterlist.Add(l);
                 }
-                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                this._DiameterOilPipe = parameterlist[0].ParameterValue;
+                if (parameterlist.Any())
+                {
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    if (parameterlist.Any())
+                    {
+                        this._DiameterOilPipe = parameterlist[0].ParameterValue;
+                    }
+                    else
+                    {
+                        this._DiameterOilPipe = default(double);
+                    }
+
+                }
+                else
+                {
+                    this._DiameterOilPipe = default(double);
+                }
+
+
                 return this._DiameterOilPipe;
             }
 
@@ -1270,7 +1372,22 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 if (_DiameterOilPipe != value)
                 {
+                    const string comp = "D_OilPipe";
+                    bool flag = default(bool);
                     _DiameterOilPipe = value;
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        if (l.ParameterType == comp)
+                        {
+                            l.ParameterValue = value;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        AddParameterToParameterCol(comp, value, "mm");
+                    }
                     OnPropertyChanged("Time");
                 }
             }
@@ -1296,8 +1413,25 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     parameterlist.Add(l);
                 }
-                parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                this._LossValue = parameterlist[0].ParameterValue;
+                if (parameterlist.Any())
+                {
+                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                    if (parameterlist.Any())
+                    {
+                        this._LossValue = parameterlist[0].ParameterValue;
+                    }
+                    else
+                    {
+                        this._LossValue = default(double);
+                    }
+
+                }
+                else
+                {
+                    this._LossValue = default(double);
+                }
+
+
                 return this._LossValue;
             }
 
@@ -1305,7 +1439,23 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 if (_LossValue != value)
                 {
+                    const string comp = "LossValue";
+                    bool flag = default(bool);
                     _LossValue = value;
+                    foreach (Parameter l in this.ParameterCol)
+                    {
+                        if (l.ParameterType == comp)
+                        {
+                            l.ParameterValue = value;
+                            flag = true;
+                            break;
+
+                        }
+                    }
+                    if (!flag)
+                    {
+                        AddParameterToParameterCol(comp, value, "-");
+                    }
                     OnPropertyChanged("Time");
                 }
             }
@@ -1325,7 +1475,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (!this._SingleForce.Any())
+                if (!this._SingleForce.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                 {
                     const string comp = "SingleForce";
                     List<Parameter> parameterlist = new List<Parameter>();
@@ -1333,11 +1483,27 @@ namespace AndritzHydro.Tuccos.ViewModels
                     {
                         parameterlist.Add(l);
                     }
-                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                    foreach (Parameter l in parameterlist)
+                    this._SingleForce.Clear();
+                    if (parameterlist.Any())
                     {
-                        this._SingleForce.Add(l.ParameterValue);
+                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                        if (parameterlist.Any())
+                        {
+                            foreach (Parameter l in parameterlist)
+                            {
+                                this._SingleForce.Add(l.ParameterValue);
+                            }
+                        }
+                        else
+                        {
+                            this._SingleForce.Clear();
+                        }
                     }
+                    else
+                    {
+                        this._SingleForce.Clear();                       
+                    }
+
                 }
 
                 return this._SingleForce;
@@ -1349,6 +1515,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     _SingleForce = value;
                     OnPropertyChanged("Time");
+                    OnPropertyChanged("SingleWorkCapacity");
                 }
             }
         }
@@ -1368,7 +1535,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (!this._PartialStroke.Any())
+                if (!this._PartialStroke.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                 {
                     string comp = "PartialStroke";
                     List<Parameter> parameterlist = new List<Parameter>();
@@ -1376,11 +1543,28 @@ namespace AndritzHydro.Tuccos.ViewModels
                     {
                         parameterlist.Add(l);
                     }
-                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                    foreach (Parameter l in parameterlist)
+                    this._PartialStroke.Clear();
+                    if (parameterlist.Any())
                     {
-                        this._PartialStroke.Add(l.ParameterValue);
+                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                        if (parameterlist.Any())
+                        {
+                            foreach (Parameter l in parameterlist)
+                            {
+                                this._PartialStroke.Add(l.ParameterValue);
+                            }
+                        }
+                        else
+                        {
+                            this._PartialStroke.Clear();
+                        }
+
                     }
+                    else
+                    {
+                        this._PartialStroke.Clear();
+                    }
+
 
                 }
 
@@ -1393,6 +1577,8 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     _PartialStroke = value;
                     OnPropertyChanged("Time");
+                    OnPropertyChanged("SingleWorkCapacity");
+                    OnPropertyChanged("TotalStroke");
                 }
             }
         }
@@ -1412,14 +1598,34 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                double total = 0;
-                foreach (double l in this.PartialStroke)
+                if (this._PartialStroke.Any())
                 {
-                    total = total + l;
-                    this._TotalStroke.Add(total);
+                    double total = 0;
+                    foreach (double l in this.PartialStroke)
+                    {
+                        total = total + l;
+                        this._TotalStroke.Add(total);
+                    }
+                }
+                else
+                {
+                    this._TotalStroke.Clear();
                 }
                 return this._TotalStroke;
+                
             }
+            set
+            {
+                if (_TotalStroke != value)
+                {
+                    _TotalStroke = value;
+
+                }
+
+            }
+
+
+
         }
 
         #endregion TotalStroke
@@ -1437,20 +1643,34 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (!this._SingleWorkCapacity.Any())
+                if (this._PartialStroke.Any())
                 {
                     int i = 0;
                     foreach (double l in this.PartialStroke)
                     {
                         double cap = 0;
-                        cap = l * this.SingleForce[i];
+                        cap = l * this._SingleForce[i];
                         this._SingleWorkCapacity.Add(cap);
                         i += 1;
-                    }
+                    }    
                 }
-
+                else
+                {
+                    this._SingleWorkCapacity.Clear();
+                }
+    
                 return this._SingleWorkCapacity;
             }
+            set
+            {
+                if (_SingleWorkCapacity != value)
+                {
+                    _SingleWorkCapacity = value;
+
+                }
+                OnPropertyChanged("TotalWorkCapacity");
+            }
+
         }
 
         #endregion SingleWorkCapacity
@@ -1476,9 +1696,10 @@ namespace AndritzHydro.Tuccos.ViewModels
                 if (_TotalWorkCapacity != value)
                 {
                     _TotalWorkCapacity = value;
-                    OnPropertyChanged("TotalWorkCapacity");
+
                 }
             }
+
         }
 
 
@@ -1498,19 +1719,28 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (!this._KAuxiliaries.Any())
+                if (!this._KAuxiliaries.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                 {
                     const string comp = "K_Aux";
                     List<Parameter> parameterlist = new List<Parameter>();
+                    this._KAuxiliaries.Clear();
                     foreach (Parameter l in this.ParameterCol)
                     {
                         parameterlist.Add(l);
                     }
-                    parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                    foreach (Parameter l in parameterlist)
+                    if (parameterlist.Any())
                     {
-                        this._KAuxiliaries.Add(l.ParameterValue);
+                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                        foreach (Parameter l in parameterlist)
+                        {
+                            this._KAuxiliaries.Add(l.ParameterValue);
+                        }
                     }
+                    else
+                    {
+                        this._KAuxiliaries.Clear();
+                    }
+
 
                 }
 
@@ -1523,6 +1753,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 {
                     _KAuxiliaries = value;
                     OnPropertyChanged("Time");
+                    OnPropertyChanged("TotalAuxiliaries");
                 }
             }
         }
@@ -1550,7 +1781,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                 if (_TotalKAuxiliaries != value)
                 {
                     _TotalKAuxiliaries = value;
-                    OnPropertyChanged("TotalKAuxiliaries");
+ 
                 }
             }
         }
@@ -1569,8 +1800,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         public double Time
         {
             get
-            {
-                
+            {               
                 var VM = new Model.ProjectClient();
                 this._Time = VM.OrificeCalculationTime(this.ParameterCol.ToArray());
                 return this._Time;
@@ -1579,9 +1809,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 if (_Time != value)
                 {
-                    _Time = value;
-                    OnPropertyChanged("Time");
-                    
+                    _Time = value;                 
                 }
             }
         }

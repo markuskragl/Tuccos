@@ -23,28 +23,28 @@
         Name="MainWindowXaml"
         
         >
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <!--Three rows-->
 
-    <Grid>
-        <!--Three rows-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition Height="150" />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0"  Background="#0075be" />
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-            <RowDefinition Height="150" />
-        </Grid.RowDefinitions>
-        <Border Grid.Row="0" Grid.Column="0"  Background="#0075be" />
-
-        <!-- The title of the current task-->
-        <StackPanel
+            <!-- The title of the current task-->
+            <StackPanel
             Grid.Row="0"
             Orientation="Horizontal"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             >
 
-            <!--A listbox to select a task-->
+                <!--A listbox to select a task-->
 
-            <ListBox
+                <ListBox
                 Grid.Column="0"
                 Grid.Row="0"
             
@@ -61,14 +61,14 @@
                 SelectedItem="{Binding CurrentTask}"
                 >
 
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel
                             Orientation="Horizontal"
                             >
 
-                            <!-- The icon of the task -->
-                            <TextBlock
+                                <!-- The icon of the task -->
+                                <TextBlock
                             Width="27"
                             
                             FontFamily="Wingdings"
@@ -80,25 +80,25 @@
                             Text="{Binding WingdingsIcon}"
                             />
 
-                            <!--The text of the task-->
-                            <TextBlock
+                                <!--The text of the task-->
+                                <TextBlock
                                 HorizontalAlignment="Left"
                                 Foreground="White"
                                 Text="{Binding Title}"
                                 />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListBox.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem 
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem 
                         Header="{x:Static p:Strings.SetDefaultTask}"
                         Command="{Binding SetDefaultTask}"
                         />
-                    </ContextMenu>
-                </ListBox.ContextMenu>
-            </ListBox>
-            <Label
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+                <Label
                 Foreground="White"
                 Margin="150,0,0,0"
                 Content="{Binding CurrentTask.Title}"
@@ -110,24 +110,24 @@
                 
                 />
 
-        </StackPanel>
+            </StackPanel>
 
-        <!-- To select the language -->
-        <StackPanel
+            <!-- To select the language -->
+            <StackPanel
             Grid.Column="0"
             Grid.Row="0"          
             Orientation="Horizontal"
             HorizontalAlignment="Right"
             >
 
-            <Label 
+                <Label 
                 Foreground="White"
                 Content="{x:Static p:Strings.Language}"
                 VerticalAlignment="Center"
                 />
 
-            <!-- {Binding} uses the DataContext object -->
-            <ComboBox 
+                <!-- {Binding} uses the DataContext object -->
+                <ComboBox 
                 ItemsSource="{Binding Context.Language.List}"
                 DisplayMemberPath="Name"
                 SelectedItem="{Binding CurrentLanguage}"
@@ -135,10 +135,10 @@
                 Height="24"
                 Margin="0,0,5,0"
                 />
-        </StackPanel>
+            </StackPanel>
 
-        <!-- A viewer for the task -->
-        <ContentControl
+            <!-- A viewer for the task -->
+            <ContentControl
             
             Grid.Column="0"
             Grid.Row="1"
@@ -148,7 +148,7 @@
             />
 
 
-        <local:TaskPanel
+            <local:TaskPanel
             Grid.Column="0"
             Grid.Row="2"   
             HorizontalContentAlignment="Stretch"
@@ -158,5 +158,6 @@
             
             
             />
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>
