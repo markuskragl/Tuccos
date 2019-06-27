@@ -77,7 +77,7 @@ namespace andritzhydro.web
         /// Returns ExampleCalculation
         /// </summary>
         [OperationContract]
-        AndritzHydro.Tuccos.Data.ExampleCalculations GetExampleCalculations(string calcId);
+        AndritzHydro.Tuccos.Data.ExampleCalculations GetExampleCalculations(Guid calcId);
 
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace andritzhydro.web
         /// </summary>
         /// <param name="calcId">The calculation id for the parameters which should be added.</param>
         [OperationContract]
-        AndritzHydro.Tuccos.Data.Parameters GetParameters(string calcId);
+        AndritzHydro.Tuccos.Data.Parameters GetParameters(Guid calcId);
 
         /// <summary>
         /// Delete a calculation from the database.

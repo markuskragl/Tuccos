@@ -41,7 +41,7 @@
             HorizontalAlignment="Left"
             Margin="10,5,5,5"
             
-            ItemsSource="{Binding ProjectListFinal}"
+            ItemsSource="{Binding ProjectListFinal, IsAsync=True}"
             SelectedItem="{Binding SelectedProject}"
             DisplayMemberPath="ProjectId"
             
@@ -69,7 +69,7 @@
                     HorizontalContentAlignment="Stretch"
                     VerticalAlignment="Top"
                     
-                    ItemsSource="{Binding SubAssemblies}"
+                    ItemsSource="{Binding SubAssemblies, IsAsync=True}"
                     SelectedItem="{Binding SelectedSubAssembly}"
                     x:Name="SubAssemblyList">
                     <ListView.View>
@@ -102,7 +102,7 @@
                     Margin="5,5,10,5" 
                     HorizontalContentAlignment="Stretch"
                     VerticalAlignment="Bottom"
-                    ItemsSource="{Binding CalculationTemplates}"
+                    ItemsSource="{Binding CalculationTemplates, IsAsync=True}"
                     SelectedItem="{Binding SelectedCalculationTemplate}"
                     x:Name="CalculationTemplateList">
                     <ListView.View>
@@ -124,7 +124,7 @@
 
             <Button  
                 Content="Add Calculation Template" 
-                Command="{Binding AddCalculation}" 
+                Command="{Binding AddCalculation, IsAsync=True}" 
 
                 Width="250" 
                 Height="30" 
@@ -170,7 +170,7 @@
             Margin="20,30,30,70" 
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Bottom"
-            ItemsSource="{Binding Calculations}"
+            ItemsSource="{Binding Calculations, IsAsync=True}"
             SelectedItem="{Binding SelectedCalculation}"
             x:Name="CalculationsInfoListView">
             <ListView.View>
@@ -189,7 +189,7 @@
             VerticalAlignment="Bottom"
             Margin="0,0,0,20"    
             >
-            <Button  Content="Delete Calculation" Command="{Binding DeleteCalculation}" HorizontalAlignment="Left" Margin="20,200,0,0" Width="250" Height="30"  VerticalAlignment="Top"/>
+            <Button  Content="Delete Calculation" Command="{Binding DeleteCalculation, IsAsync=True}" HorizontalAlignment="Left" Margin="20,200,0,0" Width="250" Height="30"  VerticalAlignment="Top"/>
         </StackPanel>
 
 

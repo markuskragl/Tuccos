@@ -24,8 +24,8 @@
             Margin="0,0,0,20"    
             >
             <Button  Content="New Project" Command="{Binding NewProject}" HorizontalAlignment="Left" Margin="25,5,0,0" Width="250" Height="30"  VerticalAlignment="Top"/>
-            <Button Content="Save Project" Command="{Binding SaveProject}" HorizontalAlignment="Left" Margin="25,10,0,0" Width="250" Height="30"  VerticalAlignment="Top"/>
-            <Button Content="Delete Project" Command="{Binding DeleteProject}" HorizontalAlignment="Left" Margin="25,10,0,10" Width="250" Height="30"  VerticalAlignment="Top"/>
+            <Button Content="Save Project" Command="{Binding SaveProject, IsAsync=True}" HorizontalAlignment="Left" Margin="25,10,0,0" Width="250" Height="30"  VerticalAlignment="Top"/>
+            <Button Content="Delete Project" Command="{Binding DeleteProject, IsAsync=True}" HorizontalAlignment="Left" Margin="25,10,0,10" Width="250" Height="30"  VerticalAlignment="Top"/>
             <!--<Button Content="Update Project" HorizontalAlignment="Left" Margin="20,0,0,0" Width="125" Height="30"  VerticalAlignment="Top"/>-->
             <!--<Label Content="Project Information" HorizontalAlignment="Left" Margin="447,9,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#003A70" FontFamily="Arial" FontSize="34" FontWeight="Bold" Width="642" Height="55"/>-->  
         </StackPanel>
@@ -43,7 +43,7 @@
             VerticalContentAlignment="Bottom"
             Margin="20,30,30,20" 
  
-            ItemsSource="{Binding ProjectListFinal}"
+            ItemsSource="{Binding ProjectListFinal, IsAsync=True}"
             SelectedItem="{Binding SelectedProject, Mode=TwoWay}"
             x:Name="ProjectInfoListView">
             <!--<ListView.ContextMenu>
@@ -73,11 +73,11 @@
             >
             <Grid HorizontalAlignment="Left" Height="514" Margin="0,0,-2,0" VerticalAlignment="Top" Width="353">
                 <Label Content="Project Id :" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Height="26" Width="102" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS"/>
-                <TextBox x:Name="txtProjectId" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Margin="147,6,0,0" />
+                <TextBox x:Name="txtProjectId" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Margin="147,6,0,0" />
                 <Label Content="Project Name :"  HorizontalAlignment="Left" Margin="6,34,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="116"/>
-                <TextBox x:Name="txtProjectName" Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" AcceptsReturn="True"/>
+                <TextBox x:Name="txtProjectName" Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"  HorizontalAlignment="Left" Height="23" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" AcceptsReturn="True"/>
                 <Label Content="Project Year :" HorizontalAlignment="Left" Margin="6,68,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="97"/>
-                <TextBox x:Name="txtProjectYear" Text="{Binding ProjectYear, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="147,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+                <TextBox x:Name="txtProjectYear" Text="{Binding ProjectYear, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" HorizontalAlignment="Left" Height="23" Margin="147,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
             </Grid>
         </GroupBox>
 
