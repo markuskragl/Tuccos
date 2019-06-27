@@ -23,7 +23,7 @@ namespace andritzhydro.web
         /// <summary>
         /// Add a project to the database.
         /// </summary>
-        /// <param name="ticket">The project which should be saved.</param>
+        /// <param name="project">The project which should be saved.</param>
         [OperationContract]
         void SaveProject(AndritzHydro.Tuccos.Data.Project project);
 
@@ -74,17 +74,10 @@ namespace andritzhydro.web
 
 
         /// <summary>
-        /// Adds a calculation from the database.
-        /// </summary>
-        [OperationContract]
-        AndritzHydro.Tuccos.Data.Calculations GetOrificeCalculation(int? calcId);
-
-
-        /// <summary>
         /// Returns ExampleCalculation
         /// </summary>
         [OperationContract]
-        AndritzHydro.Tuccos.Data.ExampleCalculations GetExampleCalculations(int calcId);
+        AndritzHydro.Tuccos.Data.ExampleCalculations GetExampleCalculations(string calcId);
 
 
         /// <summary>
@@ -105,7 +98,7 @@ namespace andritzhydro.web
         /// </summary>
         /// <param name="calcId">The calculation id for the parameters which should be added.</param>
         [OperationContract]
-        AndritzHydro.Tuccos.Data.Parameters GetParameters(int? calcId);
+        AndritzHydro.Tuccos.Data.Parameters GetParameters(string calcId);
 
         /// <summary>
         /// Delete a calculation from the database.
@@ -120,8 +113,13 @@ namespace andritzhydro.web
         /// <param name="parameter">The parameter which should be saved.</param>
         [OperationContract]
         void AddParameter(AndritzHydro.Tuccos.Data.Parameter parameter);
-        
 
+        /// <summary>
+        /// Add a project to the database.
+        /// </summary>
+        /// <param name="exampleCalculation">The project which should be saved.</param>
+        [OperationContract]
+        void SaveExampleCalculation(AndritzHydro.Tuccos.Data.ExampleCalculation exampleCalculation);
 
     }
 }

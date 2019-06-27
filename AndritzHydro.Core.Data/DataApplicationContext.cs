@@ -162,5 +162,39 @@ namespace AndritzHydro.Core.Data
                 return DataApplicationContext._Random;
             }
         }
+
+
+        /// <summary>
+        /// Internal field for the property.
+        /// </summary>
+        private static System.Guid _RandomGuid = Guid.Empty;
+
+        /// <summary>
+        /// Gets the application's random guid generator.
+        /// </summary>
+        public System.Guid RandomGuid
+        {
+            get
+            {
+                if (DataApplicationContext._RandomGuid == Guid.Empty)
+                {
+                    DataApplicationContext._RandomGuid = Guid.NewGuid();
+                    this.Log.WriteEntry(
+                        "The applications random generator was created...",
+                        LogEntryType.NewObject);
+                }
+                else if (DataApplicationContext._RandomGuid != Guid.Empty)
+                {
+                    DataApplicationContext._RandomGuid = Guid.NewGuid();
+                    this.Log.WriteEntry(
+                        "The applications random generator was created...",
+                        LogEntryType.NewObject);
+                }
+
+                return DataApplicationContext._RandomGuid;
+            }
+        }
+
+
     }
 }

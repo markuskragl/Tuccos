@@ -274,10 +274,10 @@ namespace andritzhydro.web
         /// Gets all OrificeCalculations to the database.
         /// </summary>
         /// <param name="calcId">The Ocalculation which should be provided with this calcualtion id.</param>
-        public Calculations GetOrificeCalculation(int? calcId)
+        public double OrificeCalculationTime(Parameter[] inputparameter)
         {
             this.WriteLogEntry();
-            return this.CalculationManager.GetOrificeCalculation(calcId);
+            return this.CalculationManager.OrificeCalculationTime(inputparameter);
         }
 
 
@@ -314,7 +314,7 @@ namespace andritzhydro.web
         /// Gets all ExampleCalculations to the database.
         /// </summary>
         /// <param name="calcId">The calculation which should be provided with this calcualtion id.</param>
-        public ExampleCalculations GetExampleCalculations(int calcId)
+        public ExampleCalculations GetExampleCalculations(string calcId)
         {
             this.WriteLogEntry();
             return this.ExampleCalculationManager.GetExampleCalculations(calcId);
@@ -334,22 +334,29 @@ namespace andritzhydro.web
         }
 
 
-        public Parameters GetParameters(int? calcId)
+        public Parameters GetParameters(string calcId)
         {
             this.WriteLogEntry();
             return this.CalculationManager.GetParameters(calcId);
         }
 
-        public double OrificeCalculationTime(Parameter[] inputparameter)
-        {
-            this.WriteLogEntry();
-            return this.CalculationManager.OrificeCalculationTime(inputparameter);
-        }
 
         public void AddParameter(Parameter parameter)
         {
             this.WriteLogEntry();
             this.CalculationManager.AddParameter(parameter);
+        }
+
+        public void AddExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            this.WriteLogEntry();
+            this.ExampleCalculationManager.AddExampleCalculation(exampleCalculation);
+        }
+
+        public void SaveExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            this.WriteLogEntry();
+            this.ExampleCalculationManager.SaveExampleCalculation(exampleCalculation);
         }
 
         public void AddExampleCalculation(ExampleCalculation exampleCalculation)

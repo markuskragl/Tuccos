@@ -30,7 +30,7 @@ namespace AndritzHydro.Tuccos.Data.Controller
         /// <summary>
         /// Provides all calculation templates.
         /// </summary>
-        public ExampleCalculations GetExampleCalculations(int calcId)
+        public ExampleCalculations GetExampleCalculations(string calcId)
         {
             try
             {
@@ -56,6 +56,23 @@ namespace AndritzHydro.Tuccos.Data.Controller
             try
             {
                 this.Controller.AddExampleCalculation(exampleCalculation);
+            }
+            catch (System.Exception ex)
+            {
+                this.OnErrorOccurred(new Core.ErrorOccurredEventArgs(ex));
+            }
+        }
+
+        /// <summary>
+        /// Save a  calculation to the database.
+        /// </summary>
+        /// <param name="exampleCalculation">The calculation which
+        /// should be added.</param>
+        public virtual void SaveExampleCalculation(ExampleCalculation exampleCalculation)
+        {
+            try
+            {
+                this.Controller.SaveExampleCalculation(exampleCalculation);
             }
             catch (System.Exception ex)
             {

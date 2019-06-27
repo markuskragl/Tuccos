@@ -50,7 +50,7 @@
   <xs:element name="CalculationTemplate" nillable="true" type="tns:CalculationTemplate" />
   <xs:complexType name="Calculation">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CalculationId" type="xs:int" />
+      <xs:element minOccurs="0" name="CalculationId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CalculationType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="InputParameter" nillable="true" type="tns:ArrayOfParameter" />
       <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:string" />
@@ -66,7 +66,7 @@
   <xs:element name="ArrayOfParameter" nillable="true" type="tns:ArrayOfParameter" />
   <xs:complexType name="Parameter">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CalculationId" type="xs:int" />
+      <xs:element minOccurs="0" name="CalculationId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ParameterType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ParameterUnit" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ParameterValue" type="xs:double" />

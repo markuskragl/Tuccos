@@ -37,7 +37,7 @@ namespace AndritzHydro.Tuccos.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("AndritzHydro2019.mdf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("AndritzHydro2020.mdf")]
         public string Database {
             get {
                 return ((string)(this["Database"]));
