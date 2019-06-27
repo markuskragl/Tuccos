@@ -6,7 +6,7 @@
       <Value Profile="(Default)">en</Value>
     </Setting>
     <Setting Name="Database" Type="System.String" Scope="User">
-      <Value Profile="(Default)">AndritzHydro2019.mdf</Value>
+      <Value Profile="(Default)">AndritzHydro2020.mdf</Value>
     </Setting>
     <Setting Name="SqlServer" Type="System.String" Scope="User">
       <Value Profile="(Default)">(LocalDB)\MSSQLLocalDB</Value>
