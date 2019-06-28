@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Core.Data.Window">
-    <Position X="14" Y="2" Width="2" />
+    <Position X="13" Y="2" Width="2" />
     <Members>
       <Field Name="_Heigth" Hidden="true" />
       <Field Name="_Left" Hidden="true" />
@@ -67,12 +67,12 @@
       <Field Name="_Windows" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAIAAASAAAAAAAAAAAFAgAAAAAgAAApAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAAASAAAAAAAAAAAFAgAAAAAgAAApAAAgAAAAA=</HashCode>
       <FileName>WindowManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Core.Data.WindowList">
-    <Position X="14" Y="0.5" Width="2" />
+    <Position X="13" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\Window.cs</FileName>
@@ -90,21 +90,21 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AndritzHydro.Core.Extensions.AssemblyInfo">
-    <Position X="11.75" Y="0.5" Width="2" />
+    <Position X="10.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAQQAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Extensions\AssemblyInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Core.Controller.WindowController">
-    <Position X="6" Y="6.75" Width="2" />
+    <Position X="5.75" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controller\WindowController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Core.ErrorOccurredEventArgs">
-    <Position X="11.75" Y="2.5" Width="2" />
+    <Position X="10.75" Y="2.5" Width="2" />
     <Members>
       <Field Name="_Reason" Hidden="true" />
     </Members>
@@ -121,21 +121,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Core.Generic.XmlController&lt;T&gt;">
-    <Position X="6" Y="3.5" Width="2" />
+    <Position X="5.75" Y="3.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAAAAAA=</HashCode>
       <FileName>Generic\XmlController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Core.Extensions.Tools">
-    <Position X="9.5" Y="0.5" Width="2" />
+    <Position X="8.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Extensions\Tools.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Core.History">
-    <Position X="9.5" Y="2" Width="2" />
+    <Position X="8.5" Y="2" Width="2" />
     <Members>
       <Field Name="_BackCache" Hidden="true" />
       <Field Name="_ForwardCache" Hidden="true" />
@@ -146,16 +146,16 @@
     </TypeIdentifier>
   </Class>
   <Interface Name="AndritzHydro.Core.IApplicationObject">
-    <Position X="6" Y="0.5" Width="2" />
+    <Position X="5.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IApplicationObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Delegate Name="AndritzHydro.Core.ErrorOccurredEventHandler">
-    <Position X="11.75" Y="4.75" Width="2" />
+    <Position X="10.75" Y="4.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ErrorOccurred.cs</FileName>
     </TypeIdentifier>
   </Delegate>

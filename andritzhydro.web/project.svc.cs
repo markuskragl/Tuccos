@@ -314,7 +314,7 @@ namespace andritzhydro.web
         /// Gets all ExampleCalculations to the database.
         /// </summary>
         /// <param name="calcId">The calculation which should be provided with this calcualtion id.</param>
-        public ExampleCalculations GetExampleCalculations(string calcId)
+        public ExampleCalculations GetExampleCalculations(Guid calcId)
         {
             this.WriteLogEntry();
             return this.ExampleCalculationManager.GetExampleCalculations(calcId);
@@ -334,7 +334,7 @@ namespace andritzhydro.web
         }
 
 
-        public Parameters GetParameters(string calcId)
+        public Parameters GetParameters(Guid calcId)
         {
             this.WriteLogEntry();
             return this.CalculationManager.GetParameters(calcId);
@@ -358,5 +358,6 @@ namespace andritzhydro.web
             this.WriteLogEntry();
             this.ExampleCalculationManager.SaveExampleCalculation(exampleCalculation);
         }
+
     }
 }

@@ -85,6 +85,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="WebService.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AndritzHydro.Core.Data\AndritzHydro.Core.Data.csproj">

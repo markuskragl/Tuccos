@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
@@ -544,14 +545,15 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
             set
             {
-                try
+                if (this.SelectedCalculation != null)
                 {
+                   
                     this.LastCalculationId = this.SelectedCalculation.CalculationId;
                 }
-                catch(System.Exception ex)
-                {
 
-                }
+ 
+
+
                 
                 this._SelectedCalculation = value;
                 this.OnPropertyChanged("SelectedCalculationViewer");
@@ -610,18 +612,18 @@ namespace AndritzHydro.Tuccos.ViewModels
         }
 
 
-        private string _CurrentCalculationId = null;
-        public string CurrentCalculationId
+        private Guid _CurrentCalculationId;
+        public Guid CurrentCalculationId
         {
             get
             {
                 if (_CurrentCalculationId == null)
                 {
-                    _CurrentCalculationId = this.Context.RandomGuid.ToString();
+                    _CurrentCalculationId = this.Context.RandomGuid;
                 }
                 else if (_AddCalculation != null)
                 {
-                    _CurrentCalculationId = this.Context.RandomGuid.ToString();
+                    _CurrentCalculationId = this.Context.RandomGuid;
                 }
                 return _CurrentCalculationId;
             }
@@ -675,7 +677,7 @@ namespace AndritzHydro.Tuccos.ViewModels
                                 //int CurrentCalculationid = MaxCalculationId + 1;
 
                                 //Random randomId = new Random();
-                                string calcId = this.CurrentCalculationId;
+                                Guid calcId = this.CurrentCalculationId;
                                 try
                                 {
                                     this.Controller.AddCalculation(new Calculation
@@ -956,9 +958,12 @@ namespace AndritzHydro.Tuccos.ViewModels
                 return this._SaveExampleCalculation;
             }
         }
+        #endregion ExampleCalculation
+
+        #region Parameter
 
         #region LastCalculationId
-        public int? LastCalculationId { get; set; }
+        public Guid LastCalculationId { get; set; }
 
         #endregion LastCalculationId
 
@@ -970,7 +975,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         public Parameter[] GetParametersMethod()
         {
             try
-            {                  
+            {
                 var VM = new Model.ProjectClient();
                 return VM.GetParameters(this.SelectedCalculation.CalculationId);
             }
@@ -1000,7 +1005,12 @@ namespace AndritzHydro.Tuccos.ViewModels
                 
                 if (!this._ParameterCol.Any())
                 {
-                    this._ParameterCol = this.GetParametersMethod().ToList();
+                    try
+                    {
+                        this._ParameterCol = this.GetParametersMethod().ToList();
+                    }
+                    catch { }
+                    
                 }
 
                 return this._ParameterCol;
@@ -1563,7 +1573,11 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (!this._PartialStroke.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
+                if (this.SelectedCalculation.CalculationId == null)
+                {
+                    MessageBox.Show("Please select a calculation");
+                }
+                else if (!this._PartialStroke.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                 {
                     string comp = "PartialStroke";
                     List<Parameter> parameterlist = new List<Parameter>();

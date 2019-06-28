@@ -18,26 +18,26 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Tuccos.Data.Controller.CalculationController">
-    <Position X="6" Y="5.5" Width="2" />
+    <Position X="6" Y="5.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAA=</HashCode>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAgAAIBAA=</HashCode>
       <FileName>Controller\CalculationController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Tuccos.Data.Controller.CalculationManager">
-    <Position X="6" Y="9.25" Width="2" />
+    <Position X="6" Y="10" Width="2" />
     <Members>
       <Field Name="_Controller" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAAIBAA=</HashCode>
+      <HashCode>ABAAAAAAAQAAAAAAAAAAAEACAAAAAAAAAAAAgABIBAA=</HashCode>
       <FileName>Controller\CalculationManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Tuccos.Data.Parameter">
     <Position X="6" Y="3.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAAAgAAAAAABAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Calculations.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -56,9 +56,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AndritzHydro.Tuccos.Data.CalculationsCollection">
-    <Position X="6" Y="7.75" Width="2" />
+    <Position X="6" Y="8" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIBAAAA=</HashCode>
       <FileName>Calculations.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -116,6 +116,26 @@
     <TypeIdentifier>
       <HashCode>AgAAAABAAIAAAAAAAAAAAAAgAAAAAAAAAAAAQAgAAAA=</HashCode>
       <FileName>SubAssembly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.ExampleCalculations" Collapsed="true">
+    <Position X="11" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExampleCalculations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.ExampleCalculation">
+    <Position X="11" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="_CalculationDescription" Hidden="true" />
+      <Field Name="_Parametera" Hidden="true" />
+      <Field Name="_Parameterb" Hidden="true" />
+      <Field Name="_Resultc" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAIAAAACAAAIAABgAAAAAAAAABA=</HashCode>
+      <FileName>ExampleCalculations.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
