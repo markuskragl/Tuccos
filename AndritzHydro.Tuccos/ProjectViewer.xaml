@@ -103,13 +103,13 @@
                     HorizontalContentAlignment="Stretch"
                     VerticalAlignment="Bottom"
                     ItemsSource="{Binding CalculationTemplates, IsAsync=True}"
-                    SelectedItem="{Binding SelectedCalculationTemplate}"
+                    SelectedItem="{Binding SelectedCalculationTemplate, IsAsync=True}"
                     x:Name="CalculationTemplateList">
                     <ListView.View>
                         <GridView  AllowsColumnReorder="True">
                             <!--<GridViewColumn DisplayMemberBinding="{Binding SubAssemblyId}" Header="SubAssemblyId"/>-->
-                            <GridViewColumn DisplayMemberBinding="{Binding CalculationTemplateId}" Header="Id" />
-                            <GridViewColumn DisplayMemberBinding="{Binding CalculationType}" Header="Type"  Width="220" />
+                            <GridViewColumn DisplayMemberBinding="{Binding CalculationTemplateId, IsAsync=True}" Header="Id" />
+                            <GridViewColumn DisplayMemberBinding="{Binding CalculationType, IsAsync=True}" Header="Type"  Width="220" />
                         </GridView>
                     </ListView.View>
                 </ListView>
