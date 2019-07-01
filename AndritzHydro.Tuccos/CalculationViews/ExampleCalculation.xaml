@@ -17,12 +17,12 @@
         <TextBox x:Name="txt1CalulationId" Text="{Binding SelectedCalculation.CalculationId, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" HorizontalAlignment="Left" Height="23" Margin="147,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <Label Content="Calculation Description :" HorizontalAlignment="Left" Margin="6,136,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="150"/>
         <TextBox x:Name="txt1CalulationDescription" Text="{Binding CalculationDescription, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="147,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <DataGrid 
+        <!--<DataGrid 
             IsEnabled="True"
             ItemsSource="{Binding ExampleCalculation}" 
             HorizontalAlignment="Left" 
             VerticalContentAlignment="Stretch"
-            Margin="10,170,5,70"/>
+            Margin="10,170,5,70"/>-->
         <Button  
                 Content="Save Example Calculation" 
 

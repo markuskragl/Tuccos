@@ -1513,37 +1513,43 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (!this._SingleForce.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
+                try
                 {
-                    const string comp = "SingleForce";
-                    List<Parameter> parameterlist = new List<Parameter>();
-                    foreach (Parameter l in this.ParameterCol)
+                    if (!this._SingleForce.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                     {
-                        parameterlist.Add(l);
-                    }
-                    this._SingleForce.Clear();
-                    if (parameterlist.Any())
-                    {
-                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                        const string comp = "SingleForce";
+                        List<Parameter> parameterlist = new List<Parameter>();
+                        foreach (Parameter l in this.ParameterCol)
+                        {
+                            parameterlist.Add(l);
+                        }
+                        this._SingleForce.Clear();
                         if (parameterlist.Any())
                         {
-                            foreach (Parameter l in parameterlist)
+                            parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                            if (parameterlist.Any())
                             {
-                                this._SingleForce.Add(l.ParameterValue);
+                                foreach (Parameter l in parameterlist)
+                                {
+                                    this._SingleForce.Add(l.ParameterValue);
+                                }
+                            }
+                            else
+                            {
+                                this._SingleForce.Clear();
                             }
                         }
                         else
                         {
                             this._SingleForce.Clear();
                         }
+
                     }
-                    else
-                    {
-                        this._SingleForce.Clear();                       
-                    }
+                }
+                catch
+                {
 
                 }
-
                 return this._SingleForce;
             }
 
@@ -1573,43 +1579,49 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (this.SelectedCalculation.CalculationId == null)
+                try
                 {
-                    MessageBox.Show("Please select a calculation");
-                }
-                else if (!this._PartialStroke.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
-                {
-                    string comp = "PartialStroke";
-                    List<Parameter> parameterlist = new List<Parameter>();
-                    foreach (Parameter l in this.ParameterCol)
+                    if (this.SelectedCalculation.CalculationId == null)
                     {
-                        parameterlist.Add(l);
+                        MessageBox.Show("Please select a calculation");
                     }
-                    this._PartialStroke.Clear();
-                    if (parameterlist.Any())
+                    else if (!this._PartialStroke.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                     {
-                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                        string comp = "PartialStroke";
+                        List<Parameter> parameterlist = new List<Parameter>();
+                        foreach (Parameter l in this.ParameterCol)
+                        {
+                            parameterlist.Add(l);
+                        }
+                        this._PartialStroke.Clear();
                         if (parameterlist.Any())
                         {
-                            foreach (Parameter l in parameterlist)
+                            parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                            if (parameterlist.Any())
                             {
-                                this._PartialStroke.Add(l.ParameterValue);
+                                foreach (Parameter l in parameterlist)
+                                {
+                                    this._PartialStroke.Add(l.ParameterValue);
+                                }
                             }
+                            else
+                            {
+                                this._PartialStroke.Clear();
+                            }
+
                         }
                         else
                         {
                             this._PartialStroke.Clear();
                         }
 
-                    }
-                    else
-                    {
-                        this._PartialStroke.Clear();
-                    }
 
+                    }
+                }
+                catch
+                {
 
                 }
-
                 return this._PartialStroke;
             }
 
@@ -1761,31 +1773,37 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (!this._KAuxiliaries.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
+                try
                 {
-                    const string comp = "K_Aux";
-                    List<Parameter> parameterlist = new List<Parameter>();
-                    this._KAuxiliaries.Clear();
-                    foreach (Parameter l in this.ParameterCol)
+                    if (!this._KAuxiliaries.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                     {
-                        parameterlist.Add(l);
-                    }
-                    if (parameterlist.Any())
-                    {
-                        parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                        foreach (Parameter l in parameterlist)
-                        {
-                            this._KAuxiliaries.Add(l.ParameterValue);
-                        }
-                    }
-                    else
-                    {
+                        const string comp = "K_Aux";
+                        List<Parameter> parameterlist = new List<Parameter>();
                         this._KAuxiliaries.Clear();
-                    }
+                        foreach (Parameter l in this.ParameterCol)
+                        {
+                            parameterlist.Add(l);
+                        }
+                        if (parameterlist.Any())
+                        {
+                            parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
+                            foreach (Parameter l in parameterlist)
+                            {
+                                this._KAuxiliaries.Add(l.ParameterValue);
+                            }
+                        }
+                        else
+                        {
+                            this._KAuxiliaries.Clear();
+                        }
 
+
+                    }
+                }
+                catch
+                {
 
                 }
-
                 return this._KAuxiliaries;
             }
 

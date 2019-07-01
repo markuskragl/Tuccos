@@ -7,13 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="Parmetera :" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Height="26" Width="102" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS"/>
-        <TextBox x:Name="txtCalcParametera" Text="{Binding a, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Margin="147,6,0,0" />
-        <Label Content="Parmeterb :"  HorizontalAlignment="Left" Margin="6,34,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="116"/>
-        <TextBox x:Name="txtCalcParameterb" Text="{Binding b, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" AcceptsReturn="True"/>
-        <Label Content="Resutltc :" HorizontalAlignment="Left" Margin="6,68,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="97"/>
-        <TextBox x:Name="txtCalcResutltc" Text="{Binding ExampleCalculationResult, Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="147,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
-        <Label Content="Calculation Id :" HorizontalAlignment="Left" Margin="6,102,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="97"/>
-        <TextBox x:Name="txtCalulationId" Text="{Binding SelectedCalculation.CalculationId, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="147,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+        <TextBlock> "Please insert a calculation!"</TextBlock>
     </Grid>
 </UserControl>
