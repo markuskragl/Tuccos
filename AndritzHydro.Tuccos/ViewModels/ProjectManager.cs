@@ -1637,6 +1637,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             }
         }
 
+
         #endregion PartialStroke
 
         #region TotalStroke
