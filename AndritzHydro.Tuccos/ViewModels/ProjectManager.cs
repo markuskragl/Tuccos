@@ -1581,11 +1581,7 @@ namespace AndritzHydro.Tuccos.ViewModels
             {
                 try
                 {
-                    if (this.SelectedCalculation.CalculationId == null)
-                    {
-                        MessageBox.Show("Please select a calculation");
-                    }
-                    else if (!this._PartialStroke.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
+                    if (!this._PartialStroke.Any() | !this.ParameterCol.Any() | (this.LastCalculationId != this.SelectedCalculation.CalculationId))
                     {
                         string comp = "PartialStroke";
                         List<Parameter> parameterlist = new List<Parameter>();
@@ -1653,9 +1649,10 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (this._PartialStroke.Any())
+                if (this.PartialStroke.Any())
                 {
                     double total = 0;
+                    this._TotalStroke.Clear();
                     foreach (double l in this.PartialStroke)
                     {
                         total = total + l;
@@ -1698,13 +1695,14 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                if (this._PartialStroke.Any())
+                if (this.PartialStroke.Any())
                 {
                     int i = 0;
+                    this._SingleWorkCapacity.Clear();
                     foreach (double l in this.PartialStroke)
                     {
                         double cap = 0;
-                        cap = l * this._SingleForce[i];
+                        cap = l * this.SingleForce[i];
                         this._SingleWorkCapacity.Add(cap);
                         i += 1;
                     }    
@@ -1780,18 +1778,27 @@ namespace AndritzHydro.Tuccos.ViewModels
                     {
                         const string comp = "K_Aux";
                         List<Parameter> parameterlist = new List<Parameter>();
-                        this._KAuxiliaries.Clear();
+                        
                         foreach (Parameter l in this.ParameterCol)
                         {
                             parameterlist.Add(l);
                         }
+                        this._KAuxiliaries.Clear();
                         if (parameterlist.Any())
                         {
                             parameterlist.RemoveAll(u => !u.ParameterType.Contains(comp));
-                            foreach (Parameter l in parameterlist)
+                            if (parameterlist.Any())
                             {
-                                this._KAuxiliaries.Add(l.ParameterValue);
+                                foreach (Parameter l in parameterlist)
+                                {
+                                    this._KAuxiliaries.Add(l.ParameterValue);
+                                }
                             }
+                            else
+                            {
+                                this._KAuxiliaries.Clear();
+                            }
+
                         }
                         else
                         {
@@ -1834,7 +1841,7 @@ namespace AndritzHydro.Tuccos.ViewModels
         {
             get
             {
-                this._TotalKAuxiliaries = this._KAuxiliaries.Sum();
+                this._TotalKAuxiliaries = this.KAuxiliaries.Sum();
                 return this._TotalKAuxiliaries;
             }
             set

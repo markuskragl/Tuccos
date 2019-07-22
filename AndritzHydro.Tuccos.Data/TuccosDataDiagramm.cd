@@ -138,5 +138,50 @@
       <FileName>ExampleCalculations.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.SubAssemblyController">
+    <Position X="3.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\SubAssemblyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.SubAssemblyManager">
+    <Position X="3.5" Y="5" Width="2" />
+    <Members>
+      <Field Name="_Controller" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\SubAssemblyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.CalculationTemplateController">
+    <Position X="8.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\CalculationTemplateController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.CalculationTemplateManager">
+    <Position X="8.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\CalculationTemplateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.ExampleCalculationController">
+    <Position X="11" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAQA=</HashCode>
+      <FileName>Controller\ExampleCalculationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndritzHydro.Tuccos.Data.Controller.ExampleCalculationManager">
+    <Position X="11" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAgAAQA=</HashCode>
+      <FileName>Controller\ExampleCalculationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -73,11 +73,11 @@
             >
             <Grid HorizontalAlignment="Left" Height="514" Margin="0,0,-2,0" VerticalAlignment="Top" Width="353">
                 <Label Content="Project Id :" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Height="26" Width="102" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS"/>
-                <TextBox x:Name="txtProjectId" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Margin="147,6,0,0" />
+                <TextBox x:Name="txtProjectId" Text="{Binding ProjectId, UpdateSourceTrigger=PropertyChanged, IsAsync=False}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Margin="147,6,0,0" />
                 <Label Content="Project Name :"  HorizontalAlignment="Left" Margin="6,34,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="116"/>
-                <TextBox x:Name="txtProjectName" Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"  HorizontalAlignment="Left" Height="23" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" AcceptsReturn="True"/>
+                <TextBox x:Name="txtProjectName" Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged, IsAsync=False}"  HorizontalAlignment="Left" Height="23" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" AcceptsReturn="True"/>
                 <Label Content="Project Year :" HorizontalAlignment="Left" Margin="6,68,0,0" VerticalAlignment="Top" Foreground="Black" Background="{x:Null}" FontFamily="Arial Unicode MS" Height="26" Width="97"/>
-                <TextBox x:Name="txtProjectYear" Text="{Binding ProjectYear, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" HorizontalAlignment="Left" Height="23" Margin="147,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+                <TextBox x:Name="txtProjectYear" Text="{Binding ProjectYear, UpdateSourceTrigger=PropertyChanged, IsAsync=False}" HorizontalAlignment="Left" Height="23" Margin="147,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
             </Grid>
         </GroupBox>
 

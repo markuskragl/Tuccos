@@ -135,7 +135,7 @@ namespace AndritzHydro.Tuccos.Data
             // Step time for the iterative calculation
             // [mm³/s]
 
-            double step = 0.01; 
+            double step = 0.08; 
 
             // Oil viscosity kinematic
 

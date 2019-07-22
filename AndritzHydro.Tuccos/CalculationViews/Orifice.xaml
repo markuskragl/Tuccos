@@ -82,7 +82,7 @@
 
             <StackPanel >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.TotalStroke}"/>
-                <ListView  Background="Lavender" ItemsSource="{Binding TotalStroke, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView  Background="Lavender" ItemsSource="{Binding TotalStroke, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
                     <ListView.View >
                         <GridView>
                             <GridView.ColumnHeaderContainerStyle>
@@ -133,7 +133,7 @@
 
             <StackPanel >
                 <TextBlock FontSize="{StaticResource Fontheight}" HorizontalAlignment="Center" Text="{x:Static p:Strings.SingleWorkCapacity}"/>
-                <ListView Background="Lavender" ItemsSource="{Binding SingleWorkCapacity, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
+                <ListView Background="Lavender" ItemsSource="{Binding SingleWorkCapacity, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource MarginListBoxes}" Height="{StaticResource ColumnHeight}" Width="{StaticResource ColumnWidth}" >
                     <ListView.View >
                         <GridView>
                             <GridView.ColumnHeaderContainerStyle>
@@ -150,7 +150,7 @@
                 </ListView>
                 <TextBlock HorizontalAlignment="Center" Text="Σ ΔW [W]"/>
                 <TextBox 
-                    Text="{Binding TotalWorkCapacity, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
+                    Text="{Binding TotalWorkCapacity, UpdateSourceTrigger=PropertyChanged}"
                     Margin="10,0,0,0"
                     Height="{StaticResource FieldHeight}" 
                     Width="{StaticResource ColumnWidth}"
@@ -177,7 +177,7 @@
                 <TextBlock HorizontalAlignment="Center" Text="Σ k_Aux [-]"/>
                 <TextBox 
                     Background="Lavender"
-                    Text="{Binding TotalKAuxiliaries, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
+                    Text="{Binding TotalKAuxiliaries, UpdateSourceTrigger=PropertyChanged}"
                     Margin="10,0,0,0"
                     Height="{StaticResource FieldHeight}" 
                     Width="{StaticResource ColumnWidth}"/>
@@ -198,7 +198,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding LengthOilPipe, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding LengthOilPipe, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
                         />
                 </StackPanel>
 
@@ -211,7 +211,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding DiameterOilPipe, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding DiameterOilPipe, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
                         />
                 </StackPanel>
 
@@ -224,7 +224,7 @@
                     <TextBox
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding LossValue, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding LossValue, UpdateSourceTrigger=PropertyChanged,IsAsync=True, StringFormat=F3}"
                         />
                 </StackPanel>
 
@@ -245,7 +245,7 @@
                     <TextBox
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding OuterDiameterCylinder, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding OuterDiameterCylinder, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
                         />
                 </StackPanel>
 
@@ -258,7 +258,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding InnerDiameterCylinder, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding InnerDiameterCylinder, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
                         />
                 </StackPanel>
 
@@ -271,7 +271,7 @@
                     <TextBox 
                         IsEnabled="True"
                         Height="{StaticResource FieldHeight}" 
-                        Text="{Binding DiameterOrifice, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding DiameterOrifice, UpdateSourceTrigger=PropertyChanged, StringFormat=F3, IsAsync=True}"
                         />
                 </StackPanel>
 
@@ -282,7 +282,7 @@
                     <TextBlock FontSize="12" Text="{x:Static p:Strings.Time}"/>
                     <TextBox 
                         Height="{StaticResource FieldHeight}" 
-                    Text="{Binding Time, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" 
+                    Text="{Binding Time, UpdateSourceTrigger=PropertyChanged, IsAsync=True, StringFormat=F0}" 
                     Background="Lavender"/>
                 </StackPanel>
 
@@ -299,7 +299,7 @@
             Margin="20,0,0,0"
             VerticalAlignment="Top"
             Orientation="Vertical"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             Grid.Column="1"
             Grid.Row="1">
 

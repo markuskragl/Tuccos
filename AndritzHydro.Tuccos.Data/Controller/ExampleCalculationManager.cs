@@ -83,20 +83,20 @@ namespace AndritzHydro.Tuccos.Data.Controller
 
     }
 
-    public class ExampleCalculationExecute
-    {
+    //public class ExampleCalculationExecute
+    //{
 
-        public int ExampleCalculationSum(int a, int b)
-        {
-            int c = a + b;
-            return c;
+    //    public int ExampleCalculationSum(int a, int b)
+    //    {
+    //        int c = a + b;
+    //        return c;
 
-        }
+    //    }
 
-        public int ExampleCalculationSubstract(int a, int b)
-        {
-            int c = a - b;
-            return c;
-        }
-    }
+    //    public int ExampleCalculationSubstract(int a, int b)
+    //    {
+    //        int c = a - b;
+    //        return c;
+    //    }
+    //}
 }
